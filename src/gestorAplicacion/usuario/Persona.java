@@ -8,7 +8,7 @@ public abstract class Persona implements Serializable {
     //Atributos de clase****
     private int ID;
     private int identificacion;
-    private CuentaBancaria cuentaBancaria;
+    private transient CuentaBancaria cuentaBancaria;
     private String nombre;
     private String correo;
     private String historial;

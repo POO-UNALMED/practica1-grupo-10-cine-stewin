@@ -48,6 +48,15 @@ public class Admin {
     public static void addCuentaBancaria(CuentaBancaria cuentaBancaria){
         cuentasBancarias.add(cuentaBancaria);
     }
+    //Metodo que relaciona todos los atributos(Cliente con cuentaBancaria)
+    public void relacionar(){
+        for(int i =0; i <Admin.getClientes().size();i++){
+            //Al cliente i lo asocio a la cuenta i
+           Admin.getClientes().get(i).setCuentaBancaria(Admin.cuentasBancarias.get(i));
+           //A la cuenta i la asocio al cliente i
+           Admin.getCuentasBancarias().get(i).setTitular(Admin.getClientes().get(i));
+        }
+    }
 
 
 

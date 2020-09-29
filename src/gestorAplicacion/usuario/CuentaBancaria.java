@@ -7,7 +7,7 @@ import java.io.Serializable;
 public class CuentaBancaria implements Serializable {
     //Atributos de clase****
     private int numeroCuenta;
-    private Persona titular;
+    private transient Persona titular;
     private int saldo;
 
     //Contructores de clase****

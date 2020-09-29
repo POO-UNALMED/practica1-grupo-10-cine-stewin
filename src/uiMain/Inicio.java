@@ -9,10 +9,13 @@ import gestorAplicacion.usuario.Persona;
 public class Inicio {
     public static void main(String[] args) {
         Leer.Leer();
+        Admin admin = new Admin();
+        admin.relacionar();
         //System.out.println(Admin.getClientes().get(1).getCuentaBancaria());
         System.out.println(Admin.getClientes().size());
         System.out.println(Admin.getCuentasBancarias().size());
-        Admin admin = new Admin();
+        System.out.println(Admin.getClientes().get(0).getCuentaBancaria());
+
         Consola consola = new Consola();
         consola.PantallaInicio();
         Escribir.Escribir();
