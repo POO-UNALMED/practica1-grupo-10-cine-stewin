@@ -51,5 +51,9 @@ public class CuentaBancaria implements Serializable {
 
     //Metodos de clase****
 
-
+    //Metodo para probar que si se esten relacionando bien los objetos
+    @Override
+    public String toString() {
+        return "Soy la cuentaBancaria del usuario " + this.titular.getNombre();
+    }
 }
