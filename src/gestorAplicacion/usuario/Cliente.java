@@ -51,12 +51,14 @@ public class Cliente extends Persona{
         return confirmaContrasenia;
     }
     //Metodo para registrar clientes
-    public static void RegistarCliente(int identificacion, String nombre, String correo, String direccion, String contrasenia) {
+    public void RegistarCliente(int identificacion, String nombre, String correo, String direccion, String contrasenia) {
         Cliente a = new Cliente(identificacion, nombre, correo, direccion, contrasenia);
         CuentaBancaria b = new CuentaBancaria(a);
         a.setCuentaBancaria(b);
+        b.setTitular(a);
         //Agregar cliente al vector <CLIENTES>
         Admin.addCliente(a);
+        //Agregar la cuenta al vector <CuentasBancarias>
         Admin.addCuentaBancaria(b);
     }
 }

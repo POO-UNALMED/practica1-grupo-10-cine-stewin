@@ -11,6 +11,7 @@ import java.util.Scanner;
 encarguen de mostrar interacciones en la consola*/
 
 public class Consola {
+    private static Cliente user = new Cliente();
     public static Admin admin;
     public static Scanner scanner = new Scanner(System.in);
 
@@ -37,7 +38,6 @@ public class Consola {
 
     //Metodo para mostrar la pantalla de inicio del programa
     public void DatosInicio() {
-        Scanner scanner = new Scanner(System.in);
         int menu = scanner.nextInt();
         switch (menu) {
             case 1:
@@ -71,7 +71,7 @@ public class Consola {
         Separador();
         //Comprobamos si el usuario y contraseña existen en la base de datos
         try{
-            if(Admin.getClientes().get(0).ComprobarRegistro(identificacion, contrasenia)) {
+            if(user.ComprobarRegistro(identificacion, contrasenia)) {
                 /*Llamar funcion que me lleva a todas las funciones que puede tener el cliente*/
                 PantallaCliente();
             }else{
@@ -132,7 +132,7 @@ public class Consola {
             String direccion = scanner.nextLine();
             System.out.print("Por favor ingrese su contraseña: ");
             String contrasenia = scanner.nextLine();
-            Cliente.RegistarCliente(identificacion, nombre, correo, direccion, contrasenia);
+            user.RegistarCliente(identificacion, nombre, correo, direccion, contrasenia);
             Separador();
             System.out.println("Usuario " + nombre + " registrado satisfactoriamente");
             Separador();
@@ -140,12 +140,5 @@ public class Consola {
             //En caso de que ingrese un valor que no es valido
             System.out.println("Ha ingresado un dato que no es valido, por favor intentelo de nuevo");
         }
-
     }
-
-
-
-
-
-
 }

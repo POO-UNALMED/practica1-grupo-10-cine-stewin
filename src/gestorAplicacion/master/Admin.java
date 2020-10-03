@@ -57,9 +57,4 @@ public class Admin {
            Admin.getCuentasBancarias().get(i).setTitular(Admin.getClientes().get(i));
         }
     }
-
-
-
-
-
 }
