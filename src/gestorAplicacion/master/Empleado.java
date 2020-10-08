@@ -13,6 +13,26 @@ public class Empleado extends Persona {
     }
 
     //Metodos GET and SET****
+    
+	public String getOcupacion() {
+		return ocupacion;
+	}
+
+	public void setOcupacion(String ocupacion) {
+		this.ocupacion = ocupacion;
+	}
+
+	public String getFunciones() {
+		return Funciones;
+	}
+
+	public void setFunciones(String funciones) {
+		Funciones = funciones;
+	}
+
+    
+    
+    
 
     //Metodos de clase****
 }
