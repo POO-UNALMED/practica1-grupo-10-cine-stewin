@@ -52,9 +52,9 @@ public class Admin {
     public void relacionar(){
         for(int i =0; i <Admin.getClientes().size();i++){
             //Al cliente i lo asocio a la cuenta i
-           Admin.getClientes().get(i).setCuentaBancaria(Admin.cuentasBancarias.get(i));
+           clientes.get(i).setCuentaBancaria(cuentasBancarias.get(i));
            //A la cuenta i la asocio al cliente i
-           Admin.getCuentasBancarias().get(i).setTitular(Admin.getClientes().get(i));
+           cuentasBancarias.get(i).setTitular(clientes.get(i));
         }
     }
 }

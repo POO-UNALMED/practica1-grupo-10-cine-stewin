@@ -76,7 +76,7 @@ public class Consola {
                 PantallaCliente();
             }else{
                 /*Llamar funcion que me da error y pide datos de nuevo o devolverse*/
-                System.out.println("Usuario y contraseña incorrectas");
+                System.out.println("Usuario y/o contraseña incorrectas");
             }
         }catch(Exception e){
             //En caso de que no hayan usuarios registrados toca llamar esta funcion

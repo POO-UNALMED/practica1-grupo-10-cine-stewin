@@ -55,7 +55,7 @@ public class Cliente extends Persona{
         Cliente a = new Cliente(identificacion, nombre, correo, direccion, contrasenia);
         CuentaBancaria b = new CuentaBancaria(a);
         a.setCuentaBancaria(b);
-        b.setTitular(a);
+        //b.setTitular(a); no es necesario ya que en la linea 56 se asocia.
         //Agregar cliente al vector <CLIENTES>
         Admin.addCliente(a);
         //Agregar la cuenta al vector <CuentasBancarias>
