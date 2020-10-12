@@ -22,13 +22,13 @@ public abstract class Persona implements Serializable {
         this.ID = Admin.getClientes().size();
 
     }
-    public Persona(int identificacion, String nombre, String correo, String direccion, String contrasenia) {
+    public Persona(int identificacion, String nombre, String correo,String direccion,String contrasenia ) {
         this();
         this.identificacion = identificacion;
         this.nombre = nombre;
         this.correo = correo;
-        this.direccion = direccion;
         this.contrasenia = contrasenia;
+        this.direccion = direccion;
     }
 
     //Metodos GET and SET****

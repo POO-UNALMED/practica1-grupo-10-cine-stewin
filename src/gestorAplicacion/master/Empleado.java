@@ -1,19 +1,18 @@
 package gestorAplicacion.master;
 
-import gestorAplicacion.usuario.Persona;
+import gestorAplicacion.usuario.*;
 
 public class Empleado extends Persona {
     //Atributos de clase****
     private String ocupacion;
-    private String Funciones;
 
     //Contructores de clase****
-    public Empleado(int identificacion, String nombre, String correo, String direccion, String contrasenia) {
-        super(identificacion, nombre, correo, direccion,contrasenia);
+    private Empleado(int identificacion, String nombre, String correo, String direccion, String contrasena, String ocupacion) {
+        super(identificacion, nombre, correo, direccion,contrasena);
+        this.ocupacion=ocupacion;
     }
 
     //Metodos GET and SET****
-    
 	public String getOcupacion() {
 		return ocupacion;
 	}
@@ -22,17 +21,32 @@ public class Empleado extends Persona {
 		this.ocupacion = ocupacion;
 	}
 
-	public String getFunciones() {
-		return Funciones;
-	}
-
-	public void setFunciones(String funciones) {
-		Funciones = funciones;
-	}
-
-    
-    
-    
-
     //Metodos de clase****
+	protected void contratar(int identificacion, String nombre, String correo, String direccion, String contrasena, String ocupacion){
+		this(identificacion, nombre, correo, direccion, contrasena, ocupacion);
+    }
+
+    protected String estadoFunciones(String nombre){
+    	if(Cine.estadoFuncion(nombre)==false){
+    		return "funcion sin iniciar";
+		}
+    	else{
+    		return "funcion ya iniciada";
+		}
+	}
+	private void nuevaFuncion(String nombre, int cantidadFunciones,int puestos,int numeroFuncion,Cine sala, boolean estado,int puerta){
+    	new Funcion(nombre,cantidadFunciones,puestos,numeroFuncion,sala, estado,puerta);
+	}
+	private void ModPuntos(Cliente cliente, int puntos){
+    	cliente.getCuentaPuntos().agregarpuntos(puntos);
+	}
+	private String consultarFuncion(Funcion funcion){
+    	return funcion.toString();
+	}
+	private String consultarasistentes(Funcion funcion){
+    	return "Hay "+funcion.getPuestos()+" ocupados";
+	}
+	private void actualizarFunciones(){
+
+	}
 }

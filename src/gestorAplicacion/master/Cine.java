@@ -3,15 +3,15 @@ package gestorAplicacion.master;
 import java.util.Vector;
 
 public class Cine {
-    //Atributos de clase
+    //Atributos de clase****
     private String nombre;
     private String ciudad;
     private String direccion;
     private int cantidasSalas = 5;
-    private Vector<Funcion> funciones = new Vector<Funcion>();
+    private static Vector<Funcion> funciones = new Vector<Funcion>();
 
-    //Constructores de clase
-    private Cine(String nombre, String ciudad, String direccion){
+    //Constructores de clase****
+    protected Cine(String nombre, String ciudad, String direccion){
         this.nombre=nombre;
         this.ciudad=ciudad;
         this.direccion=direccion;
@@ -31,16 +31,16 @@ public class Cine {
         return cantidasSalas;
     }
 
-    private void setNombre(String nombre){
+    protected void setNombre(String nombre){
         this.nombre=nombre;
     }
-    private void setCiudad(String ciudad){
+    protected void setCiudad(String ciudad){
         this.ciudad=ciudad;
     }
-    private void setDireccion(String direccion){
+    protected void setDireccion(String direccion){
         this.direccion=direccion;
     }
-    private void setCantidasSalas(int cantidadSalas){
+    protected void setCantidasSalas(int cantidadSalas){
         this.cantidasSalas=cantidadSalas;
     }
 
@@ -48,10 +48,19 @@ public class Cine {
     public Vector<Funcion> getFunciones(){
         return funciones;
     }
-    private void agregarFuncion(Funcion funcion){
+    protected void agregarFuncion(Funcion funcion){
         funciones.add(funcion);
     }
-    private void retirarFuncion(Funcion funcion){
+    protected void retirarFuncion(Funcion funcion){
         funciones.remove(funciones.indexOf(funcion));
+    }
+    protected static boolean estadoFuncion(String nombre){
+        boolean estado=false;
+        for(int i=0; i<=funciones.size(); i++){
+            if(funciones.get(i).getNombre()==nombre){
+                estado=funciones.get(i).isEstado();
+            }
+        }
+        return estado;
     }
 }
