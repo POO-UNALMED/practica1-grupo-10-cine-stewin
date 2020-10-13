@@ -26,7 +26,7 @@ public class CuentaPuntos {
         return titular;
     }
     public int getPuntos(){
-        return puntos
+        return puntos;
     }
     public void setCantidadCuentasPuntos(int cantidadCuentasPuntos){
         this.cantidadCuentasPuntos=cantidadCuentasPuntos;
