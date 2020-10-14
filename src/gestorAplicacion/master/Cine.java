@@ -7,7 +7,9 @@ public class Cine {
     private String nombre;
     private String ciudad;
     private String direccion;
-    private int cantidasSalas = 5;
+    private int cantidasSalas = 4;
+    private Sala [] salas;
+
     private static Vector<Funcion> funciones = new Vector<Funcion>();
 
     //Constructores de clase****
@@ -15,7 +17,11 @@ public class Cine {
         this.nombre=nombre;
         this.ciudad=ciudad;
         this.direccion=direccion;
-
+        salas = new Sala[4];
+        for(int i = 0; i < salas.length; i++){
+            String nom = "S" + i + 1;
+            salas[i] = new Sala(nom, this);
+        }
     }
     //Metodos GET and SET****
     public String getNombre(){

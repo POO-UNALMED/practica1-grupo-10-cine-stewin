@@ -23,7 +23,7 @@ public class Empleado extends Persona {
 
     //Metodos de clase****
 	protected void contratar(int identificacion, String nombre, String correo, String direccion, String contrasena, String ocupacion){
-		this(identificacion, nombre, correo, direccion, contrasena, ocupacion);
+		new Empleado(identificacion, nombre, correo, direccion, contrasena, ocupacion);
     }
 
     protected String estadoFunciones(String nombre){
@@ -34,7 +34,7 @@ public class Empleado extends Persona {
     		return "funcion ya iniciada";
 		}
 	}
-	private void nuevaFuncion(String nombre, int cantidadFunciones,int puestos,int numeroFuncion,Cine sala, boolean estado,int puerta){
+	private void nuevaFuncion(String nombre, int cantidadFunciones,int puestos,int numeroFuncion,Sala sala, boolean estado,int puerta){
     	new Funcion(nombre,cantidadFunciones,puestos,numeroFuncion,sala, estado,puerta);
 	}
 	private void ModPuntos(Cliente cliente, int puntos){

@@ -2,11 +2,12 @@ package gestorAplicacion.usuario;
 
 import gestorAplicacion.master.Admin;
 import gestorAplicacion.master.Reserva;
+import java.util.ArrayList;
 
 public class Cliente extends Persona{
     //Atributos de clase
     private CuentaPuntos cuentaPuntos;
-    private Reserva cartera;
+    private ArrayList<Reserva> cartera = new ArrayList<Reserva>();
 
     //Constructores de clase
 
@@ -27,11 +28,11 @@ public class Cliente extends Persona{
         this.cuentaPuntos = cuentaPuntos;
     }
 
-    public Reserva getCartera() {
+    public ArrayList<Reserva> getCartera() {
         return cartera;
     }
 
-    public void setCartera(Reserva cartera) {
+    public void setCartera(ArrayList<Reserva> cartera) {
         this.cartera = cartera;
     }
 
@@ -61,4 +62,6 @@ public class Cliente extends Persona{
         //Agregar la cuenta al vector <CuentasBancarias>
         Admin.addCuentaBancaria(b);
     }
+
+    // Cliente debe tener un método "reservar" para crear la Reserva y conectarla a una Funcion.
 }

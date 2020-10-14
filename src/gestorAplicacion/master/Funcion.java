@@ -6,24 +6,23 @@ public class Funcion {
     //Atributos de clase
     private String nombre;
     private int cantidadFunciones;
-    private int puestos;
     private int numeroFuncion;
     private Calendar fecha;
-    private Cine sala;
+    private Sala sala;
     private boolean estado;
     private int puerta;
+    private Reserva [] puestos = new Reserva[20];
     //private int capacidad;
 
     //Constructores de clase****
-    protected Funcion(String nombre, int cantidadFunciones,int puestos,int numeroFuncion,Cine sala, boolean estado,int puerta){
+    protected Funcion(String nombre, int cantidadFunciones,int puestos,int numeroFuncion,Sala sala, boolean estado,int puerta){
         this.nombre=nombre;
         this.cantidadFunciones=cantidadFunciones;
-        this.puestos=puestos;
         this.numeroFuncion=numeroFuncion;
         this.sala=sala;
         this.estado=estado;
         this.puerta=puerta;
-        sala.agregarFuncion(this);
+        cine.agregarFuncion(this);
 
     }
     //Metodos GET and SET****
