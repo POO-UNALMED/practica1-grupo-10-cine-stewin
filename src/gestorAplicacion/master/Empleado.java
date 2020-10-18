@@ -43,9 +43,9 @@ public class Empleado extends Persona {
 	private String consultarFuncion(Funcion funcion){
     	return funcion.toString();
 	}
-	private String consultarasistentes(Funcion funcion){
+	/*private String consultarasistentes(Funcion funcion){
     	return "Hay "+funcion.getPuestos()+" ocupados";
-	}
+	}*/
 	private void actualizarFunciones(){
 
 	}

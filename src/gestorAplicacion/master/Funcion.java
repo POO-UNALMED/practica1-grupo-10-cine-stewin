@@ -22,7 +22,7 @@ public class Funcion {
         this.sala=sala;
         this.estado=estado;
         this.puerta=puerta;
-        cine.agregarFuncion(this);
+        //Cine.agregarFuncion(this);
 
     }
     //Metodos GET and SET****
@@ -32,9 +32,9 @@ public class Funcion {
     public int getCantidadFunciones(){
         return cantidadFunciones;
     }
-    public int getPuestos(){
-        return puestos;
-    }
+    //public int getPuestos(){
+      //  return puestos;
+    //}
     public int getNumeroFuncion(){
         return numeroFuncion;
     }
@@ -57,18 +57,18 @@ public class Funcion {
     protected void setCantidadFunciones(int cantidadFunciones){
         this.cantidadFunciones=cantidadFunciones;
     }
-    protected void setPuestos(int puestos){
+    /*protected void setPuestos(int puestos){
         this.puestos=puestos;
-    }
+    }*/
     protected void setNumeroFuncion(int numeroFuncion){
         this.numeroFuncion=numeroFuncion;
     }
     protected void setFecha(Calendar fecha){
         this.fecha=fecha;
     }
-    protected void setSala(Cine sala){
+    /*protected void setSala(Cine sala){
         this.sala=sala;
-    }
+    }*/
     protected void setEstado(boolean estado){
         this.estado=estado;
     }
