@@ -16,8 +16,8 @@ public class Cliente extends Persona implements Serializable {
     public Cliente() {
     }
 
-    public Cliente(int identificacion, String nombre, String correo, String direccion, String contrasenia) {
-        super(identificacion, nombre, correo, direccion, contrasenia);
+    public Cliente(int identificacion, String nombre, String correo, String direccion) {
+        super(identificacion, nombre, correo, direccion);
     }
 
     //Metodos GET and SET****
@@ -53,8 +53,8 @@ public class Cliente extends Persona implements Serializable {
         return confirmaContrasenia;
     }
     //Metodo para registrar clientes
-    public static void RegistarCliente(int identificacion, String nombre, String correo, String direccion, String contrasenia) {
-        Cliente a = new Cliente(identificacion, nombre, correo, direccion, contrasenia);
+    public static void RegistarCliente(int identificacion, String nombre, String correo, String direccion) {
+        Cliente a = new Cliente(identificacion, nombre, correo, direccion);
         CuentaBancaria b = new CuentaBancaria(a);
         a.setCuentaBancaria(b);
         //b.setTitular(a); no es necesario ya que en la linea 56 se asocia.

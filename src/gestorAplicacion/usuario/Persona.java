@@ -12,7 +12,6 @@ public abstract class Persona{
     private String nombre;
     private String correo;
     private String historial;
-    private String contrasenia;
     private String direccion;
     private transient static int clienteActual; /*Este atributo lo usaremos para una vez se ingresa como cliente o empleado,
      se tenga el indice del vector en el cual estara*/
@@ -22,12 +21,11 @@ public abstract class Persona{
         this.ID = BaseDeDatos.getClientes().size();
 
     }
-    public Persona(int identificacion, String nombre, String correo,String direccion,String contrasenia ) {
+    public Persona(int identificacion, String nombre, String correo,String direccion) {
         this();
         this.identificacion = identificacion;
         this.nombre = nombre;
         this.correo = correo;
-        this.contrasenia = contrasenia;
         this.direccion = direccion;
     }
 
@@ -67,13 +65,6 @@ public abstract class Persona{
         this.historial = historial;
     }
 
-    public String getContrasenia() {
-        return contrasenia;
-    }
-    public void setContrasenia(String contrasenia) {
-        this.contrasenia = contrasenia;
-    }
-
     public String getDireccion() {
         return direccion;
     }
@@ -94,6 +85,6 @@ public abstract class Persona{
     ID correctamente(Se puede/debera editar mas adelante)*/
     @Override
     public String toString() {
-        return "-Soy la persona " + nombre + " con contraseña " +  contrasenia;
+        return "-Soy la persona " + nombre ;
     }
 }

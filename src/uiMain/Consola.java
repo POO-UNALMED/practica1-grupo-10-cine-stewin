@@ -89,8 +89,6 @@ public class Consola {
         System.out.print("Por favor ingrese su numero de identificacion: ");
         int identificacion = scanner.nextInt();
         scanner.nextLine();
-        /*System.out.print("Por favor ingrese su contraseña: ");
-        String contrasenia = scanner.nextLine();*/
         Separador();
         //Comprobamos si el usuario con esa identificacion esta en la base de datos
         try{
@@ -153,9 +151,7 @@ public class Consola {
             String correo = scanner.nextLine();
             System.out.print("Por favor ingrese su direccion: ");
             String direccion = scanner.nextLine();
-            System.out.print("Por favor ingrese su contraseña: ");
-            String contrasenia = scanner.nextLine();
-            Cliente.RegistarCliente(identificacion, nombre, correo, direccion, contrasenia);
+            Cliente.RegistarCliente(identificacion, nombre, correo, direccion);
             Separador();
             System.out.println("Usuario " + nombre + " registrado satisfactoriamente");
             Separador();
