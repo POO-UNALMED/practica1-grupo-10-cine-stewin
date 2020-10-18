@@ -13,8 +13,6 @@ public abstract class Persona implements Serializable{
     private String correo;
     private String historial;
     private String direccion;
-    private transient static Persona clienteActual; /*Este atributo lo usaremos para una vez se ingresa como cliente o empleado,
-     se tenga el indice del vector en el cual estara*/
 
     //Contructores de clase****
     public Persona() {
@@ -75,12 +73,6 @@ public abstract class Persona implements Serializable{
         this.direccion = direccion;
     }
 
-    public static Persona getClienteActual() {
-        return clienteActual;
-    }
-    public static void setClienteActual(Persona numeroDeUsuario) {
-        Persona.clienteActual = numeroDeUsuario;
-    }
 
     //Metodos de clase****
 

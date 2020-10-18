@@ -10,6 +10,8 @@ public class Cliente extends Persona{
     //Atributos de clase
     private CuentaPuntos cuentaPuntos;
     private ArrayList<Reserva> cartera = new ArrayList<Reserva>();
+    private transient static Cliente clienteActual; /*Este atributo lo usaremos para una vez se ingresa como cliente o empleado,
+     se tenga el indice del vector en el cual estara*/
 
     //Constructores de clase
 
@@ -38,6 +40,14 @@ public class Cliente extends Persona{
         this.cartera = cartera;
     }
 
+    public static Cliente getClienteActual() {
+        return clienteActual;
+    }
+
+    public static void setClienteActual(Cliente clienteActual) {
+        Cliente.clienteActual = clienteActual;
+    }
+
     //Metodos de clase****
 
     //Metodo que comprueba la identificacion/contraseña para entrar
@@ -46,7 +56,7 @@ public class Cliente extends Persona{
         for(Cliente cliente: BaseDeDatos.getClientes()){
             if(cliente.getIdentificacion() == identificacion){
                 confirmaContrasenia = true;
-                Persona.setClienteActual(cliente);
+                Cliente.setClienteActual(cliente);
             }
         }
         return confirmaContrasenia;
