@@ -2,9 +2,11 @@ package gestorAplicacion.usuario;
 
 import baseDatos.BaseDeDatos;
 import gestorAplicacion.master.Reserva;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Cliente extends Persona{
+public class Cliente extends Persona implements Serializable {
     //Atributos de clase
     private CuentaPuntos cuentaPuntos;
     private ArrayList<Reserva> cartera = new ArrayList<Reserva>();
@@ -39,20 +41,19 @@ public class Cliente extends Persona{
     //Metodos de clase****
 
     //Metodo que comprueba la identificacion/contraseña para entrar
-    public boolean ComprobarRegistro(int identificacion, String contrasenia) {
+    public boolean ComprobarRegistro(int identificacion) {
         boolean confirmaContrasenia = false;
         for (int i = 0; i < BaseDeDatos.getClientes().size(); i++) {
-            if(BaseDeDatos.getClientes().get(i).getContrasenia().equals(contrasenia) &&
-                    BaseDeDatos.getClientes().get(i).getIdentificacion() == identificacion){
+            if(BaseDeDatos.getClientes().get(i).getIdentificacion() == identificacion){
                 confirmaContrasenia = true;
-                Persona.setNumeroDeUsuario(i); /*De esta forma podemos obtener los datos
+                Persona.setClienteActual(i); /*De esta forma podemos obtener los datos
                 en los otros vectores*/
             }
         }
         return confirmaContrasenia;
     }
     //Metodo para registrar clientes
-    public void RegistarCliente(int identificacion, String nombre, String correo, String direccion, String contrasenia) {
+    public static void RegistarCliente(int identificacion, String nombre, String correo, String direccion, String contrasenia) {
         Cliente a = new Cliente(identificacion, nombre, correo, direccion, contrasenia);
         CuentaBancaria b = new CuentaBancaria(a);
         a.setCuentaBancaria(b);

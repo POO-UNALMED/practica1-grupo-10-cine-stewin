@@ -10,7 +10,7 @@ import java.util.Scanner;
 encarguen de mostrar interacciones en la consola*/
 
 public class Consola {
-    private static Cliente user = new Cliente();
+    private static Cliente usuario = new Cliente();
     public static BaseDeDatos baseDeDatos;
     public static Scanner scanner = new Scanner(System.in);
 
@@ -30,8 +30,8 @@ public class Consola {
         System.out.println("1. Usuario registrado");
         System.out.println("2. Usuario no registrado");
         System.out.println("3. Autores");
-        System.out.println("5. Descripcion");
-        System.out.println("4. Salir");
+        System.out.println("4. Descripcion");
+        System.out.println("5. Salir");
         Separador();
         DatosInicio();
     }
@@ -43,16 +43,24 @@ public class Consola {
             case 1:
                 //Llamar funcion para ingresar como usuario;
                 PantallaIngresoCliente();
-                //Consola.PantallaIngresoCliente();
                 break;
             case 2:
-                //Llamar funcion para ingresar como empleado;
+                //Llamar la funcion para ingreso por primera vez;
                 PantallaRegistrar();
                 break;
             case 3:
-                //Llamar funcion para registrarse
+                //Llamar funcion que muestra los autores
+                Separador();
+                System.out.println(Autores());
+                Separador();
                 break;
             case 4:
+                //Lamar funcion que me muestra una descripcion sobre el proyecto
+                Separador();
+                System.out.println(Descripcion());
+                Separador();
+                break;
+            case 5:
                 //Lamar funcion para salir
                 Separador();
                 System.out.println("Se ha finalizado sesion");
@@ -60,23 +68,38 @@ public class Consola {
                 System.exit(1);
         }
     }
+    //Metodo que me da la descripcion del proyecto
+    public String Descripcion() {
+        return "                 Cine STEWIN\n" +
+                " Bienvendios! esta aplicacion le permitira hacer \n" +
+                " una gestion completa de los servicios que presta\n" +
+                " un cine a travez de las diferentes opciones que \n" +
+                " se emplean durante su uso.";
+    }
+    //Metodo que me muestra los autores
+    public String Autores() {
+        return "Gelier Moreno         101\n" +
+                "Alejandro sepulveda   100\n" +
+                "Kevin Molano          102\n" +
+                "Amilder Ospina        103";
+    }
     //Metodo que imprime la pantalla cuando se ingresa como cliente
     public void PantallaIngresoCliente(){
         Separador();
         System.out.print("Por favor ingrese su numero de identificacion: ");
         int identificacion = scanner.nextInt();
         scanner.nextLine();
-        System.out.print("Por favor ingrese su contraseña: ");
-        String contrasenia = scanner.nextLine();
+        /*System.out.print("Por favor ingrese su contraseña: ");
+        String contrasenia = scanner.nextLine();*/
         Separador();
-        //Comprobamos si el usuario y contraseña existen en la base de datos
+        //Comprobamos si el usuario con esa identificacion esta en la base de datos
         try{
-            if(user.ComprobarRegistro(identificacion, contrasenia)) {
+            if(usuario.ComprobarRegistro(identificacion)) {
                 /*Llamar funcion que me lleva a todas las funciones que puede tener el cliente*/
                 PantallaCliente();
             }else{
                 /*Llamar funcion que me da error y pide datos de nuevo o devolverse*/
-                System.out.println("Usuario y/o contraseña incorrectas");
+                System.out.println("Usuario no identificado en la base de datos");
             }
         }catch(Exception e){
             //En caso de que no hayan usuarios registrados toca llamar esta funcion
@@ -132,7 +155,7 @@ public class Consola {
             String direccion = scanner.nextLine();
             System.out.print("Por favor ingrese su contraseña: ");
             String contrasenia = scanner.nextLine();
-            user.RegistarCliente(identificacion, nombre, correo, direccion, contrasenia);
+            Cliente.RegistarCliente(identificacion, nombre, correo, direccion, contrasenia);
             Separador();
             System.out.println("Usuario " + nombre + " registrado satisfactoriamente");
             Separador();

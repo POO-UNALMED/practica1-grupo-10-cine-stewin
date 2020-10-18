@@ -12,9 +12,9 @@ public class Leer {
 
         //Leemos los clientes de la base de datos
         try{
-            File usuarios = new File(arhivo.getAbsolutePath()+"/src/baseDatos/temp/usuarios.ser");
+            File usuarios = new File(arhivo.getAbsolutePath()+ "/baseDatos/temp/usuarios.txt");
             if(usuarios.length() != 0){
-                FileInputStream datosUsuarios = new FileInputStream(arhivo.getAbsolutePath()+"/src/baseDatos/temp/usuarios.ser");
+                FileInputStream datosUsuarios = new FileInputStream(arhivo.getAbsolutePath()+ "/baseDatos/temp/usuarios.txt");
                 ObjectInputStream objetosUsuarios = new ObjectInputStream(datosUsuarios);
 
                 Object aux = objetosUsuarios.readObject();
@@ -40,9 +40,9 @@ public class Leer {
 
         //Leemos las cuentas bancarias de la base de datos
         try{
-            File cuentasBancarias = new File(arhivo.getAbsolutePath()+"/src/baseDatos/temp/cuentasBancarias.ser");
+            File cuentasBancarias = new File(arhivo.getAbsolutePath()+ "/baseDatos/temp/cuentasBancarias.txt");
             if(cuentasBancarias.length() != 0){
-                FileInputStream datosCB = new FileInputStream(arhivo.getAbsolutePath()+"/src/baseDatos/temp/cuentasBancarias.ser");
+                FileInputStream datosCB = new FileInputStream(arhivo.getAbsolutePath()+ "/baseDatos/temp/cuentasBancarias.txt");
                 ObjectInputStream objetosCB = new ObjectInputStream(datosCB);
 
                 Object aux1 = objetosCB.readObject();

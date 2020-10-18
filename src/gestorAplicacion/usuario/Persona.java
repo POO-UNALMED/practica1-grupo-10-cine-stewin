@@ -4,7 +4,7 @@ import baseDatos.BaseDeDatos;
 
 import java.io.Serializable;
 
-public abstract class Persona implements Serializable {
+public abstract class Persona{
     //Atributos de clase****
     private int ID;
     private int identificacion;
@@ -14,7 +14,7 @@ public abstract class Persona implements Serializable {
     private String historial;
     private String contrasenia;
     private String direccion;
-    private transient static int numeroDeUsuario; /*Este atributo lo usaremos para una vez se ingresa como cliente o empleado,
+    private transient static int clienteActual; /*Este atributo lo usaremos para una vez se ingresa como cliente o empleado,
      se tenga el indice del vector en el cual estara*/
 
     //Contructores de clase****
@@ -81,11 +81,11 @@ public abstract class Persona implements Serializable {
         this.direccion = direccion;
     }
 
-    public static int getNumeroDeUsuario() {
-        return numeroDeUsuario;
+    public static int getClienteActual() {
+        return clienteActual;
     }
-    public static void setNumeroDeUsuario(int numeroDeUsuario) {
-        Persona.numeroDeUsuario = numeroDeUsuario;
+    public static void setClienteActual(int numeroDeUsuario) {
+        Persona.clienteActual = numeroDeUsuario;
     }
 
     //Metodos de clase****

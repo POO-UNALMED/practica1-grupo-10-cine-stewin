@@ -11,9 +11,9 @@ public class Inicio {
         Consola consola = new Consola();
         BaseDeDatos baseDeDatos = new BaseDeDatos();
         baseDeDatos.relacionar();
-        System.out.println(baseDeDatos.getClientes().size()); //Linea de prueba
-        System.out.println(baseDeDatos.getCuentasBancarias().size()); //Linea de prueba
-        System.out.println(baseDeDatos.getClientes().get(0).getCuentaBancaria()); //Linea de prueba
+        //System.out.println(BaseDeDatos.getClientes().size()); //Linea de prueba
+        //System.out.println(BaseDeDatos.getCuentasBancarias().size()); //Linea de prueba
+        //System.out.println(BaseDeDatos.getClientes().get(0).getCuentaBancaria()); //Linea de prueba
         consola.PantallaInicio();
         Escribir.Escribir();
     }
