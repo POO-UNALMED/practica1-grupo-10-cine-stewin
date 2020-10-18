@@ -4,6 +4,7 @@ import baseDatos.BaseDeDatos;
 import baseDatos.Escribir;
 import baseDatos.Leer;
 import gestorAplicacion.master.Cine;
+import gestorAplicacion.usuario.Persona;
 
 //Clase donde se ejecutara
 public class Inicio {
@@ -15,7 +16,6 @@ public class Inicio {
         //System.out.println(BaseDeDatos.getClientes().size()); //Linea de prueba
         //System.out.println(BaseDeDatos.getCuentasBancarias().size()); //Linea de prueba
         //System.out.println(BaseDeDatos.getClientes().get(0).getCuentaBancaria()); //Linea de prueba
-        System.out.println(BaseDeDatos.getCines().get(0));
         consola.PantallaInicio();
         Escribir.Escribir();
     }

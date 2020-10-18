@@ -3,6 +3,7 @@ package uiMain;
 
 import baseDatos.BaseDeDatos;
 import gestorAplicacion.usuario.Cliente;
+import gestorAplicacion.usuario.Persona;
 
 import java.util.Scanner;
 

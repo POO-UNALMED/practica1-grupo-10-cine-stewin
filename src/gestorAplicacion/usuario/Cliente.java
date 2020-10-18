@@ -6,7 +6,7 @@ import gestorAplicacion.master.Reserva;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Cliente extends Persona implements Serializable {
+public class Cliente extends Persona{
     //Atributos de clase
     private CuentaPuntos cuentaPuntos;
     private ArrayList<Reserva> cartera = new ArrayList<Reserva>();
@@ -43,11 +43,10 @@ public class Cliente extends Persona implements Serializable {
     //Metodo que comprueba la identificacion/contraseña para entrar
     public boolean ComprobarRegistro(int identificacion) {
         boolean confirmaContrasenia = false;
-        for (int i = 0; i < BaseDeDatos.getClientes().size(); i++) {
-            if(BaseDeDatos.getClientes().get(i).getIdentificacion() == identificacion){
+        for(Cliente cliente: BaseDeDatos.getClientes()){
+            if(cliente.getIdentificacion() == identificacion){
                 confirmaContrasenia = true;
-                Persona.setClienteActual(i); /*De esta forma podemos obtener los datos
-                en los otros vectores*/
+                Persona.setClienteActual(cliente);
             }
         }
         return confirmaContrasenia;

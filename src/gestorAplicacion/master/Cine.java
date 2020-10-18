@@ -9,7 +9,7 @@ public class Cine implements Serializable {
     private String ciudad;
     private String direccion;
     private int cantidasSalas = 4;
-    private transient Sala [] salas;
+    private transient Sala [] salas ;
 
     private static Vector<Funcion> funciones = new Vector<Funcion>();
 
