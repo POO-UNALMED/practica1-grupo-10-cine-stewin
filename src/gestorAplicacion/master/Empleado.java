@@ -8,7 +8,7 @@ public class Empleado extends Persona {
 
     //Contructores de clase****
     private Empleado(int identificacion, String nombre, String correo, String direccion, String contrasena, String ocupacion) {
-        super(identificacion, nombre, correo, direccion,contrasena);
+        super(identificacion, nombre, correo, direccion);
         this.ocupacion=ocupacion;
     }
 

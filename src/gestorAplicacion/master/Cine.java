@@ -1,19 +1,20 @@
 package gestorAplicacion.master;
 
+import java.io.Serializable;
 import java.util.Vector;
 
-public class Cine {
+public class Cine implements Serializable {
     //Atributos de clase****
     private String nombre;
     private String ciudad;
     private String direccion;
     private int cantidasSalas = 4;
-    private Sala [] salas;
+    private transient Sala [] salas;
 
     private static Vector<Funcion> funciones = new Vector<Funcion>();
 
     //Constructores de clase****
-    protected Cine(String nombre, String ciudad, String direccion){
+    public Cine(String nombre, String ciudad, String direccion){
         this.nombre=nombre;
         this.ciudad=ciudad;
         this.direccion=direccion;
@@ -68,5 +69,16 @@ public class Cine {
             }
         }
         return estado;
+    }
+
+    @Override
+    //ToString para ver que si se esten guardando los cines de la forma correcta
+    public String toString() {
+        return "Cine{" +
+                "nombre='" + nombre + '\'' +
+                ", ciudad='" + ciudad + '\'' +
+                ", direccion='" + direccion + '\'' +
+                ", cantidasSalas=" + cantidasSalas +
+                '}';
     }
 }

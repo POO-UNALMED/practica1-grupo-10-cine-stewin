@@ -1,5 +1,6 @@
 package baseDatos;
 
+import gestorAplicacion.master.Cine;
 import gestorAplicacion.usuario.Cliente;
 import gestorAplicacion.usuario.CuentaBancaria;
 import uiMain.Consola;
@@ -14,6 +15,7 @@ public class BaseDeDatos {
     despues para no tener metodos estaticos*/
     private static Vector<CuentaBancaria> cuentasBancarias = new Vector<>(); /*Vector donde tenemos la informacion
     de todas las cuentas bancarias*/
+    private static Vector<Cine> cines = new Vector<>(); /*Vector donde se guardaran los cines*/
 
 
     //Contructores de clase****
@@ -37,6 +39,10 @@ public class BaseDeDatos {
         return cuentasBancarias;
     }
 
+    public static Vector<Cine> getCines() {
+        return cines;
+    }
+
     //Metodos de clase****
     //Metodo para agregar clientes en el atributo CLIENTES
     public static void addCliente(Cliente cliente){
@@ -45,6 +51,10 @@ public class BaseDeDatos {
     //Metodo para agregar cuentasBancarias al atributo CUENTASBANCARIAS
     public static void addCuentaBancaria(CuentaBancaria cuentaBancaria){
         cuentasBancarias.add(cuentaBancaria);
+    }
+    //Metodo para agregar cines al atributo CINES
+    public static void addCine(Cine cine){
+        cines.add(cine);
     }
     //Metodo que relaciona todos los atributos(Cliente con cuentaBancaria)
     public void relacionar(){
