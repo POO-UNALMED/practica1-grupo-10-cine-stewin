@@ -1,6 +1,6 @@
 package gestorAplicacion.usuario;
 
-import gestorAplicacion.master.Admin;
+import baseDatos.BaseDeDatos;
 
 import java.io.Serializable;
 
@@ -19,7 +19,7 @@ public abstract class Persona implements Serializable {
 
     //Contructores de clase****
     public Persona() {
-        this.ID = Admin.getClientes().size();
+        this.ID = BaseDeDatos.getClientes().size();
 
     }
     public Persona(int identificacion, String nombre, String correo,String direccion,String contrasenia ) {

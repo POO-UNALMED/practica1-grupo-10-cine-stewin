@@ -1,6 +1,5 @@
 package baseDatos;
 
-import gestorAplicacion.master.Admin;
 import gestorAplicacion.usuario.Cliente;
 import gestorAplicacion.usuario.CuentaBancaria;
 
@@ -21,7 +20,7 @@ public class Leer {
                 Object aux = objetosUsuarios.readObject();
                 try{
                     while(aux != null){
-                        Admin.addCliente((Cliente) aux);
+                        BaseDeDatos.addCliente((Cliente) aux);
                         aux = objetosUsuarios.readObject();
                     }
                 }catch(java.io.IOException e){
@@ -49,7 +48,7 @@ public class Leer {
                 Object aux1 = objetosCB.readObject();
                 try{
                     while(aux1 != null){
-                        Admin.addCuentaBancaria((CuentaBancaria) aux1);
+                        BaseDeDatos.addCuentaBancaria((CuentaBancaria) aux1);
                         aux1 = objetosCB.readObject();
                     }
                 }catch(java.io.IOException e){

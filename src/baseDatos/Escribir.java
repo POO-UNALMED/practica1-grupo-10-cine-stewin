@@ -1,6 +1,5 @@
 package baseDatos;
 
-import gestorAplicacion.master.Admin;
 import gestorAplicacion.usuario.Cliente;
 import gestorAplicacion.usuario.CuentaBancaria;
 
@@ -12,11 +11,11 @@ public class Escribir {
     public static void Escribir(){
 
         //Guardamos los clientes en la base de datos
-        if(Admin.getClientes().size() != 0){
+        if(BaseDeDatos.getClientes().size() != 0){
             try{
                 FileOutputStream fs = new FileOutputStream(fichero.getAbsolutePath()+"/src/baseDatos/temp/usuarios.ser");//Creamos el archivo
                 ObjectOutputStream os = new ObjectOutputStream(fs);//Esta clase tiene el método writeObject() que necesitamos
-                for(Cliente i: Admin.getClientes()){
+                for(Cliente i: BaseDeDatos.getClientes()){
                     os.writeObject(i);
                 }
                 os.close();//Hay que cerrar siempre el archivo
@@ -29,11 +28,11 @@ public class Escribir {
         }
 
         //Guardamos las cuentas bancarias en la base de datos
-        if(Admin.getCuentasBancarias().size() != 0){
+        if(BaseDeDatos.getCuentasBancarias().size() != 0){
             try{
                 FileOutputStream fs = new FileOutputStream(fichero.getAbsolutePath()+"/src/baseDatos/temp/cuentasBancarias.ser");//Creamos el archivo
                 ObjectOutputStream os = new ObjectOutputStream(fs);//Esta clase tiene el método writeObject() que necesitamos
-                for(CuentaBancaria i: Admin.getCuentasBancarias()){
+                for(CuentaBancaria i: BaseDeDatos.getCuentasBancarias()){
                     os.writeObject(i);
                 }
                 os.close();//Hay que cerrar siempre el archivo

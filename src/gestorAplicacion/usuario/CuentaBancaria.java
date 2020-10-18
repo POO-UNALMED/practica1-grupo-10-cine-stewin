@@ -1,6 +1,6 @@
 package gestorAplicacion.usuario;
 
-import gestorAplicacion.master.Admin;
+import baseDatos.BaseDeDatos;
 
 import java.io.Serializable;
 
@@ -13,7 +13,7 @@ public class CuentaBancaria implements Serializable {
     //Contructores de clase****
 
     public CuentaBancaria() {
-        this.numeroCuenta = Admin.getCuentasBancarias().size();
+        this.numeroCuenta = BaseDeDatos.getCuentasBancarias().size();
         this.saldo = 1000000;
     }
 

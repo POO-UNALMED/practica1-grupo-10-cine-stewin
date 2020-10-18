@@ -1,6 +1,6 @@
 package gestorAplicacion.usuario;
 
-import gestorAplicacion.master.Admin;
+import baseDatos.BaseDeDatos;
 import gestorAplicacion.master.Reserva;
 import java.util.ArrayList;
 
@@ -41,9 +41,9 @@ public class Cliente extends Persona{
     //Metodo que comprueba la identificacion/contraseña para entrar
     public boolean ComprobarRegistro(int identificacion, String contrasenia) {
         boolean confirmaContrasenia = false;
-        for (int i = 0; i < Admin.getClientes().size(); i++) {
-            if(Admin.getClientes().get(i).getContrasenia().equals(contrasenia) &&
-                    Admin.getClientes().get(i).getIdentificacion() == identificacion){
+        for (int i = 0; i < BaseDeDatos.getClientes().size(); i++) {
+            if(BaseDeDatos.getClientes().get(i).getContrasenia().equals(contrasenia) &&
+                    BaseDeDatos.getClientes().get(i).getIdentificacion() == identificacion){
                 confirmaContrasenia = true;
                 Persona.setNumeroDeUsuario(i); /*De esta forma podemos obtener los datos
                 en los otros vectores*/
@@ -58,9 +58,9 @@ public class Cliente extends Persona{
         a.setCuentaBancaria(b);
         //b.setTitular(a); no es necesario ya que en la linea 56 se asocia.
         //Agregar cliente al vector <CLIENTES>
-        Admin.addCliente(a);
+        BaseDeDatos.addCliente(a);
         //Agregar la cuenta al vector <CuentasBancarias>
-        Admin.addCuentaBancaria(b);
+        BaseDeDatos.addCuentaBancaria(b);
     }
 
     // Cliente debe tener un método "reservar" para crear la Reserva y conectarla a una Funcion.

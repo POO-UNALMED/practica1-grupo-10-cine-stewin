@@ -1,22 +1,19 @@
 package uiMain;
 
+import baseDatos.BaseDeDatos;
 import baseDatos.Escribir;
 import baseDatos.Leer;
-import gestorAplicacion.master.Admin;
-import gestorAplicacion.usuario.Persona;
 
 //Clase donde se ejecutara
 public class Inicio {
     public static void main(String[] args) {
         Leer.Leer();
-        Admin admin = new Admin();
-        admin.relacionar();
-        //System.out.println(Admin.getClientes().size()); //Linea de prueba
-        //System.out.println(Admin.getCuentasBancarias().size()); //Linea de prueba
-        //Probando que si se esten relacionando bien los objetos
-        //System.out.println(Admin.getClientes().get(0).getCuentaBancaria()); //Linea de prueba
-
         Consola consola = new Consola();
+        BaseDeDatos baseDeDatos = new BaseDeDatos();
+        baseDeDatos.relacionar();
+        System.out.println(baseDeDatos.getClientes().size()); //Linea de prueba
+        System.out.println(baseDeDatos.getCuentasBancarias().size()); //Linea de prueba
+        System.out.println(baseDeDatos.getClientes().get(0).getCuentaBancaria()); //Linea de prueba
         consola.PantallaInicio();
         Escribir.Escribir();
     }

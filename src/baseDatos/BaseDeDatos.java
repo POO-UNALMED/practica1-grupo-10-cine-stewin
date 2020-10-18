@@ -1,14 +1,12 @@
-package gestorAplicacion.master;
+package baseDatos;
 
 import gestorAplicacion.usuario.Cliente;
 import gestorAplicacion.usuario.CuentaBancaria;
-import gestorAplicacion.usuario.Persona;
 import uiMain.Consola;
 
-import java.util.Scanner;
 import java.util.Vector;
 
-public class Admin {
+public class BaseDeDatos {
     //Atributos de clase****
     private static Vector<Cliente> clientes = new Vector<>(); /*Aca se guardaran todos los clientes
     para su posterior uso*/
@@ -20,8 +18,8 @@ public class Admin {
 
     //Contructores de clase****
     //Solo me interesa el constructores por defecto (Por el momento)
-    public Admin(){
-        Consola.admin = this;
+    public BaseDeDatos(){
+        Consola.baseDeDatos = this;
     }
 
     //Metodos GET and SET****
@@ -29,10 +27,10 @@ public class Admin {
         return clientes;
     }
     public static Consola getConsola() {
-        return Admin.consola;
+        return BaseDeDatos.consola;
     }
     public static void setConsola(Consola consola){
-        Admin.consola = consola;
+        BaseDeDatos.consola = consola;
     }
 
     public static Vector<CuentaBancaria> getCuentasBancarias() {
@@ -50,11 +48,11 @@ public class Admin {
     }
     //Metodo que relaciona todos los atributos(Cliente con cuentaBancaria)
     public void relacionar(){
-        for(int i =0; i <Admin.getClientes().size();i++){
+        for(int i =0; i <BaseDeDatos.getClientes().size();i++){
             //Al cliente i lo asocio a la cuenta i
-           clientes.get(i).setCuentaBancaria(cuentasBancarias.get(i));
-           //A la cuenta i la asocio al cliente i
-           cuentasBancarias.get(i).setTitular(clientes.get(i));
+            clientes.get(i).setCuentaBancaria(cuentasBancarias.get(i));
+            //A la cuenta i la asocio al cliente i
+            cuentasBancarias.get(i).setTitular(clientes.get(i));
         }
     }
 }

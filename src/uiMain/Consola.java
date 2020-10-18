@@ -1,9 +1,8 @@
 package uiMain;
 
 
-import gestorAplicacion.master.Admin;
+import baseDatos.BaseDeDatos;
 import gestorAplicacion.usuario.Cliente;
-import gestorAplicacion.usuario.Persona;
 
 import java.util.Scanner;
 
@@ -12,12 +11,12 @@ encarguen de mostrar interacciones en la consola*/
 
 public class Consola {
     private static Cliente user = new Cliente();
-    public static Admin admin;
+    public static BaseDeDatos baseDeDatos;
     public static Scanner scanner = new Scanner(System.in);
 
     //Constructor de consola
     public Consola() {
-        Admin.setConsola(this);
+        BaseDeDatos.setConsola(this);
     }
 
     //Separador para la pantalla
@@ -28,10 +27,11 @@ public class Consola {
     //Metodo que imprime la pantalla de inicio del programa
     public void PantallaInicio() {
         Separador();
-        System.out.println("1* Ingresar como cliente");
-        System.out.println("2* Ingresar como empleado");
-        System.out.println("3* Registrarse");
-        System.out.println("4* Salir");
+        System.out.println("1. Usuario registrado");
+        System.out.println("2. Usuario no registrado");
+        System.out.println("3. Autores");
+        System.out.println("5. Descripcion");
+        System.out.println("4. Salir");
         Separador();
         DatosInicio();
     }
@@ -47,10 +47,10 @@ public class Consola {
                 break;
             case 2:
                 //Llamar funcion para ingresar como empleado;
+                PantallaRegistrar();
                 break;
             case 3:
                 //Llamar funcion para registrarse
-                PantallaRegistrar();
                 break;
             case 4:
                 //Lamar funcion para salir
