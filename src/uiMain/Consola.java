@@ -2,6 +2,7 @@ package uiMain;
 
 
 import baseDatos.BaseDeDatos;
+import gestorAplicacion.master.Cine;
 import gestorAplicacion.usuario.Cliente;
 import gestorAplicacion.usuario.Persona;
 
@@ -14,6 +15,7 @@ public class Consola {
     private static Cliente usuario = new Cliente();
     public static BaseDeDatos baseDeDatos;
     public static Scanner scanner = new Scanner(System.in);
+    private static Cine cine = new Cine();
 
     //Constructor de consola
     public Consola() {
@@ -28,6 +30,8 @@ public class Consola {
     //Metodo que imprime la pantalla de inicio del programa
     public void PantallaInicio() {
         Separador();
+        System.out.println("          Bienvenido a Cine STEWIN");
+        Separador();
         System.out.println("1. Usuario registrado");
         System.out.println("2. Usuario no registrado");
         System.out.println("3. Autores");
@@ -39,6 +43,7 @@ public class Consola {
 
     //Metodo para mostrar la pantalla de inicio del programa
     public void DatosInicio() {
+        System.out.print("Ingrese la opcion deseada: ");
         int menu = scanner.nextInt();
         switch (menu) {
             case 1:
@@ -94,6 +99,8 @@ public class Consola {
         //Comprobamos si el usuario con esa identificacion esta en la base de datos
         try{
             if(usuario.ComprobarRegistro(identificacion)) {
+                System.out.println("          Ingreso satisfactorio");
+                Separador();
                 /*Llamar funcion que me lleva a todas las funciones que puede tener el cliente*/
                 PantallaCliente();
             }else{
@@ -108,17 +115,19 @@ public class Consola {
     }
     //Metodo que imprime la pantalla cuando se ingresa como cliente
     public void PantallaCliente(){
-        System.out.println("1* ");
-        System.out.println("2* ");
-        System.out.println("3* ");
-        System.out.println("4* ");
-        System.out.println("5* ");
-        System.out.println("6* Volver");
+        System.out.println("1. Consultar salas de cine en el pais");
+        System.out.println("2. ");
+        System.out.println("3. ");
+        System.out.println("4. ");
+        System.out.println("5. ");
+        System.out.println("6. Volver");
         Separador();
+        System.out.print("Ingrese la opcion deseada: ");
         int i = scanner.nextInt();
         switch(i){
             case 1:
                 //Metodo que se ejecuta al llamar la opcion 1
+                pantallaClienteOpcion1();
                 break;
             case 2:
                 //Metodo que se ejecuta al llamar la opcion 2
@@ -138,6 +147,18 @@ public class Consola {
                 break;
         }
 
+    }
+    //Metodo que ejecuta la opcion 1 de la pantalla del cliente
+    public void pantallaClienteOpcion1(){
+        Separador();
+        System.out.println(cine.consultarCines());
+        Separador();
+        System.out.print("En que ciudad desea ver los cines disponibles: ");
+        int s = scanner.nextInt();
+        s = s - 1;
+        Separador();
+        System.out.println(cine.cinesPorCiudad(cine.getCiudades().get(s)));
+        Separador();
     }
     //Metodo que imprime la pantalla de registro
     public void PantallaRegistrar() {
