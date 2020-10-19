@@ -8,8 +8,11 @@ public class Sala {
     private Funcion [] funcionesPorDia;
 
     // Constructor.
+    public Sala(){
+    }
     public Sala(String nombreSala, Cine cine){
         this.nombreSala = nombreSala;
+        this.cine = cine;
     }
 
     // Getters.
@@ -23,5 +26,8 @@ public class Sala {
     // Setters.
     public void setNombreSala(String nombre){
         nombreSala = nombre;
+    }
+    public void setCine(Cine cine){
+        cine = cine;
     }
 }

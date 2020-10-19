@@ -3,10 +3,12 @@ package uiMain;
 
 import baseDatos.BaseDeDatos;
 import gestorAplicacion.master.Cine;
+import gestorAplicacion.master.Sala;
 import gestorAplicacion.usuario.Cliente;
 import gestorAplicacion.usuario.Persona;
 
 import java.util.Scanner;
+import java.util.Vector;
 
 /*En esta clase se van a trabajar todos los metodos que se
 encarguen de mostrar interacciones en la consola*/
@@ -97,7 +99,7 @@ public class Consola {
         scanner.nextLine();
         Separador();
         //Comprobamos si el usuario con esa identificacion esta en la base de datos
-        try{
+        //try{
             if(usuario.ComprobarRegistro(identificacion)) {
                 System.out.println("          Ingreso satisfactorio");
                 Separador();
@@ -107,10 +109,10 @@ public class Consola {
                 /*Llamar funcion que me da error y pide datos de nuevo o devolverse*/
                 System.out.println("Usuario no identificado en la base de datos");
             }
-        }catch(Exception e){
+        //}catch(Exception e){
             //En caso de que no hayan usuarios registrados toca llamar esta funcion
-            System.out.println("No hay usuarios registrados");
-        }
+          //  System.out.println("No hay usuarios registrados");
+        //}
 
     }
     //Metodo que imprime la pantalla cuando se ingresa como cliente
@@ -157,8 +159,25 @@ public class Consola {
         int s = scanner.nextInt();
         s = s - 1;
         Separador();
-        System.out.println(cine.cinesPorCiudad(cine.getCiudades().get(s)));
+        Vector<String> v = cine.cinesPorCiudad(cine.getCiudades().get(s));
+        int contador = 1;
+        for(String sala : v){
+            System.out.println(contador+". "+sala);
+            contador += 1;
+        }
+        System.out.println(funcionesEnCine(v));
+    }
+    //Metodo que me deberia mostrar las funciones en la sala de cine consultada
+    public String funcionesEnCine(Vector<String> salas){
         Separador();
+        int a = scanner.nextInt();
+        StringBuilder s = new StringBuilder();
+        for(Cine cine: BaseDeDatos.getCines()){
+            if(cine.getNombre().equals(salas.get(a))){
+                System.out.println("Se supone que aca deberia mostrar las funciones en el cine seleccionado");
+            }
+        }
+        return s.toString();
     }
     //Metodo que imprime la pantalla de registro
     public void PantallaRegistrar() {

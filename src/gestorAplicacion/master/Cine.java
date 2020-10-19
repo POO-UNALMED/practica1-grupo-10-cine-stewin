@@ -12,7 +12,7 @@ public class Cine implements Serializable {
     private String ciudad;
     private String direccion;
     private int cantidasSalas = 4;
-    private transient Sala [] salas ;
+    private transient Sala[] salas;
 
     private static Vector<Funcion> funciones = new Vector<Funcion>();
 
@@ -28,6 +28,7 @@ public class Cine implements Serializable {
         for(int i = 0; i < salas.length; i++){
             String nom = "S" + i + 1;
             salas[i] = new Sala(nom, this);
+            BaseDeDatos.addSala(salas[i]);
         }
     }
     //Metodos GET and SET****
@@ -50,16 +51,16 @@ public class Cine implements Serializable {
         return ciudades;
     }
 
-    protected void setNombre(String nombre){
+    public void setNombre(String nombre){
         this.nombre=nombre;
     }
-    protected void setCiudad(String ciudad){
+    public void setCiudad(String ciudad){
         this.ciudad=ciudad;
     }
-    protected void setDireccion(String direccion){
+    public void setDireccion(String direccion){
         this.direccion=direccion;
     }
-    protected void setCantidasSalas(int cantidadSalas){
+    public void setCantidasSalas(int cantidadSalas){
         this.cantidasSalas=cantidadSalas;
     }
 
@@ -100,21 +101,19 @@ public class Cine implements Serializable {
         return s.toString();
     }
 
-    //Metodo que me muestra todas las salas de cine de la ciudad elegida
-    public String cinesPorCiudad(String ciudad){
+    //Metodo que me muestra todas las salas de cine de la ciudad elegida --
+    public Vector<String> cinesPorCiudad(String ciudad){
+        Vector<String> salas = new Vector<String>();
         StringBuilder s = new StringBuilder();
         s.append("Salas de dice disponibles en la ciudad: \n");
-        int contador = 1;
         for(Cine cine: BaseDeDatos.getCines()){
            if(cine.getCiudad().equals(ciudad)){
-               s.append(contador).append(". ");
-               s.append(cine.getNombre());
-               s.append("\n");
-               contador += 1;
+               salas.add(cine.getNombre());
            }
         }
         s.delete(s.length()-1,s.length());
-        return s.toString();
+        return salas;
+
     }
 
     @Override

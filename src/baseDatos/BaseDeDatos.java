@@ -1,6 +1,7 @@
 package baseDatos;
 
 import gestorAplicacion.master.Cine;
+import gestorAplicacion.master.Sala;
 import gestorAplicacion.usuario.Cliente;
 import gestorAplicacion.usuario.CuentaBancaria;
 import uiMain.Consola;
@@ -16,6 +17,7 @@ public class BaseDeDatos {
     private static Vector<CuentaBancaria> cuentasBancarias = new Vector<>(); /*Vector donde tenemos la informacion
     de todas las cuentas bancarias*/
     private static Vector<Cine> cines = new Vector<>(); /*Vector donde se guardaran los cines*/
+    private static Vector<Sala> salas = new Vector<>(); /*Vector donde se guardaran las salas*/
 
 
     //Contructores de clase****
@@ -55,6 +57,9 @@ public class BaseDeDatos {
     //Metodo para agregar cines al atributo CINES
     public static void addCine(Cine cine){
         cines.add(cine);
+    }
+    public static void addSala(Sala sala){
+        salas.add(sala);
     }
     //Metodo que relaciona todos los atributos(Cliente con cuentaBancaria)
     public void relacionar(){
