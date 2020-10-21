@@ -4,20 +4,19 @@ import baseDatos.BaseDeDatos;
 import baseDatos.Escribir;
 import baseDatos.Leer;
 import gestorAplicacion.master.Cine;
-import gestorAplicacion.usuario.Persona;
+import gestorAplicacion.usuario.Cliente;
+import uiMain.opcionesConsola.PantallaInicio;
 
-//Clase donde se ejecutara
+import java.util.Vector;
+
 public class Inicio {
-    public static void main(String[] args) {
+    static{
         Leer.Leer();
+    }
+    public static void main(String[] args) {
+        System.out.println(BaseDeDatos.getClientes().size());
+        System.out.println(BaseDeDatos.getCuentasBancarias().size());
         System.out.println(BaseDeDatos.getCines().size());
-        Consola consola = new Consola();
-        BaseDeDatos baseDeDatos = new BaseDeDatos();
-        baseDeDatos.relacionar();
-        System.out.println(BaseDeDatos.getClientes().get(0).getNombre());
-        //System.out.println(BaseDeDatos.getClientes().size()); //Linea de prueba
-        //System.out.println(BaseDeDatos.getCuentasBancarias().size()); //Linea de prueba
-        //System.out.println(BaseDeDatos.getClientes().get(0).getCuentaBancaria()); //Linea de prueba
         /*Cine cine1 = new Cine("STEWIN la Estacion","Ibague","Calle 60 con Ambala");
         BaseDeDatos.addCine(cine1);
         Cine cine2 = new Cine("STWEIN el Tesoro","Medellin","calle 10");
@@ -34,7 +33,8 @@ public class Inicio {
         BaseDeDatos.addCine(cine7);
         Cine cine8 = new Cine("STWEIN la 65","Medellin","Cl. 15 ##18-274");
         BaseDeDatos.addCine(cine8);*/
-        consola.PantallaInicio();
+        PantallaInicio pantallaInicio = new PantallaInicio();
+        pantallaInicio.ejecutar();
         Escribir.Escribir();
     }
 }

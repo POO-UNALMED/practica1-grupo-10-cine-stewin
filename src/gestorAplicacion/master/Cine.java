@@ -105,7 +105,7 @@ public class Cine implements Serializable {
     public Vector<String> cinesPorCiudad(String ciudad){
         Vector<String> salas = new Vector<String>();
         StringBuilder s = new StringBuilder();
-        s.append("Salas de dice disponibles en la ciudad: \n");
+        s.append("Salas de cine disponibles en la ciudad: \n");
         for(Cine cine: BaseDeDatos.getCines()){
            if(cine.getCiudad().equals(ciudad)){
                salas.add(cine.getNombre());
@@ -113,7 +113,6 @@ public class Cine implements Serializable {
         }
         s.delete(s.length()-1,s.length());
         return salas;
-
     }
 
     @Override

@@ -4,7 +4,6 @@ import gestorAplicacion.master.Cine;
 import gestorAplicacion.master.Sala;
 import gestorAplicacion.usuario.Cliente;
 import gestorAplicacion.usuario.CuentaBancaria;
-import uiMain.Consola;
 
 import java.util.Vector;
 
@@ -12,8 +11,6 @@ public class BaseDeDatos {
     //Atributos de clase****
     private static Vector<Cliente> clientes = new Vector<>(); /*Aca se guardaran todos los clientes
     para su posterior uso*/
-    private static Consola consola; /*Guardamos la consola para invocarla
-    despues para no tener metodos estaticos*/
     private static Vector<CuentaBancaria> cuentasBancarias = new Vector<>(); /*Vector donde tenemos la informacion
     de todas las cuentas bancarias*/
     private static Vector<Cine> cines = new Vector<>(); /*Vector donde se guardaran los cines*/
@@ -22,19 +19,10 @@ public class BaseDeDatos {
 
     //Contructores de clase****
     //Solo me interesa el constructores por defecto (Por el momento)
-    public BaseDeDatos(){
-        Consola.baseDeDatos = this;
-    }
 
     //Metodos GET and SET****
     public static Vector<Cliente> getClientes() {
         return clientes;
-    }
-    public static Consola getConsola() {
-        return BaseDeDatos.consola;
-    }
-    public static void setConsola(Consola consola){
-        BaseDeDatos.consola = consola;
     }
 
     public static Vector<CuentaBancaria> getCuentasBancarias() {
@@ -43,6 +31,10 @@ public class BaseDeDatos {
 
     public static Vector<Cine> getCines() {
         return cines;
+    }
+
+    public static void setClientes(Vector<Cliente> clientes) {
+        BaseDeDatos.clientes = clientes;
     }
 
     //Metodos de clase****
