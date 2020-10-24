@@ -12,7 +12,6 @@ public class Cine implements Serializable {
     private String ciudad;
     private String direccion;
     private int cantidasSalas = 4;
-    private transient Sala[] salas;
 
     private static Vector<Funcion> funciones = new Vector<Funcion>();
 
@@ -24,12 +23,6 @@ public class Cine implements Serializable {
         this.nombre=nombre;
         this.ciudad=ciudad;
         this.direccion=direccion;
-        salas = new Sala[4];
-        for(int i = 0; i < salas.length; i++){
-            String nom = "S" + i + 1;
-            salas[i] = new Sala(nom, this);
-            BaseDeDatos.addSala(salas[i]);
-        }
     }
     //Metodos GET and SET****
     public String getNombre(){
@@ -44,9 +37,7 @@ public class Cine implements Serializable {
     public int getCantidasSalas(){
         return cantidasSalas;
     }
-    public Sala[] getSalas(){
-        return salas;
-    }
+
     public Vector<String> getCiudades() {
         return ciudades;
     }
@@ -102,17 +93,18 @@ public class Cine implements Serializable {
     }
 
     //Metodo que me muestra todas las salas de cine de la ciudad elegida --
-    public Vector<String> cinesPorCiudad(String ciudad){
-        Vector<String> salas = new Vector<String>();
+    public String cinesPorCiudad(String ciudad){
         StringBuilder s = new StringBuilder();
-        s.append("Salas de cine disponibles en la ciudad: \n");
+        s.append("Salas de cine en la ciudad seleccionada: \n");
+        int contador = 1;
         for(Cine cine: BaseDeDatos.getCines()){
            if(cine.getCiudad().equals(ciudad)){
-               salas.add(cine.getNombre());
+               s.append(contador +". ").append(cine.getNombre()).append("\n");
            }
+           contador += 1;
         }
         s.delete(s.length()-1,s.length());
-        return salas;
+        return (s.toString());
     }
 
     @Override

@@ -27,12 +27,8 @@ public class IngresoUsuario implements OpcionConsola{
                 System.out.println("En que ciudad desea ver nuestras salas disponibles: ");
                 opcion = dato.nextInt();
                 System.out.println(separador);
-                Vector<String> salasXCiudad = cine.cinesPorCiudad(cine.getCiudades().get(opcion-1));
-                int contador = 1;
-                for(String sala : salasXCiudad){
-                    System.out.println(contador+". "+sala);
-                    contador += 1;
-                }
+                String salasXCiudad = cine.cinesPorCiudad(cine.getCiudades().get(opcion-1));
+                System.out.println(salasXCiudad);
                 //Aca voy ////////////////////////////////
         }
     }
