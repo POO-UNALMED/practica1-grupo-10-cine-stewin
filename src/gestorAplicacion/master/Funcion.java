@@ -7,13 +7,13 @@ public class Funcion {
     private String nombre;
     private int numeroFuncion;
     private Calendar fecha;
-    private Sala sala;
+    private int sala;
     private boolean estado;
     private int puestos[] = new int[20];
     //private int capacidad;
 
     //Constructores de clase****
-    protected Funcion(String nombre, int cantidadFunciones,int numeroFuncion,Sala sala, boolean estado){
+    protected Funcion(String nombre,int numeroFuncion,int sala, boolean estado){
         this.nombre=nombre;
         this.numeroFuncion=numeroFuncion;
         this.sala=sala;

@@ -20,7 +20,7 @@ public class UsuarioRegistrado implements OpcionConsola{
         identificacion = dato.nextInt();
         dato.nextLine();
         System.out.println(separador);
-        if(cliente.ComprobarRegistro(identificacion)){
+        if(cliente.comprobarRegistro(identificacion)){
             System.out.println("          Ingreso satisfactorio");
             System.out.println("                Bienvenido");
             System.out.println(separador);

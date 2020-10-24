@@ -34,7 +34,7 @@ public class Empleado extends Persona {
     		return "funcion ya iniciada";
 		}
 	}
-	private void ModPuntos(Cliente cliente, int puntos){
+	private void modPuntos(Cliente cliente, int puntos){
     	cliente.getCuentaPuntos().agregarpuntos(puntos);
 	}
 	private String consultarFuncion(Funcion funcion){

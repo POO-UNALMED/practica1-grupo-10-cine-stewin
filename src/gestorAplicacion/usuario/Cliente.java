@@ -51,7 +51,7 @@ public class Cliente extends Persona{
     //Metodos de clase****
 
     //Metodo que comprueba la identificacion/contraseña para entrar
-    public boolean ComprobarRegistro(int identificacion) {
+    public boolean comprobarRegistro(int identificacion) {
         boolean confirmaContrasenia = false;
         for(Cliente cliente: BaseDeDatos.getClientes()){
             if(cliente.getIdentificacion() == identificacion){
@@ -62,7 +62,7 @@ public class Cliente extends Persona{
         return confirmaContrasenia;
     }
     //Metodo para registrar clientes
-    public static void RegistarCliente(int identificacion, String nombre, String correo, String direccion) {
+    public static void registarCliente(int identificacion, String nombre, String correo, String direccion) {
         Cliente a = new Cliente(identificacion, nombre, correo, direccion);
         CuentaBancaria b = new CuentaBancaria(a);
         a.setCuentaBancaria(b);

@@ -1,7 +1,6 @@
 package baseDatos;
 
 import gestorAplicacion.master.Cine;
-import gestorAplicacion.master.Sala;
 import gestorAplicacion.usuario.Cliente;
 import gestorAplicacion.usuario.CuentaBancaria;
 
