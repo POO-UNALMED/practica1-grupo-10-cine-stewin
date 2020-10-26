@@ -12,7 +12,7 @@ import java.util.Vector;
 public class Cliente extends Persona{
     //Atributos de clase
     private CuentaPuntos cuentaPuntos;
-    private Vector<Reserva> cartera = new Vector<Reserva>();
+    public transient Vector<Reserva> cartera = new Vector<Reserva>();
     private transient static Cliente clienteActual; /*Este atributo lo usaremos para una vez se ingresa como cliente o empleado,
      se tenga el indice del vector en el cual estara*/
 
@@ -87,5 +87,19 @@ public class Cliente extends Persona{
     }
     public void agregarReserva(Reserva reserva){
         cartera.add(reserva);
+    }
+
+    public String consultarReservas() {
+        StringBuilder s = new StringBuilder();
+        if(this.cartera.size() == 0){
+            s.append("El usuario no tiene reservas activas");
+        }else{
+            s.append("Reservas activas del usuario: \n");
+            for(Reserva reserva : this.cartera){
+                s.append(reserva.toString());
+                s.append("\n");
+            }
+        }
+        return s.toString();
     }
 }

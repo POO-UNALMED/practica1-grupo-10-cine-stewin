@@ -10,11 +10,12 @@ import java.util.Vector;
 public class IngresoUsuario implements OpcionConsola{
     Cine cine = new Cine();
     MostrarCine mostrarCine = new MostrarCine();
+    ConsultarReservas consultarReservas = new ConsultarReservas();
     int opcion;
     StringBuilder mensaje = new StringBuilder();
     {
         mensaje.append("1. Comprar boletos\n")
-                .append("2. Otra opcion\n")
+                .append("2. Consultar Reservas\n")
                 .append("3. Otra opcion\n")
                 .append(separador);
     }
@@ -26,15 +27,8 @@ public class IngresoUsuario implements OpcionConsola{
         switch(opcion){
             case 1:
                 mostrarCine.ejecutar();
-
-                /*
-                opcion = dato.nextInt();
-                System.out.println(separador);
-                Vector<Funcion> dia =cine.funcionesDelDia(salasXCiudad.get(opcion-1),0);
-                System.out.println(cine.funcionesDelDia(dia));
-                System.out.println(separador);
-
-                 */
+            case 2:
+                consultarReservas.ejecutar();
         }
     }
 

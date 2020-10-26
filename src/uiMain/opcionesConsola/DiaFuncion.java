@@ -64,8 +64,6 @@ public class DiaFuncion implements OpcionConsola{
             System.out.println(mensajeVolver);
             opcion = dato.nextInt();
             volver(opcion);
-        }else{
-
         }
     }
 
@@ -73,6 +71,7 @@ public class DiaFuncion implements OpcionConsola{
     public void volver(int opcion) {
         if(opcion == 1){
             Inicio.main(null);
+            System.exit(0);
         }else{
             salir.ejecutar();
         }

@@ -12,9 +12,6 @@ public class Salir implements OpcionConsola{
                 .append(separador);
         System.out.println(mensaje.toString());
         Escribir.Escribir();
-        for(Cliente cliente : BaseDeDatos.getClientes()){
-            System.out.println(cliente.getNombre());
-        }
         System.exit(1);
     }
     @Override

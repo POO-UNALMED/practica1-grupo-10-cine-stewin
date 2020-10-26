@@ -4,24 +4,28 @@ import gestorAplicacion.usuario.Cliente;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Random;
 
 public class Reserva implements Serializable {
     // Attributes.
-    private int codigoReserva;
+    private int codigo;
+    private int codigoPersona;
     private String persona;
     private int numeroFuncion;
     private String nombreFuncion;
     private LocalDateTime fecha;
     private int numeroAsientos;
+    private int contador = 0;
 
     // Constructor.
     public Reserva() {
-
+        this.codigo = contador;
+        contador++;
     }
     public Reserva(Cliente cliente,Funcion funcion,int i){
         this();
-        this.codigoReserva = cliente.getID();
+        this.codigoPersona = cliente.getID();
         this.persona = cliente.getNombre();
         this.numeroFuncion = funcion.getNumeroFuncion();
         this.nombreFuncion = funcion.getNombre();
@@ -31,11 +35,11 @@ public class Reserva implements Serializable {
     // Getters.
 
     public int getCodigoReserva() {
-        return codigoReserva;
+        return codigoPersona;
     }
 
     public void setCodigoReserva(int codigoReserva) {
-        this.codigoReserva = codigoReserva;
+        this.codigoPersona = codigoReserva;
     }
 
     public String getPersona() {
@@ -85,13 +89,7 @@ public class Reserva implements Serializable {
 
     @Override
     public String toString() {
-        return "Reserva{" +
-                "codigoReserva=" + codigoReserva +
-                ", persona=" + persona +
-                ", numeroFuncion=" + numeroFuncion +
-                ", nombreFuncion='" + nombreFuncion + '\'' +
-                ", fecha=" + fecha +
-                ", numeroAsientos=" + numeroAsientos +
-                '}';
+        return "Reserva # " + codigo + ", " + numeroAsientos + " asientos para la funcion "
+                + nombreFuncion + " el " + fecha.format(DateTimeFormatter.ofPattern("d/M/yyyy H:mm"));
     }
 }

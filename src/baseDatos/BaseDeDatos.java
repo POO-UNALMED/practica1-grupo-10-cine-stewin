@@ -66,13 +66,18 @@ public class BaseDeDatos {
 
     //Metodo que relaciona todos los atributos(Cliente con cuentaBancaria)
     public static void relacionar(){
+        for(Cliente cliente : clientes){
+            cliente.cartera = new Vector<Reserva>();
+        }
         for(int i =0; i <BaseDeDatos.getClientes().size();i++){
             //Al cliente i lo asocio a la cuenta i
             clientes.get(i).setCuentaBancaria(cuentasBancarias.get(i));
             //A la cuenta i la asocio al cliente i
             cuentasBancarias.get(i).setTitular(clientes.get(i));
-            for(Reserva reserva: reservas){
-                clientes.get(reserva.getCodigoReserva()).agregarReserva(reserva);
+            if(reservas.size() != 0){
+                for(Reserva reserva: reservas){
+                    clientes.get(reserva.getCodigoReserva()).agregarReserva(reserva);
+                }
             }
         }
     }
