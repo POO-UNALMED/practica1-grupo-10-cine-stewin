@@ -1,72 +1,76 @@
 package gestorAplicacion.master;
 
-import java.util.Calendar;
+import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
-public class Funcion {
+public class Funcion implements Serializable {
     //Atributos de clase
     private String nombre;
     private int numeroFuncion;
-    private Calendar fecha;
+    private LocalDateTime fecha;
     private int sala;
     private boolean estado;
     private int puestos[] = new int[20];
+    static int numeroFuncionn = 0;
+    private int precio = 20000;
     //private int capacidad;
 
     //Constructores de clase****
-    protected Funcion(String nombre,int numeroFuncion,int sala, boolean estado){
-        this.nombre=nombre;
-        this.numeroFuncion=numeroFuncion;
-        this.sala=sala;
-        this.estado=estado;
-        //Cine.agregarFuncion(this);
+    public Funcion() {
+        this.numeroFuncion=numeroFuncionn;
+        numeroFuncionn += 1;
+    }
 
+    public Funcion(int hora) {
+        this();
+        LocalDate hoy = LocalDate.now();
+        int dia = hoy.getDayOfMonth();
+        int mes = hoy.getMonthValue();
+        int año = hoy.getYear();
+        this.fecha = LocalDateTime.of(año, mes,dia,hora,0);
+    }
+
+    public Funcion(String nombre,int sala,int hora){
+        this(hora);
+        this.nombre=nombre;
+        this.sala=sala;
     }
     //Metodos GET and SET****
-    public String getNombre(){
-        return nombre;
-    }
-    //public int getPuestos(){
-      //  return puestos;
-    //}
-    public int getNumeroFuncion(){
-        return numeroFuncion;
-    }
-    public Calendar getFecha(){
-        return fecha;
-    }
-    /*public Cine getSala(){
+
+    public int getSala() {
         return sala;
-    }*/
-    public boolean isEstado(){
-        return estado;
     }
 
-    protected void setNombre(String nombre){
-        this.nombre=nombre;
+    public void setSala(int sala) {
+        this.sala = sala;
     }
-    /*protected void setPuestos(int puestos){
-        this.puestos=puestos;
-    }*/
-    protected void setNumeroFuncion(int numeroFuncion){
-        this.numeroFuncion=numeroFuncion;
+
+    public LocalDateTime getFecha() {
+        return fecha;
     }
-    protected void setFecha(Calendar fecha){
-        this.fecha=fecha;
+
+    public void setFecha(LocalDateTime fecha) {
+        this.fecha = fecha;
     }
-    /*protected void setSala(Cine sala){
-        this.sala=sala;
-    }*/
-    protected void setEstado(boolean estado){
-        this.estado=estado;
+
+    public int getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(int precio) {
+        this.precio = precio;
     }
 
     //Metodos de clase****
-    protected String estadoFuncion(){
-        if(!estado){
-            return "Sin iniciar";
-        }
-        else{
-            return "Ya iniciada";
-        }
+    public void sumarFecha(int dia){
+        this.fecha = this.fecha.plusDays(dia);
+    }
+
+    @Override
+    public String toString() {
+        return "Funcion: " + this.nombre + ", a las " + this.fecha.format(DateTimeFormatter.ofPattern("H:mm, ")) + "valor de: " + this.precio;
     }
 }

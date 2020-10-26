@@ -1,15 +1,19 @@
 package uiMain.opcionesConsola;
 
+import baseDatos.BaseDeDatos;
 import gestorAplicacion.master.Cine;
+import gestorAplicacion.master.Empleado;
+import gestorAplicacion.master.Funcion;
 
 import java.util.Vector;
 
 public class IngresoUsuario implements OpcionConsola{
     Cine cine = new Cine();
+    MostrarCine mostrarCine = new MostrarCine();
     int opcion;
     StringBuilder mensaje = new StringBuilder();
     {
-        mensaje.append("1. Consultar salas de cine en el pais\n")
+        mensaje.append("1. Comprar boletos\n")
                 .append("2. Otra opcion\n")
                 .append("3. Otra opcion\n")
                 .append(separador);
@@ -21,15 +25,16 @@ public class IngresoUsuario implements OpcionConsola{
         opcion = dato.nextInt();
         switch(opcion){
             case 1:
-                System.out.println(separador);
-                System.out.println(cine.consultarCines());
-                System.out.println(separador);
-                System.out.println("En que ciudad desea ver nuestras salas disponibles: ");
+                mostrarCine.ejecutar();
+
+                /*
                 opcion = dato.nextInt();
                 System.out.println(separador);
-                String salasXCiudad = cine.cinesPorCiudad(cine.getCiudades().get(opcion-1));
-                System.out.println(salasXCiudad);
-                //Aca voy ////////////////////////////////
+                Vector<Funcion> dia =cine.funcionesDelDia(salasXCiudad.get(opcion-1),0);
+                System.out.println(cine.funcionesDelDia(dia));
+                System.out.println(separador);
+
+                 */
         }
     }
 

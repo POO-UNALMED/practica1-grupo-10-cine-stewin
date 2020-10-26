@@ -1,10 +1,13 @@
 package gestorAplicacion.usuario;
 
 import baseDatos.BaseDeDatos;
+import gestorAplicacion.master.Cine;
+import gestorAplicacion.master.Funcion;
 import gestorAplicacion.master.Reserva;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Vector;
 
 public class Cliente extends Persona{
     //Atributos de clase
@@ -50,28 +53,20 @@ public class Cliente extends Persona{
 
     //Metodos de clase****
 
-    //Metodo que comprueba la identificacion/contraseña para entrar
-    public boolean comprobarRegistro(int identificacion) {
-        boolean confirmaContrasenia = false;
-        for(Cliente cliente: BaseDeDatos.getClientes()){
-            if(cliente.getIdentificacion() == identificacion){
-                confirmaContrasenia = true;
-                Cliente.setClienteActual(cliente);
-            }
-        }
-        return confirmaContrasenia;
-    }
-    //Metodo para registrar clientes
-    public static void registarCliente(int identificacion, String nombre, String correo, String direccion) {
-        Cliente a = new Cliente(identificacion, nombre, correo, direccion);
-        CuentaBancaria b = new CuentaBancaria(a);
-        a.setCuentaBancaria(b);
-        //b.setTitular(a); no es necesario ya que en la linea 56 se asocia.
-        //Agregar cliente al vector <CLIENTES>
-        BaseDeDatos.addCliente(a);
-        //Agregar la cuenta al vector <CuentasBancarias>
-        BaseDeDatos.addCuentaBancaria(b);
+    public Vector<Funcion> consultarFunciones(int dia, Cine cine){
+        return cine.getFunciones().get(dia);
     }
 
-    // Cliente debe tener un método "reservar" para crear la Reserva y conectarla a una Funcion.
+    public StringBuilder consultarFunciones(Vector<Funcion> funcionesDelDia){
+        int contador = 1;
+        StringBuilder s = new StringBuilder();
+        for(Funcion funcion: funcionesDelDia){
+            s.append(contador+". ")
+                    .append(funcion)
+                    .append("\n");
+            contador++;
+        }
+        s.delete(s.length()-1,s.length());
+        return s;
+    }
 }

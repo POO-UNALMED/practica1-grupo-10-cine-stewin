@@ -1,10 +1,12 @@
 package uiMain.opcionesConsola;
 
+import gestorAplicacion.master.Empleado;
 import gestorAplicacion.usuario.Cliente;
 import uiMain.Inicio;
 
 public class UsuarioRegistrado implements OpcionConsola{
     int opcion;
+    Empleado empleado = new Empleado();
     Cliente cliente = new Cliente();
     Salir salir = new Salir();
     IngresoUsuario ingresoUsuario = new IngresoUsuario();
@@ -20,7 +22,7 @@ public class UsuarioRegistrado implements OpcionConsola{
         identificacion = dato.nextInt();
         dato.nextLine();
         System.out.println(separador);
-        if(cliente.comprobarRegistro(identificacion)){
+        if(empleado.comprobarRegistro(identificacion)){
             System.out.println("          Ingreso satisfactorio");
             System.out.println("                Bienvenido");
             System.out.println(separador);

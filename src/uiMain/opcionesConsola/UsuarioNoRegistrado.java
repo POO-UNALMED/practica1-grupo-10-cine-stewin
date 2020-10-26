@@ -1,4 +1,5 @@
 package uiMain.opcionesConsola;
+import gestorAplicacion.master.Empleado;
 import gestorAplicacion.usuario.Cliente;
 import uiMain.Inicio;
 
@@ -24,7 +25,7 @@ public class UsuarioNoRegistrado implements OpcionConsola{
         System.out.println(separador);
         mensaje.append(separador);
         //Aca debo registrar al usuario en la base de datos
-        Cliente.registarCliente(identificacion, nombre, correo, direccion);
+        Empleado.registarCliente(identificacion, nombre, correo, direccion);
         System.out.println(mensaje.toString());
         //mensaje.setLength(0); --------------- De esta forma puedo borrar lo que esta inscrito en el string
         System.out.println(mensajeVolver);

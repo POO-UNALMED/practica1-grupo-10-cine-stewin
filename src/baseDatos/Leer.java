@@ -1,6 +1,7 @@
 package baseDatos;
 
 import gestorAplicacion.master.Cine;
+import gestorAplicacion.master.Funcion;
 import gestorAplicacion.usuario.Cliente;
 import gestorAplicacion.usuario.CuentaBancaria;
 
@@ -78,6 +79,34 @@ public class Leer {
                 try{
                     while(aux1 != null){
                         BaseDeDatos.addCine((Cine) aux1);
+                        aux1 = objetosCB.readObject();
+                    }
+                }catch(java.io.IOException e){
+
+                }
+                datosCB.close();
+                objetosCB.close();
+            }
+
+        }catch(FileNotFoundException e){
+            e.printStackTrace();
+        }catch(IOException e){
+            e.printStackTrace();
+        }catch(ClassNotFoundException e){
+            e.printStackTrace();
+        }
+
+        //Leemos las funciones de la base de datos
+        try{
+            File funciones = new File(arhivo.getAbsolutePath()+ "/src/baseDatos/temp/funciones.txt");
+            if(funciones.length() != 0){
+                FileInputStream datosCB = new FileInputStream(arhivo.getAbsolutePath()+ "/src/baseDatos/temp/funciones.txt");
+                ObjectInputStream objetosCB = new ObjectInputStream(datosCB);
+
+                Object aux1 = objetosCB.readObject();
+                try{
+                    while(aux1 != null){
+                        BaseDeDatos.addFuncion((Funcion) aux1);
                         aux1 = objetosCB.readObject();
                     }
                 }catch(java.io.IOException e){

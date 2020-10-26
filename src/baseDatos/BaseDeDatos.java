@@ -1,6 +1,7 @@
 package baseDatos;
 
 import gestorAplicacion.master.Cine;
+import gestorAplicacion.master.Funcion;
 import gestorAplicacion.usuario.Cliente;
 import gestorAplicacion.usuario.CuentaBancaria;
 
@@ -13,7 +14,7 @@ public class BaseDeDatos {
     private static Vector<CuentaBancaria> cuentasBancarias = new Vector<>(); /*Vector donde tenemos la informacion
     de todas las cuentas bancarias*/
     private static Vector<Cine> cines = new Vector<>(); /*Vector donde se guardaran los cines*/
-
+    private static Vector<Funcion> funciones = new Vector<>(); /*Vector donde se guardaran las funciones*/
 
     //Contructores de clase****
     //Solo me interesa el constructores por defecto (Por el momento)
@@ -31,8 +32,8 @@ public class BaseDeDatos {
         return cines;
     }
 
-    public static void setClientes(Vector<Cliente> clientes) {
-        BaseDeDatos.clientes = clientes;
+    public static Vector<Funcion> getFunciones() {
+        return funciones;
     }
 
     //Metodos de clase****
@@ -48,9 +49,12 @@ public class BaseDeDatos {
     public static void addCine(Cine cine){
         cines.add(cine);
     }
+    public static void addFuncion(Funcion funcion){
+        funciones.add(funcion);
+    }
 
     //Metodo que relaciona todos los atributos(Cliente con cuentaBancaria)
-    public void relacionar(){
+    public static void relacionar(){
         for(int i =0; i <BaseDeDatos.getClientes().size();i++){
             //Al cliente i lo asocio a la cuenta i
             clientes.get(i).setCuentaBancaria(cuentasBancarias.get(i));
