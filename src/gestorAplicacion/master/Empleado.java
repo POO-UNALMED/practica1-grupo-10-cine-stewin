@@ -3,6 +3,7 @@ package gestorAplicacion.master;
 import baseDatos.BaseDeDatos;
 import gestorAplicacion.usuario.*;
 
+import java.time.LocalDateTime;
 import java.util.Vector;
 
 public class Empleado extends Persona {
@@ -39,6 +40,9 @@ public class Empleado extends Persona {
                 }
                 for(Integer numeroFuncion: numeroAleatorio){
                     funcioness.add(new Funcion(nombreFunciones.get(numeroFuncion),numeroFuncion%4,(numeroFuncion*14)%23));
+                }
+                for(Funcion funcion: funcioness){
+
                 }
                 cine.funciones.add(funcioness);
             }
@@ -82,7 +86,8 @@ public class Empleado extends Persona {
     //Metodo que me consulta las salas de cine en el pais ----------
     public String consultarCines(){
         StringBuilder s = new StringBuilder();
-        s.append("Ciudades en las cuales tenemos cobertura: \n");
+        s.append("     Ciudades en las cuales tenemos cobertura: \n");
+        s.append("    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯\n");
         for(Cine cine: BaseDeDatos.getCines()){
             if(!(Cine.getCiudades().contains(cine.getCiudad()))){
                 Cine.getCiudades().add(cine.getCiudad());

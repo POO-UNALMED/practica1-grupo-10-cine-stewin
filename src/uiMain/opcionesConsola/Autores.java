@@ -9,6 +9,7 @@ public class Autores implements OpcionConsola{
     {
         mensaje.append(separador + "\n")
                 .append("             Proyecto realizado por\n")
+                .append("           ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯\n")
                 .append("Molano Gamarra Kevin Andres\n") //No me se sus nombres completos, asi que terminen de completarlos
                 .append("Moreno Gelier\n")               //En orden alfabetico
                 .append("Ospina Amilder\n")
@@ -26,6 +27,7 @@ public class Autores implements OpcionConsola{
     public void volver(int opcion) {
         if(opcion == 1){
             Inicio.main(null);
+            System.exit(0);
         }else{
             salir.ejecutar();
         }

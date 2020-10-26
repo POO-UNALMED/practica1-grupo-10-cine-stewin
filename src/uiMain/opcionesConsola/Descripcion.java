@@ -9,6 +9,7 @@ public class Descripcion implements OpcionConsola{
     {
         mensaje.append(separador+ "\n")
                 .append("                 Cine STEWIN\n")
+                .append("               ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯"+"\n")
                 .append(" Bienvendios! esta aplicacion le permitira hacer \n")
                 .append(" una gestion completa de los servicios que presta\n")
                 .append(" un cine a travez de las diferentes opciones que \n")
@@ -26,6 +27,7 @@ public class Descripcion implements OpcionConsola{
     public void volver(int opcion) {
         if(opcion == 1){
             Inicio.main(null);
+            System.exit(1);
         }else{
             salir.ejecutar();
         }

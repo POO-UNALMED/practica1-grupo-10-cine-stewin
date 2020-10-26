@@ -20,7 +20,7 @@ public class Inicio {
     }
     public static void main(String[] args) {
         BaseDeDatos.relacionar();
-
+        /*
         System.out.println("Clientes en la base de datos "+BaseDeDatos.getClientes().size());
         System.out.println("Cuentas bancarias en la base de datos "+BaseDeDatos.getCuentasBancarias().size());
         System.out.println("Cines en la base de datos "+BaseDeDatos.getCines().size());
@@ -34,7 +34,7 @@ public class Inicio {
         System.out.println(BaseDeDatos.getCines().get(0).getFunciones().get(0).get(2).getSala());
         System.out.println(BaseDeDatos.getCines().get(0).getFunciones());
         System.out.println(BaseDeDatos.getReservas().size());
-
+        */
         //System.out.println(BaseDeDatos.getClientes().get(0).getID());
 
         //System.out.println(BaseDeDatos.getCines().get(0).getFunciones().size());

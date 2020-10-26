@@ -8,7 +8,7 @@ public class Salir implements OpcionConsola{
     StringBuilder mensaje = new StringBuilder();
     @Override
     public void ejecutar() {
-        mensaje.append(separador+ "\n").append("Se ha finalizado sesion\n")
+        mensaje.append(separador+ "\n").append("              Se ha finalizado sesion\n")
                 .append(separador);
         System.out.println(mensaje.toString());
         Escribir.Escribir();

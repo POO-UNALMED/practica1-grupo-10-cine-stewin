@@ -1,4 +1,5 @@
 package gestorAplicacion.master;
+import baseDatos.BaseDeDatos;
 import gestorAplicacion.usuario.Cliente;
 
 import java.io.Serializable;
@@ -16,12 +17,10 @@ public class Reserva implements Serializable {
     private String nombreFuncion;
     private LocalDateTime fecha;
     private int numeroAsientos;
-    private int contador = 0;
 
     // Constructor.
     public Reserva() {
-        this.codigo = contador;
-        contador++;
+        this.codigo = BaseDeDatos.getReservas().size();
     }
     public Reserva(Cliente cliente,Funcion funcion,int i){
         this();
@@ -89,7 +88,8 @@ public class Reserva implements Serializable {
 
     @Override
     public String toString() {
-        return "Reserva # " + codigo + ", " + numeroAsientos + " asientos para la funcion "
-                + nombreFuncion + " el " + fecha.format(DateTimeFormatter.ofPattern("d/M/yyyy H:mm"));
+        return "Reserva # " + codigo + ", " + numeroAsientos + " asientos para la funcion: \n"
+                + "     "+nombreFuncion + " \n"
+                + "     el "+fecha.format(DateTimeFormatter.ofPattern("d/M/yyyy H:mm"));
     }
 }

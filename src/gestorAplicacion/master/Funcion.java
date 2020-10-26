@@ -1,5 +1,7 @@
 package gestorAplicacion.master;
 
+import baseDatos.BaseDeDatos;
+
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -155,10 +157,22 @@ public class Funcion implements Serializable {
         String b;
         a = s.substring(0,(s.length()/2)+1);
         b = s.substring((s.length()/2),s.length());
-        return  "Asientos disponibles en la funcion: \n"
+        return  "       Asientos disponibles en la funcion: \n"+
+                "      ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯\n"+
+                "             ʭLa pantalla esta acaʭ \n"
                 + a + "\n"
                 + "---------------------------------------------------\n"
                 + "---------------------------------------------------\n"
                 +  b ;
     }
+
+    public void estado(){
+        LocalDateTime hoy = LocalDateTime.now();
+        if(this.getFecha().compareTo(hoy) == -1){
+            this.setEstado(false);
+        }else{
+            this.setEstado(true);
+        }
+    }
+
 }

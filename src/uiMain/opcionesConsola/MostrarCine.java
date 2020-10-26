@@ -21,7 +21,8 @@ public class MostrarCine implements OpcionConsola{
         System.out.println("En que ciudad desea ver nuestras salas disponibles: ");
         opcion = dato.nextInt();
         System.out.println(separador);
-        System.out.println("Salas de cine disponibles en la ciudad:");
+        System.out.println("      Salas de cine disponibles en la ciudad:");
+        System.out.println("    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯  ");
         Vector<Cine> salasXCiudad = empleado.cinesPorCiudad(Cine.getCiudades().get(opcion-1));
         System.out.println(empleado.cinesPorCiudad(salasXCiudad));  /////
         System.out.println(separador);
@@ -29,7 +30,8 @@ public class MostrarCine implements OpcionConsola{
         opcion = dato.nextInt();
         System.out.println(separador);
         DiaFuncion.salaActiva = salasXCiudad.get(opcion-1);
-        System.out.println("Ha elegio el cine " + salasXCiudad.get(opcion-1).getNombre());
+        System.out.println("       Ha elegio el cine " + salasXCiudad.get(opcion-1).getNombre());
+        System.out.println("      ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯");
         diaFuncion.ejecutar();
         /*
         Vector<Funcion> dia =cine.funcionesDelDia(salasXCiudad.get(opcion-1),0);

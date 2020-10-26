@@ -37,7 +37,8 @@ public class DiaFuncion implements OpcionConsola{
         System.out.print("Elija el dia que desea reservar: ");
         opcion = dato.nextInt();
         System.out.println(separador);
-        System.out.println("Funciones del dia");
+        System.out.println("               Funciones del dia");
+        System.out.println("              ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯");
         Vector<Funcion> funcionesDia = clienteActual.consultarFunciones(opcion,salaActiva);
         System.out.println(clienteActual.consultarFunciones(funcionesDia));
         System.out.println(separador);
@@ -59,7 +60,7 @@ public class DiaFuncion implements OpcionConsola{
             }
             clienteActual.reservarPuestos(puestos,funcion);
             System.out.println(separador);
-            System.out.println("Reserva hecha satisfactoriamente!!!");
+            System.out.println("       Reserva hecha satisfactoriamente!!!");
             System.out.println(separador);
             System.out.println(mensajeVolver);
             opcion = dato.nextInt();

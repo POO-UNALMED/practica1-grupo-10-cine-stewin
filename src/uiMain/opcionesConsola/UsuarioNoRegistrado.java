@@ -8,7 +8,7 @@ public class UsuarioNoRegistrado implements OpcionConsola{
     Salir salir = new Salir();
     StringBuilder mensaje = new StringBuilder();
     {
-        mensaje.append("Usuario registrado satisfactoriamente\n");
+        mensaje.append("       Usuario registrado satisfactoriamente\n");
     }
     @Override
     public void ejecutar() {
@@ -36,6 +36,7 @@ public class UsuarioNoRegistrado implements OpcionConsola{
     public void volver(int opcion) {
         if(opcion == 1){
             Inicio.main(null);
+            System.exit(0);
         }else{
             salir.ejecutar();
         }
