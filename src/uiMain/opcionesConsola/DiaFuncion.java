@@ -17,6 +17,7 @@ public class DiaFuncion implements OpcionConsola{
     LocalDate fechaHoy = LocalDate.now();
     Empleado empleado = new Empleado();
     Cliente cliente = new Cliente();
+    Funcion funcion = new Funcion();
     {
 
     }
@@ -40,7 +41,9 @@ public class DiaFuncion implements OpcionConsola{
         System.out.print("Elegir una funcion: ");
         opcion = dato.nextInt();
         if(Cliente.getClienteActual().getCuentaBancaria().getSaldo()>= funcionesDia.get(opcion-1).getPrecio()){
-
+            funcionesDia.get(opcion-1).llenarPuestos();
+            System.out.println(separador);
+            System.out.println(funcionesDia.get(opcion-1).mostrarPuestos());
         }else{
 
         }
