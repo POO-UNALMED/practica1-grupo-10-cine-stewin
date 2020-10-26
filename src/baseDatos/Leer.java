@@ -2,6 +2,7 @@ package baseDatos;
 
 import gestorAplicacion.master.Cine;
 import gestorAplicacion.master.Funcion;
+import gestorAplicacion.master.Reserva;
 import gestorAplicacion.usuario.Cliente;
 import gestorAplicacion.usuario.CuentaBancaria;
 
@@ -107,6 +108,34 @@ public class Leer {
                 try{
                     while(aux1 != null){
                         BaseDeDatos.addFuncion((Funcion) aux1);
+                        aux1 = objetosCB.readObject();
+                    }
+                }catch(java.io.IOException e){
+
+                }
+                datosCB.close();
+                objetosCB.close();
+            }
+
+        }catch(FileNotFoundException e){
+            e.printStackTrace();
+        }catch(IOException e){
+            e.printStackTrace();
+        }catch(ClassNotFoundException e){
+            e.printStackTrace();
+        }
+
+        //Leemos las reservas de la base de datos
+        try{
+            File reservas = new File(arhivo.getAbsolutePath()+ "/src/baseDatos/temp/reservas.txt");
+            if(reservas.length() != 0){
+                FileInputStream datosCB = new FileInputStream(arhivo.getAbsolutePath()+ "/src/baseDatos/temp/reservas.txt");
+                ObjectInputStream objetosCB = new ObjectInputStream(datosCB);
+
+                Object aux1 = objetosCB.readObject();
+                try{
+                    while(aux1 != null){
+                        BaseDeDatos.addReserva((Reserva) aux1);
                         aux1 = objetosCB.readObject();
                     }
                 }catch(java.io.IOException e){

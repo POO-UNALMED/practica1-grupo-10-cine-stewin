@@ -41,6 +41,43 @@ public class Funcion implements Serializable {
         this.sala=sala;
     }
     //Metodos GET and SET****
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public int getNumeroFuncion() {
+        return numeroFuncion;
+    }
+
+    public void setNumeroFuncion(int numeroFuncion) {
+        this.numeroFuncion = numeroFuncion;
+    }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+
+    public void setPuestos(int[] puestos) {
+        this.puestos = puestos;
+    }
+
+    public static int getNumeroFuncionn() {
+        return numeroFuncionn;
+    }
+
+    public static void setNumeroFuncionn(int numeroFuncionn) {
+        Funcion.numeroFuncionn = numeroFuncionn;
+    }
+
     public int[] getPuestos(){
         return puestos;
     }
@@ -118,9 +155,10 @@ public class Funcion implements Serializable {
         String b;
         a = s.substring(0,(s.length()/2)+1);
         b = s.substring((s.length()/2),s.length());
-        return a + "\n"
+        return  "Asientos disponibles en la funcion: \n"
+                + a + "\n"
                 + "---------------------------------------------------\n"
                 + "---------------------------------------------------\n"
-                +  b + "\n";
+                +  b ;
     }
 }

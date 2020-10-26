@@ -12,7 +12,7 @@ import java.util.Vector;
 public class Cliente extends Persona{
     //Atributos de clase
     private CuentaPuntos cuentaPuntos;
-    private ArrayList<Reserva> cartera = new ArrayList<Reserva>();
+    private Vector<Reserva> cartera = new Vector<Reserva>();
     private transient static Cliente clienteActual; /*Este atributo lo usaremos para una vez se ingresa como cliente o empleado,
      se tenga el indice del vector en el cual estara*/
 
@@ -35,11 +35,11 @@ public class Cliente extends Persona{
         this.cuentaPuntos = cuentaPuntos;
     }
 
-    public ArrayList<Reserva> getCartera() {
+    public Vector<Reserva> getCartera() {
         return cartera;
     }
 
-    public void setCartera(ArrayList<Reserva> cartera) {
+    public void setCartera(Vector<Reserva> cartera) {
         this.cartera = cartera;
     }
 
@@ -68,5 +68,24 @@ public class Cliente extends Persona{
         }
         s.delete(s.length()-1,s.length());
         return s;
+    }
+    public void reservarPuestos(Vector<Integer> puestos, Funcion funcion){
+        for(Integer puesto : puestos){
+            if(funcion.getPuestos()[puesto] != 0){
+                funcion.getPuestos()[puesto] = 0;
+            }
+        }
+        int saldoActual = this.getCuentaBancaria().getSaldo();
+        this.getCuentaBancaria().setSaldo(saldoActual-(funcion.getPrecio()*puestos.size()));
+        crearReserva(this,funcion,puestos.size());
+    }
+
+    public void crearReserva(Cliente cliente,Funcion funcion, int numeroPuestos){
+        Reserva reserva = new Reserva(cliente,funcion,numeroPuestos);
+        agregarReserva(reserva);
+        BaseDeDatos.addReserva(reserva);
+    }
+    public void agregarReserva(Reserva reserva){
+        cartera.add(reserva);
     }
 }

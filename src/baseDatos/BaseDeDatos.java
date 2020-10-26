@@ -2,6 +2,7 @@ package baseDatos;
 
 import gestorAplicacion.master.Cine;
 import gestorAplicacion.master.Funcion;
+import gestorAplicacion.master.Reserva;
 import gestorAplicacion.usuario.Cliente;
 import gestorAplicacion.usuario.CuentaBancaria;
 
@@ -15,11 +16,18 @@ public class BaseDeDatos {
     de todas las cuentas bancarias*/
     private static Vector<Cine> cines = new Vector<>(); /*Vector donde se guardaran los cines*/
     private static Vector<Funcion> funciones = new Vector<>(); /*Vector donde se guardaran las funciones*/
+    private static Vector<Reserva> reservas = new Vector<>(); /*Vector donde se guardan las reservas*/
 
     //Contructores de clase****
     //Solo me interesa el constructores por defecto (Por el momento)
 
     //Metodos GET and SET****
+
+
+    public static Vector<Reserva> getReservas() {
+        return reservas;
+    }
+
     public static Vector<Cliente> getClientes() {
         return clientes;
     }
@@ -52,6 +60,9 @@ public class BaseDeDatos {
     public static void addFuncion(Funcion funcion){
         funciones.add(funcion);
     }
+    public static void addReserva(Reserva reserva){
+        reservas.add(reserva);
+    }
 
     //Metodo que relaciona todos los atributos(Cliente con cuentaBancaria)
     public static void relacionar(){
@@ -60,6 +71,11 @@ public class BaseDeDatos {
             clientes.get(i).setCuentaBancaria(cuentasBancarias.get(i));
             //A la cuenta i la asocio al cliente i
             cuentasBancarias.get(i).setTitular(clientes.get(i));
+            for(Reserva reserva: reservas){
+                clientes.get(reserva.getCodigoReserva()).agregarReserva(reserva);
+            }
         }
     }
+
+
 }

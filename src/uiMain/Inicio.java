@@ -33,6 +33,9 @@ public class Inicio {
         System.out.println(BaseDeDatos.getCines().get(0).getFunciones().get(2).get(1).getSala());
         System.out.println(BaseDeDatos.getCines().get(0).getFunciones().get(0).get(2).getSala());
         System.out.println(BaseDeDatos.getCines().get(0).getFunciones());
+        System.out.println(BaseDeDatos.getReservas().size());
+
+        //System.out.println(BaseDeDatos.getClientes().get(0).getID());
 
         //System.out.println(BaseDeDatos.getCines().get(0).getFunciones().size());
         /*
