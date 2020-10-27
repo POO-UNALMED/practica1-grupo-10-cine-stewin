@@ -71,8 +71,14 @@ public class Cliente extends Persona {
                 contador++;
             }
         }
-        s.delete(s.length() - 1, s.length());
-        return s;
+        if(s.length()>0){
+            s.delete(s.length() - 1, s.length());
+            return s;
+        }else{
+            s.append("No hay funciones disponibles el dia de hoy");
+            return s;
+        }
+
     }
 
     public void reservarPuestos(Vector<Integer> puestos, Funcion funcion) {
