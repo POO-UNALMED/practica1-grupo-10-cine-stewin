@@ -127,4 +127,9 @@ public class Empleado extends Persona {
         s.delete(s.length() - 1, s.length());
         return s.toString();
     }
+    public String registrarCine(String nombre,String ciudad,String direccion){
+        Cine cine = new Cine(nombre,ciudad,direccion);
+        BaseDeDatos.addCine(cine);
+        return "            Cine agregado correctamente";
+    }
 }

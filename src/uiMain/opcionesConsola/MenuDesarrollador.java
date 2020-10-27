@@ -4,7 +4,7 @@ public class MenuDesarrollador implements OpcionConsola{
     StringBuilder mensaje = new StringBuilder();
     int opcion;
     {
-        mensaje.append("1. Agergar un cine\n");
+        mensaje.append("1. Añadir funcion\n");
         mensaje.delete(mensaje.length() -1,mensaje.length());
     }
     @Override
@@ -14,8 +14,13 @@ public class MenuDesarrollador implements OpcionConsola{
         System.out.println(separador);
         System.out.print("Ingrese la opcion deseada: ");
         opcion = dato.nextInt();
+        dato.nextLine();
         System.out.println(separador);
-
+        switch(opcion) {
+            case 1:
+                //registrarCine.ejecutar();
+                break;
+        }
     }
 
     @Override
