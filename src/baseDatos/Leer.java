@@ -5,6 +5,7 @@ import gestorAplicacion.master.Funcion;
 import gestorAplicacion.master.Reserva;
 import gestorAplicacion.usuario.Cliente;
 import gestorAplicacion.usuario.CuentaBancaria;
+import gestorAplicacion.usuario.CuentaPuntos;
 
 import java.io.*;
 
@@ -136,6 +137,34 @@ public class Leer {
                 try {
                     while (aux1 != null) {
                         BaseDeDatos.addReserva((Reserva) aux1);
+                        aux1 = objetosCB.readObject();
+                    }
+                } catch (java.io.IOException e) {
+
+                }
+                datosCB.close();
+                objetosCB.close();
+            }
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        //Leemos las cuentas puntos de la base de datos
+        try {
+            File cuentasPuntos = new File(arhivo.getAbsolutePath() + "/src/baseDatos/temp/cuentasPuntos.txt");
+            if (cuentasPuntos.length() != 0) {
+                FileInputStream datosCB = new FileInputStream(arhivo.getAbsolutePath() + "/src/baseDatos/temp/cuentasPuntos.txt");
+                ObjectInputStream objetosCB = new ObjectInputStream(datosCB);
+
+                Object aux1 = objetosCB.readObject();
+                try {
+                    while (aux1 != null) {
+                        BaseDeDatos.addCuentaPuntos((CuentaPuntos) aux1);
                         aux1 = objetosCB.readObject();
                     }
                 } catch (java.io.IOException e) {

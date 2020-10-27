@@ -5,6 +5,7 @@ import gestorAplicacion.master.Funcion;
 import gestorAplicacion.master.Reserva;
 import gestorAplicacion.usuario.Cliente;
 import gestorAplicacion.usuario.CuentaBancaria;
+import gestorAplicacion.usuario.CuentaPuntos;
 
 import java.io.*;
 
@@ -84,6 +85,22 @@ public class Escribir {
                 FileOutputStream fs = new FileOutputStream(fichero.getAbsolutePath() + "/src/baseDatos/temp/reservas.txt");//Creamos el archivo
                 ObjectOutputStream os = new ObjectOutputStream(fs);//Esta clase tiene el método writeObject() que necesitamos
                 for (Reserva i : BaseDeDatos.getReservas()) {
+                    os.writeObject(i);
+                }
+                os.close();//Hay que cerrar siempre el archivo
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        //Guardamos las cuenta puentos en la base de datos
+        if (BaseDeDatos.getCuentasPuntos().size() != 0) {
+            try {
+                FileOutputStream fs = new FileOutputStream(fichero.getAbsolutePath() + "/src/baseDatos/temp/cuentasPuntos.txt");//Creamos el archivo
+                ObjectOutputStream os = new ObjectOutputStream(fs);//Esta clase tiene el método writeObject() que necesitamos
+                for (CuentaPuntos i : BaseDeDatos.getCuentasPuntos()) {
                     os.writeObject(i);
                 }
                 os.close();//Hay que cerrar siempre el archivo

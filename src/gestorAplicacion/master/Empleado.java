@@ -75,11 +75,14 @@ public class Empleado extends Persona {
 
     //Metodo para registrar clientes
     public static void registarCliente(int identificacion, String nombre, String correo, String direccion) {
-        Cliente a = new Cliente(identificacion, nombre, correo, direccion);
-        CuentaBancaria b = new CuentaBancaria(a);
-        a.setCuentaBancaria(b);
-        BaseDeDatos.addCliente(a);
-        BaseDeDatos.addCuentaBancaria(b);
+        Cliente usuario = new Cliente(identificacion, nombre, correo, direccion);
+        CuentaBancaria cuentasBancaria = new CuentaBancaria(usuario);
+        CuentaPuntos cuentaPuntos = new CuentaPuntos(usuario);
+        usuario.setCuentaBancaria(cuentasBancaria);
+        usuario.setCuentaPuntos(cuentaPuntos);
+        BaseDeDatos.addCliente(usuario);
+        BaseDeDatos.addCuentaBancaria(cuentasBancaria);
+        BaseDeDatos.addCuentaPuntos(cuentaPuntos);
     }
 
     /*Metodo el cual se encarga de mostrar todas las ciudades en las cuales hay salas de cine disponibles*/

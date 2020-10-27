@@ -1,24 +1,26 @@
 package gestorAplicacion.usuario;
 
-public class CuentaPuntos {
+import baseDatos.BaseDeDatos;
+
+import java.io.Serializable;
+
+public class CuentaPuntos implements Serializable {
     //Atributos de clase****
-    private int cantidadCuentasPuntos;
     private int numeroCuenta;
-    private Cliente titular;
+    private transient Cliente titular;
     private int puntos;
 
     //Contructores de clase****
-    public CuentaPuntos(int cantidadCP, int numeroCuenta, Cliente titular, int puntos) {
-        cantidadCuentasPuntos = cantidadCP;
-        this.numeroCuenta = numeroCuenta;
+    public CuentaPuntos(){
+        this.numeroCuenta = BaseDeDatos.getCuentasPuntos().size();
+        this.puntos = 10000;
+    }
+    public CuentaPuntos(Cliente titular) {
+        this();
         this.titular = titular;
-        this.puntos = puntos;
     }
 
     //Metodos GET and SET****
-    public int getCantidadCuentasPuntos() {
-        return cantidadCuentasPuntos;
-    }
 
     public int getNumeroCuenta() {
         return numeroCuenta;
@@ -30,10 +32,6 @@ public class CuentaPuntos {
 
     public int getPuntos() {
         return puntos;
-    }
-
-    public void setCantidadCuentasPuntos(int cantidadCuentasPuntos) {
-        this.cantidadCuentasPuntos = cantidadCuentasPuntos;
     }
 
     public void setNumeroCuenta(int numeroCuenta) {
