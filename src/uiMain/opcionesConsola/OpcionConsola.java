@@ -12,6 +12,7 @@ public interface OpcionConsola {
     MostrarCine mostrarCine = new MostrarCine();
     PantallaInicio pantallaInicio = new PantallaInicio();
     Puntos puntos = new Puntos();
+    MenuDesarrollador desarrollador = new MenuDesarrollador();
     Salir salir = new Salir();
     UsuarioNoRegistrado usuarioNoRegistrado = new UsuarioNoRegistrado();
     UsuarioRegistrado usuarioRegistrado = new UsuarioRegistrado();

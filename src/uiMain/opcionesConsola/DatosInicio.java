@@ -24,6 +24,9 @@ public class DatosInicio implements OpcionConsola{
                 descripcion.ejecutar();
                 break;
             case 5:
+                desarrollador.ejecutar();
+                break;
+            case 6:
                 salir.ejecutar();
                 break;
         }
