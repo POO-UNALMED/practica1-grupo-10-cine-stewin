@@ -77,9 +77,7 @@ public class Cliente extends Persona {
 
     public void reservarPuestos(Vector<Integer> puestos, Funcion funcion) {
         for (Integer puesto : puestos) {
-            if (funcion.getPuestos()[puesto] != 0) {
-                funcion.getPuestos()[puesto] = 0;
-            }
+            funcion.getPuestos()[puesto] = 0;
         }
         int saldoActual = this.getCuentaBancaria().getSaldo();
         this.getCuentaBancaria().setSaldo(saldoActual - (funcion.getPrecio() * puestos.size()));

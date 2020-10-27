@@ -46,7 +46,7 @@ public class DiaFuncion implements OpcionConsola{
         opcion = dato.nextInt();
         funcion = funcionesDia.get(opcion-1);
         if(Cliente.getClienteActual().getCuentaBancaria().getSaldo()>= funcion.getPrecio()){
-            funcion.llenarPuestos();
+            //funcion.llenarPuestos();
             System.out.println(separador);
             System.out.println(funcion.mostrarPuestos());
             System.out.println(separador);
