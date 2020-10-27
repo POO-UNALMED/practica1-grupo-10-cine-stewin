@@ -18,47 +18,57 @@ public class Cine implements Serializable {
     public Cine() {
 
     }
-    public Cine(String nombre, String ciudad, String direccion){
-        this.nombre=nombre;
-        this.ciudad=ciudad;
-        this.direccion=direccion;
+
+    public Cine(String nombre, String ciudad, String direccion) {
+        this.nombre = nombre;
+        this.ciudad = ciudad;
+        this.direccion = direccion;
     }
+
     //Metodos GET and SET****
-    public String getNombre(){
+    public String getNombre() {
         return nombre;
     }
-    public String getCiudad(){
+
+    public String getCiudad() {
         return ciudad;
     }
-    public String getDireccion(){
+
+    public String getDireccion() {
         return direccion;
     }
-    public int getCantidasSalas(){
+
+    public int getCantidasSalas() {
         return cantidasSalas;
     }
-    public Vector<Vector<Funcion>> getFunciones(){
+
+    public Vector<Vector<Funcion>> getFunciones() {
         return funciones;
     }
+
     public static Vector<String> getCiudades() {
         return ciudades;
     }
 
-    public void setNombre(String nombre){
-        this.nombre=nombre;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
-    public void setCiudad(String ciudad){
-        this.ciudad=ciudad;
+
+    public void setCiudad(String ciudad) {
+        this.ciudad = ciudad;
     }
-    public void setDireccion(String direccion){
-        this.direccion=direccion;
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
-    public void setCantidasSalas(int cantidadSalas){
-        this.cantidasSalas=cantidadSalas;
+
+    public void setCantidasSalas(int cantidadSalas) {
+        this.cantidasSalas = cantidadSalas;
     }
 
     //Metodos de clase****
     //Metodo que agrega funciones
-    public void addFunciones(Vector<Funcion> funciones){
+    public void addFunciones(Vector<Funcion> funciones) {
         this.funciones.add(funciones);
     }
 

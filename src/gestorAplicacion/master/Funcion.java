@@ -23,7 +23,7 @@ public class Funcion implements Serializable {
 
     //Constructores de clase****
     public Funcion() {
-        this.numeroFuncion=numeroFuncionn;
+        this.numeroFuncion = numeroFuncionn;
         numeroFuncionn += 1;
         llenarPuestos();
     }
@@ -34,13 +34,13 @@ public class Funcion implements Serializable {
         int dia = hoy.getDayOfMonth();
         int mes = hoy.getMonthValue();
         int año = hoy.getYear();
-        this.fecha = LocalDateTime.of(año, mes,dia,hora,0);
+        this.fecha = LocalDateTime.of(año, mes, dia, hora, 0);
     }
 
-    public Funcion(String nombre,int sala,int hora){
+    public Funcion(String nombre, int sala, int hora) {
         this(hora);
-        this.nombre=nombre;
-        this.sala=sala;
+        this.nombre = nombre;
+        this.sala = sala;
     }
     //Metodos GET and SET****
 
@@ -80,7 +80,7 @@ public class Funcion implements Serializable {
         Funcion.numeroFuncionn = numeroFuncionn;
     }
 
-    public int[] getPuestos(){
+    public int[] getPuestos() {
         return puestos;
     }
 
@@ -109,7 +109,8 @@ public class Funcion implements Serializable {
     }
 
     //Metodos de clase****
-    public void sumarFecha(int dia){
+    /*Metodo que se encarga de sumar una cantidad de dias recibidos por parametro a la funcion*/
+    public void sumarFecha(int dia) {
         this.fecha = this.fecha.plusDays(dia);
     }
 
@@ -118,59 +119,63 @@ public class Funcion implements Serializable {
         return "Funcion: " + this.nombre + ", a las " + this.fecha.format(DateTimeFormatter.ofPattern("H:mm, ")) + "valor de: " + this.precio;
     }
 
-    public void llenarPuestos(){
-        for(int i = 0; i <20;i++){
+    /*Metodo que se ejecuta cuando una funcion se crea, el cual se encarga de llenar sus puestos aleatoriamente*/
+    public void llenarPuestos() {
+        for (int i = 0; i < 20; i++) {
             puestos[i] = i;
         }
         Vector<Integer> puestosLlenos = new Vector<Integer>();
         int puestosALlenar;
-        puestosALlenar = (int) Math.floor(Math.random()*30);
-        for(int i=0; i <puestosALlenar; i++){
-            int azar = (int) Math.floor(Math.random()*20);
-            if(!(puestosLlenos.contains(azar))){
+        puestosALlenar = (int) Math.floor(Math.random() * 30);
+        for (int i = 0; i < puestosALlenar; i++) {
+            int azar = (int) Math.floor(Math.random() * 20);
+            if (!(puestosLlenos.contains(azar))) {
                 puestosLlenos.add(azar);
             }
         }
-        for(Integer i: puestosLlenos){
+        for (Integer i : puestosLlenos) {
             puestos[i] = 0;
         }
     }
 
-    public String mostrarPuestos(){
+    /*Metodo que se encarga de mostrar los puestos disponibles al usuario*/
+    public String mostrarPuestos() {
         StringBuilder s = new StringBuilder();
-        for(int w = 0; w < 10; w++){
-            if(puestos[w] != 0){
+        for (int w = 0; w < 10; w++) {
+            if (puestos[w] != 0) {
                 s.append("| 0").append(puestos[w]).append(" ");
-            }else{
+            } else {
                 s.append("| 0").append(puestos[w]).append(" ");
             }
         }
-        for(int e = 10; e < 20; e++){
-            if(puestos[e] != 0){
+        for (int e = 10; e < 20; e++) {
+            if (puestos[e] != 0) {
                 s.append("| ").append(puestos[e]).append(" ");
-            }else{
+            } else {
                 s.append("| 0").append(puestos[e]).append(" ");
             }
         }
         s.append("|");
         String a;
         String b;
-        a = s.substring(0,(s.length()/2)+1);
-        b = s.substring((s.length()/2),s.length());
-        return  "       Asientos disponibles en la funcion: \n"+
-                "      ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯\n"+
+        a = s.substring(0, (s.length() / 2) + 1);
+        b = s.substring((s.length() / 2), s.length());
+        return "       Asientos disponibles en la funcion: \n" +
+                "      ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯\n" +
                 "             ʭLa pantalla esta acaʭ \n"
                 + a + "\n"
                 + "---------------------------------------------------\n"
                 + "---------------------------------------------------\n"
-                +  b ;
+                + b;
     }
 
-    public void estado(){
+    /*Metodo que se muestra el estado de la funcion respecto al dia actual es decir, False si una funcion ya paso
+    o True si una funcion no ha ocurrido*/
+    public void estado() {
         LocalDateTime hoy = LocalDateTime.now();
-        if(this.getFecha().compareTo(hoy) == -1){
+        if (this.getFecha().compareTo(hoy) == -1) {
             this.setEstado(false);
-        }else{
+        } else {
             this.setEstado(true);
         }
     }

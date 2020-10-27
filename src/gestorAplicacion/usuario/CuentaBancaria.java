@@ -17,7 +17,7 @@ public class CuentaBancaria implements Serializable {
         this.saldo = 1000000;
     }
 
-    public CuentaBancaria( Persona titular) {
+    public CuentaBancaria(Persona titular) {
         this();
         this.titular = titular;
     }
@@ -46,7 +46,6 @@ public class CuentaBancaria implements Serializable {
     public void setSaldo(int saldo) {
         this.saldo = saldo;
     }
-
 
 
     //Metodos de clase****

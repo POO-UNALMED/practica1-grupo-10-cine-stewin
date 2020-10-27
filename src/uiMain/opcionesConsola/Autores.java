@@ -11,7 +11,7 @@ public class Autores implements OpcionConsola{
                 .append("           ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯\n")
                 .append("Molano Gamarra Kevin Andres\n") //No me se sus nombres completos, asi que terminen de completarlos
                 .append("Moreno Gómez Gelier Esteban\n")               //En orden alfabetico
-                .append("Ospina Amilder\n")
+                .append("Ospina Tobon Amilder Stewin \n")
                 .append("Sepulveda Ochoa Daniel Alejandro\n")
                 .append(separador + "\n").append(mensajeVolver);
     }

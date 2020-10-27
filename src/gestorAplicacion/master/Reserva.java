@@ -1,4 +1,5 @@
 package gestorAplicacion.master;
+
 import baseDatos.BaseDeDatos;
 import gestorAplicacion.usuario.Cliente;
 
@@ -22,7 +23,8 @@ public class Reserva implements Serializable {
     public Reserva() {
         this.codigo = BaseDeDatos.getReservas().size();
     }
-    public Reserva(Cliente cliente,Funcion funcion,int i){
+
+    public Reserva(Cliente cliente, Funcion funcion, int i) {
         this();
         this.codigoPersona = cliente.getID();
         this.persona = cliente.getNombre();
@@ -82,14 +84,14 @@ public class Reserva implements Serializable {
     }
 
 
-
     // Methods.
 
 
     @Override
+    /*Este toString se va a encargar de mostrar las reservas al usuario en este formato*/
     public String toString() {
         return "Reserva # " + codigo + ", " + numeroAsientos + " asientos para la funcion: \n"
-                + "     "+nombreFuncion + " \n"
-                + "     el "+fecha.format(DateTimeFormatter.ofPattern("d/M/yyyy H:mm"));
+                + "     " + nombreFuncion + " \n"
+                + "     el " + fecha.format(DateTimeFormatter.ofPattern("d/M/yyyy H:mm"));
     }
 }

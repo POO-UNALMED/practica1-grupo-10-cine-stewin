@@ -54,10 +54,13 @@ public class Cliente extends Persona {
 
     //Metodos de clase****
 
+    /*Metodo que le permite al usuario consultar todas las funciones el dia elegido*/
     public Vector<Funcion> consultarFunciones(int dia, Cine cine) {
         return cine.getFunciones().get(dia);
     }
 
+    /*Metodo que se encarga de mostrar todas las funciones que se encuentran en una fecha habil
+    (Que aun no hay ocurrido) para que el usuario pueda elegir alguna*/
     public StringBuilder consultarFunciones(Vector<Funcion> funcionesDelDia) {
         int contador = 1;
         StringBuilder s = new StringBuilder();
@@ -71,16 +74,16 @@ public class Cliente extends Persona {
                 contador++;
             }
         }
-        if(s.length()>0){
+        if (s.length() > 0) {
             s.delete(s.length() - 1, s.length());
             return s;
-        }else{
+        } else {
             s.append("No hay funciones disponibles el dia de hoy");
             return s;
         }
-
     }
 
+    /*Metodo que se encarga de reservas los puestos que el usuario ha elegido en la funcion seleccionada*/
     public void reservarPuestos(Vector<Integer> puestos, Funcion funcion) {
         for (Integer puesto : puestos) {
             funcion.getPuestos()[puesto] = 0;
@@ -90,38 +93,42 @@ public class Cliente extends Persona {
         crearReserva(this, funcion, puestos.size());
     }
 
+    /*Metodo que me crea una reserva*/
     public void crearReserva(Cliente cliente, Funcion funcion, int numeroPuestos) {
         Reserva reserva = new Reserva(cliente, funcion, numeroPuestos);
         agregarReserva(reserva);
         BaseDeDatos.addReserva(reserva);
     }
 
+    /*Metodo que se encarga de agregar la reserva al historial del usuario*/
     public void agregarReserva(Reserva reserva) {
         cartera.add(reserva);
     }
 
+    /*Metodo que le permite consultar al usuario todas sus reservas hechas,
+    tanto activas como vencidas*/
     public String consultarReservas() {
         StringBuilder s = new StringBuilder();
         s.append("1. Reservas activas\n");
         Vector<Reserva> activas = new Vector<Reserva>();
         Vector<Reserva> vencidad = new Vector<Reserva>();
         LocalDateTime hoy = LocalDateTime.now();
-        if(cartera.size() == 0){
+        if (cartera.size() == 0) {
             s.append("El usuario no tiene reservas activas");
-        }else{
+        } else {
             for (Reserva reserva : cartera) {
-                if(reserva.getFecha().compareTo(hoy)==-1){
+                if (reserva.getFecha().compareTo(hoy) == -1) {
                     vencidad.add(reserva);
-                }else{
+                } else {
                     activas.add(reserva);
                 }
             }
-            for(Reserva reserva: activas){
+            for (Reserva reserva : activas) {
                 s.append(reserva.toString()).append("\n");
             }
             s.append("¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯\n");
             s.append("2. Reservas vencidas\n");
-            for(Reserva reserva: vencidad){
+            for (Reserva reserva : vencidad) {
                 s.append(reserva.toString()).append("\n");
             }
         }
