@@ -13,9 +13,6 @@ import java.util.Vector;
 public class DiaFuncion implements OpcionConsola{
     static Cine salaActiva;
     int opcion;
-    StringBuilder s = new StringBuilder();
-    int contador = 0;
-    LocalDate fechaHoy = LocalDate.now();
     Empleado empleado = new Empleado();
     Cliente clienteActual = new Cliente();
     Funcion funcion = new Funcion();
@@ -24,11 +21,14 @@ public class DiaFuncion implements OpcionConsola{
     }
     @Override
     public void ejecutar() {
+        LocalDate fechaHoy = LocalDate.now();
+        int contador = 0;
+        StringBuilder s = new StringBuilder();
         clienteActual = Cliente.getClienteActual();
         for(int i = 0; i <7;i++){
             s.append(contador+". ").append(fechaHoy.format(DateTimeFormatter.ofPattern("d/M/yyyy")) + "\n");
             contador++;
-            this.fechaHoy = fechaHoy.plusDays(1);
+            fechaHoy = fechaHoy.plusDays(1);
         }
         s.delete(s.length()-1,s.length());
         System.out.println(s);
