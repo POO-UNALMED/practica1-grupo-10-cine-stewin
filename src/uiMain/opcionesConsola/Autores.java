@@ -11,7 +11,7 @@ public class Autores implements OpcionConsola{
                 .append("             Proyecto realizado por\n")
                 .append("           ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯\n")
                 .append("Molano Gamarra Kevin Andres\n") //No me se sus nombres completos, asi que terminen de completarlos
-                .append("Moreno Gelier\n")               //En orden alfabetico
+                .append("Moreno Gómez Gelier Esteban\n")               //En orden alfabetico
                 .append("Ospina Amilder\n")
                 .append("Sepulveda Alejandro\n")
                 .append(separador + "\n").append(mensajeVolver);
