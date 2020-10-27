@@ -25,10 +25,13 @@ public class IngresoUsuario implements OpcionConsola{
         switch(opcion){
             case 1:
                 mostrarCine.ejecutar();
+                break;
             case 2:
                 consultarReservas.ejecutar();
+                break;
             case 3:
                 puntos.ejecutar();
+                break;
         }
     }
 

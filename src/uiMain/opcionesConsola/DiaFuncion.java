@@ -44,7 +44,37 @@ public class DiaFuncion implements OpcionConsola{
         System.out.print("Elegir una funcion: ");
         opcion = dato.nextInt();
         funcion = funcionesDia.get(opcion-1);
-        if(Cliente.getClienteActual().getCuentaBancaria().getSaldo()>= funcion.getPrecio()){
+        System.out.println(separador);
+        System.out.println(funcion.mostrarPuestos());
+        System.out.println(separador);
+        System.out.println("Cuantos asientos desea reservar? ");
+        int asientosAElegir = dato.nextInt();
+        if(clienteActual.getCuentaBancaria().getSaldo()>= (funcion.getPrecio()*asientosAElegir)){
+            Vector<Integer> puestos = new Vector<Integer>();
+            for(int i=0; i<asientosAElegir; i++){
+                System.out.print("Ingrese el # de asiento: ");
+                int numeroPuesto = dato.nextInt();
+                puestos.add(numeroPuesto);
+            }
+            clienteActual.reservarPuestos(puestos,funcion);
+            System.out.println(separador);
+            System.out.println("       Reserva hecha satisfactoriamente!!!");
+            System.out.println(separador);
+            System.out.println(mensajeVolver);
+            opcion = dato.nextInt();
+            volver(opcion);
+        }else{
+            System.out.println(separador);
+            System.out.println("            No tienes saldo suficiente");
+            System.out.println("Saldo actual: " +clienteActual.getCuentaBancaria().getSaldo());
+            System.out.println("Intentando hacer una compra por: " + (funcion.getPrecio()*asientosAElegir));
+            System.out.println(separador);
+            System.out.println(mensajeVolver);
+            opcion = dato.nextInt();
+            volver(opcion);
+        }
+        /*
+        if(clienteActual.getCuentaBancaria().getSaldo()>= funcion.getPrecio()){
             //funcion.llenarPuestos();
             System.out.println(separador);
             System.out.println(funcion.mostrarPuestos());
@@ -64,7 +94,7 @@ public class DiaFuncion implements OpcionConsola{
             System.out.println(mensajeVolver);
             opcion = dato.nextInt();
             volver(opcion);
-        }
+        }*/
     }
 
     @Override
