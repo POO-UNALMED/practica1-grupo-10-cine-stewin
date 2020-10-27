@@ -2,7 +2,6 @@ package uiMain.opcionesConsola;
 
 
 public class PantallaInicio implements OpcionConsola{
-    DatosInicio datosInicio = new DatosInicio();
     StringBuilder mensaje = new StringBuilder();
     {
         mensaje.append(separador+"\n").append("          Bienvenido a Cine STEWIN\n")

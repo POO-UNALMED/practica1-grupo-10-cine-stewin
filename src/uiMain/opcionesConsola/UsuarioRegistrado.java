@@ -8,8 +8,6 @@ public class UsuarioRegistrado implements OpcionConsola{
     int opcion;
     Empleado empleado = new Empleado();
     Cliente cliente = new Cliente();
-    Salir salir = new Salir();
-    IngresoUsuario ingresoUsuario = new IngresoUsuario();
     StringBuilder mensaje = new StringBuilder();
     int identificacion;
     {

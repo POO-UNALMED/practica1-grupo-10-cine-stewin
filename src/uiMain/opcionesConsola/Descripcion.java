@@ -3,7 +3,6 @@ package uiMain.opcionesConsola;
 import uiMain.Inicio;
 
 public class Descripcion implements OpcionConsola{
-    Salir salir = new Salir();
     StringBuilder mensaje = new StringBuilder();
     int opcion;
     {

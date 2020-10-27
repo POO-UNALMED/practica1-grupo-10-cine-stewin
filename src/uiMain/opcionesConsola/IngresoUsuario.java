@@ -9,14 +9,12 @@ import java.util.Vector;
 
 public class IngresoUsuario implements OpcionConsola{
     Cine cine = new Cine();
-    MostrarCine mostrarCine = new MostrarCine();
-    ConsultarReservas consultarReservas = new ConsultarReservas();
     int opcion;
     StringBuilder mensaje = new StringBuilder();
     {
         mensaje.append("1. Comprar boletos\n")
                 .append("2. Consultar Reservas\n")
-                .append("3. Otra opcion\n")
+                .append("3. Consultar saldo/puntos\n")
                 .append(separador);
     }
     @Override
@@ -29,6 +27,8 @@ public class IngresoUsuario implements OpcionConsola{
                 mostrarCine.ejecutar();
             case 2:
                 consultarReservas.ejecutar();
+            case 3:
+                puntos.ejecutar();
         }
     }
 

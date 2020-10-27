@@ -4,7 +4,6 @@ import uiMain.Inicio;
 
 public class Autores implements OpcionConsola{
     int opcion;
-    Salir salir = new Salir();
     StringBuilder mensaje = new StringBuilder();
     {
         mensaje.append(separador + "\n")

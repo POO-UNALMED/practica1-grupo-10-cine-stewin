@@ -41,9 +41,7 @@ public class Empleado extends Persona {
                 for(Integer numeroFuncion: numeroAleatorio){
                     funcioness.add(new Funcion(nombreFunciones.get(numeroFuncion),numeroFuncion%4,(numeroFuncion*14)%23));
                 }
-                for(Funcion funcion: funcioness){
 
-                }
                 cine.funciones.add(funcioness);
             }
         }

@@ -5,7 +5,6 @@ import uiMain.Inicio;
 
 public class UsuarioNoRegistrado implements OpcionConsola{
     int opcion;
-    Salir salir = new Salir();
     StringBuilder mensaje = new StringBuilder();
     {
         mensaje.append("       Usuario registrado satisfactoriamente\n");

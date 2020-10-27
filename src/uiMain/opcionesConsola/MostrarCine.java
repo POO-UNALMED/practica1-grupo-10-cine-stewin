@@ -9,7 +9,6 @@ import java.util.Vector;
 public class MostrarCine implements OpcionConsola{
     Cine cine = new Cine();
     Empleado empleado = new Empleado();
-    DiaFuncion diaFuncion = new DiaFuncion();
     int opcion;
 
 

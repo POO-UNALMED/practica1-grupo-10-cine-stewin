@@ -11,7 +11,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.Vector;
 
 public class DiaFuncion implements OpcionConsola{
-    Salir salir = new Salir();
     static Cine salaActiva;
     int opcion;
     StringBuilder s = new StringBuilder();

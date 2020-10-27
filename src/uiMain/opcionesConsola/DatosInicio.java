@@ -1,11 +1,6 @@
 package uiMain.opcionesConsola;
 
 public class DatosInicio implements OpcionConsola{
-    UsuarioRegistrado registrado = new UsuarioRegistrado();
-    Salir salir = new Salir();
-    Descripcion descripcion = new Descripcion();
-    Autores autores = new Autores();
-    UsuarioNoRegistrado registrar = new UsuarioNoRegistrado();
     StringBuilder mensaje = new StringBuilder();
     int opcion;
     {
@@ -17,10 +12,10 @@ public class DatosInicio implements OpcionConsola{
         opcion = dato.nextInt();
         switch(opcion){
             case 1:
-                registrado.ejecutar();
+                usuarioRegistrado.ejecutar();
                 break;
             case 2:
-                registrar.ejecutar();
+                usuarioNoRegistrado.ejecutar();
                 break;
             case 3:
                 autores.ejecutar();
