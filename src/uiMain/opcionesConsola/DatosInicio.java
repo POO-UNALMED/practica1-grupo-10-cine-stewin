@@ -20,12 +20,14 @@ public class DatosInicio implements OpcionConsola{
                 autores.ejecutar();
                 break;
             case 4:
+                /*Muestra una pantalla con una descripcion sobre el proyecto*/
                 descripcion.ejecutar();
                 break;
             case 5:
                 desarrollador.ejecutar();
                 break;
             case 6:
+                /*Ejecuta el metodo de la pantalla para salir*/
                 salir.ejecutar();
                 break;
         }

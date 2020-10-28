@@ -2,6 +2,7 @@ package uiMain.opcionesConsola;
 
 import uiMain.Inicio;
 
+/*Clase encargada de mostrar la pantalla de la descripcion del proyecto*/
 public class Descripcion implements OpcionConsola{
     StringBuilder mensaje = new StringBuilder();
     int opcion;
