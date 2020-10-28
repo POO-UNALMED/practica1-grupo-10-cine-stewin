@@ -4,14 +4,16 @@ import baseDatos.BaseDeDatos;
 import gestorAplicacion.usuario.Cliente;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Random;
 import java.util.Vector;
 
+/*Esta clase sirve como intermedio/relacion entre un Cliente y una funcion
+  es la encargada de mostrar y almacenar en el cliente(Cartera) la informacion
+  sobre las funciones con que se esta relacionado*/
 public class Reserva implements Serializable {
-    // Attributes.
+
+    //Attributes****
     private int codigo;
     private int codigoPersona;
     private String persona;
@@ -19,24 +21,25 @@ public class Reserva implements Serializable {
     private String nombreFuncion;
     private LocalDateTime fecha;
     private int numeroAsientos;
-    private Vector<Integer> asientosElegidos = new Vector<Integer>();
+    private Vector<Integer> asientosElegidos = new Vector<>();
 
     // Constructor.
     public Reserva() {
         this.codigo = BaseDeDatos.getReservas().size();
     }
 
-    public Reserva(Cliente cliente, Funcion funcion, Vector<Integer> i) {
+    public Reserva(Cliente cliente, Funcion funcion, Vector<Integer> asientos) {
         this();
         this.codigoPersona = cliente.getID();
         this.persona = cliente.getNombre();
         this.numeroFuncion = funcion.getNumeroFuncion();
         this.nombreFuncion = funcion.getNombre();
         this.fecha = funcion.getFecha();
-        this.numeroAsientos = i.size();
-        this.asientosElegidos = i;
+        this.numeroAsientos = asientos.size();
+        this.asientosElegidos = asientos;
     }
-    // Getters.
+
+    //Metodos GET and SET****
 
     public int getCodigoReserva() {
         return codigoPersona;
@@ -87,7 +90,7 @@ public class Reserva implements Serializable {
     }
 
 
-    // Methods.
+    //Metodos de clase****
 
 
     @Override
