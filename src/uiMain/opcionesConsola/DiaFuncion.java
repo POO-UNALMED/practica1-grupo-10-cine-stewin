@@ -64,6 +64,16 @@ public class DiaFuncion implements OpcionConsola{
         System.out.println(separador);
         System.out.println("Cuantos asientos desea reservar? ");
         int asientosAElegir = dato.nextInt();
+        //Revisar despueeeeeeees -------------------------------------------
+        if(!(funcion.getPuestosVacios() >= asientosAElegir)){
+            System.out.println(separador);
+            System.out.println("El numero de asientos que intenta elegir no esta disponible");
+            System.out.println(separador);
+            System.out.println(mensajeVolver);
+            int vol = dato.nextInt();
+            volver(vol);
+        }
+        //Hasta acaaaaaaaaaaaaaaaaa------------------------------------------
         if(clienteActual.getCuentaBancaria().getSaldo()>= (funcion.getPrecio()*asientosAElegir)){
             Vector<Integer> puestos = new Vector<Integer>();
             for(int i=0; i<asientosAElegir; i++){

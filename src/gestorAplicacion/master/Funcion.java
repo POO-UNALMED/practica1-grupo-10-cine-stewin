@@ -12,6 +12,7 @@ import java.util.Vector;
 public class Funcion implements Serializable {
     //Atributos de clase
     private String nombre;
+    private int puestosVacios = 20;
     private int numeroFuncion;
     private LocalDateTime fecha;
     private int sala;
@@ -43,6 +44,14 @@ public class Funcion implements Serializable {
         this.sala = sala;
     }
     //Metodos GET and SET****
+
+    public int getPuestosVacios() {
+        return puestosVacios;
+    }
+
+    public void setPuestosVacios(int puestosVacios) {
+        this.puestosVacios = puestosVacios;
+    }
 
     public String getNombre() {
         return nombre;
@@ -136,6 +145,7 @@ public class Funcion implements Serializable {
         for (Integer i : puestosLlenos) {
             puestos[i] = 0;
         }
+        puestosVacios = puestosVacios-puestosLlenos.size();
     }
 
     /*Metodo que se encarga de mostrar los puestos disponibles al usuario*/
