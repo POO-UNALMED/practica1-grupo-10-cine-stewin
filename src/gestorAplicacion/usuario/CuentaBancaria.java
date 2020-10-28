@@ -4,7 +4,10 @@ import baseDatos.BaseDeDatos;
 
 import java.io.Serializable;
 
+/*Clase encargada de guardar el saldo del usuario para
+  poder acceder a el despues*/
 public class CuentaBancaria implements Serializable {
+
     //Atributos de clase****
     private int numeroCuenta;
     private transient Persona titular;
@@ -21,6 +24,7 @@ public class CuentaBancaria implements Serializable {
         this();
         this.titular = titular;
     }
+
     //Metodos GET and SET****
 
     public int getNumeroCuenta() {
