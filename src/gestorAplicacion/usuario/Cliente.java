@@ -5,19 +5,19 @@ import gestorAplicacion.master.Cine;
 import gestorAplicacion.master.Funcion;
 import gestorAplicacion.master.Reserva;
 
-import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.Vector;
 
 public class Cliente extends Persona {
-    //Atributos de clase
-    private CuentaPuntos cuentaPuntos;
-    public transient Vector<Reserva> cartera = new Vector<Reserva>();
-    private transient static Cliente clienteActual; /*Este atributo lo usaremos para una vez se ingresa como cliente o empleado,
-     se tenga el indice del vector en el cual estara*/
 
-    //Constructores de clase
+    //Atributos de clase****
+    private CuentaPuntos cuentaPuntos;
+    public transient Vector<Reserva> cartera = new Vector<>();
+    /*Este atributo lo usaremos para una vez se ingresa como cliente
+     se pueda consultar su informacion facilmente*/
+    private transient static Cliente clienteActual;
+
+    //Constructores de clase****
 
     public Cliente() {
     }
@@ -54,7 +54,7 @@ public class Cliente extends Persona {
 
     //Metodos de clase****
 
-    /*Metodo que le permite al usuario consultar todas las funciones el dia elegido*/
+    /*Metodo que le permite al usuario consultar todas las funciones del dia y cine elegido*/
     public Vector<Funcion> consultarFunciones(int dia, Cine cine) {
         return cine.getFunciones().get(dia);
     }
@@ -68,7 +68,7 @@ public class Cliente extends Persona {
             //Le damos un estado a las funciones
             funcion.estado();
             if (funcion.isEstado() == true) {
-                s.append(contador + ". ")
+                s.append(contador).append(". ")
                         .append(funcion)
                         .append("\n");
                 contador++;
@@ -90,7 +90,7 @@ public class Cliente extends Persona {
         }
         int saldoActual = this.getCuentaBancaria().getSaldo();
         this.getCuentaBancaria().setSaldo(saldoActual - (funcion.getPrecio() * puestos.size()));
-        agregarPuntos((funcion.getPrecio()* puestos.size()));
+        agregarPuntos((funcion.getPrecio() * puestos.size()));
         crearReserva(this, funcion, puestos);
     }
 
@@ -111,8 +111,8 @@ public class Cliente extends Persona {
     public String consultarReservas() {
         StringBuilder s = new StringBuilder();
         s.append("1. Reservas activas\n");
-        Vector<Reserva> activas = new Vector<Reserva>();
-        Vector<Reserva> vencidad = new Vector<Reserva>();
+        Vector<Reserva> activas = new Vector<>();
+        Vector<Reserva> vencidad = new Vector<>();
         LocalDateTime hoy = LocalDateTime.now();
         if (cartera.size() == 0) {
             s.append("El usuario no tiene reservas activas");
@@ -135,8 +135,11 @@ public class Cliente extends Persona {
         }
         return s.toString();
     }
-    public void agregarPuntos(int i){
-        int b = (i/100)*10;
+
+    /*Metodo que se encarga de agregar puntos a la cuentaPuntos del usuario despues
+      de hacer una compra*/
+    public void agregarPuntos(int i) {
+        int b = (i / 100) * 10;
         this.cuentaPuntos.setPuntos(this.cuentaPuntos.getPuntos() + b);
     }
 }
