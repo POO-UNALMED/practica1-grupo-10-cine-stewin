@@ -73,6 +73,14 @@ public class DiaFuncion implements OpcionConsola{
             int vol = dato.nextInt();
             volver(vol);
         }
+        if(asientosAElegir == 0){
+            System.out.println(separador);
+            System.out.println("Careximba usted va a un cine a elegir 0 cientos? :v");
+            System.out.println(separador);
+            System.out.println(mensajeVolver);
+            int vol = dato.nextInt();
+            volver(vol);
+        }
         //Hasta acaaaaaaaaaaaaaaaaa------------------------------------------
         if(clienteActual.getCuentaBancaria().getSaldo()>= (funcion.getPrecio()*asientosAElegir)){
             Vector<Integer> puestos = new Vector<Integer>();
