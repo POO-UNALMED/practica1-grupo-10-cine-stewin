@@ -15,6 +15,7 @@ public class IngresoUsuario implements OpcionConsola{
         mensaje.append("1. Comprar boletos\n")
                 .append("2. Consultar Reservas\n")
                 .append("3. Consultar saldo/puntos\n")
+                .append("4. Salir\n")
                 .append(separador);
     }
     @Override
@@ -32,6 +33,8 @@ public class IngresoUsuario implements OpcionConsola{
             case 3:
                 puntos.ejecutar();
                 break;
+            case 4:
+                salir.ejecutar();
         }
     }
 

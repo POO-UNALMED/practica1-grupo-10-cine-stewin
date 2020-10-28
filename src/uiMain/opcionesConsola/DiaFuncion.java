@@ -133,7 +133,9 @@ public class DiaFuncion implements OpcionConsola{
     @Override
     public void volver(int opcion) {
         if(opcion == 1){
-            Inicio.main(null);
+            //Aca------------
+            System.out.println(separador);
+            ingresoUsuario.ejecutar();
             System.exit(0);
         }else{
             salir.ejecutar();
