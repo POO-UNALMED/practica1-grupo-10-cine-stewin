@@ -23,6 +23,7 @@ public class UsuarioNoRegistrado implements OpcionConsola{
             System.out.println("               El usuario ya existe");
             System.out.println(separador);
             System.out.println(mensajeVolver);
+            System.out.println("Hola?");
         }
         //Aca debo registrar al usuario en la base de datos
         Empleado.registarCliente(identificacion, nombre, correo, direccion);
