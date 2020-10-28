@@ -16,6 +16,7 @@ public interface OpcionConsola {
     Salir salir = new Salir();
     UsuarioNoRegistrado usuarioNoRegistrado = new UsuarioNoRegistrado();
     UsuarioRegistrado usuarioRegistrado = new UsuarioRegistrado();
+
     String mensajeVolver = "         ¿Desea volver al menu alterior?\n"+
             "1. Si\n"+"2. No\n" + "==================================================";
     Scanner dato = new Scanner(System.in);

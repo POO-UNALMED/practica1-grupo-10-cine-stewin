@@ -84,10 +84,10 @@ public class BaseDeDatos {
             clientes.get(i).setCuentaPuntos(cuentasPuntos.get(i));
             //A la cuenta i la asocio al cliente i
             cuentasBancarias.get(i).setTitular(clientes.get(i));
-            if(reservas.size() != 0){
-                for(Reserva reserva: reservas){
-                    clientes.get(reserva.getCodigoReserva()).agregarReserva(reserva);
-                }
+        }
+        if(reservas.size() != 0){
+            for(Reserva reserva: reservas){
+                clientes.get(reserva.getCodigoReserva()).agregarReserva(reserva);
             }
         }
     }
