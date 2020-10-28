@@ -1,14 +1,11 @@
 package uiMain.opcionesConsola;
 
 public class DatosInicio implements OpcionConsola{
-    StringBuilder mensaje = new StringBuilder();
     int opcion;
-    {
-        mensaje.append("Ingrese la opcion deseada: ");
-    }
+
     @Override
     public void ejecutar() {
-        System.out.print(mensaje.toString());
+        System.out.print("Ingrese la opcion deseada: ");
         opcion = dato.nextInt();
         switch(opcion){
             case 1:
