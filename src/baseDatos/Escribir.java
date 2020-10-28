@@ -1,28 +1,29 @@
 package baseDatos;
 
-import gestorAplicacion.master.Cine;
-import gestorAplicacion.master.Funcion;
-import gestorAplicacion.master.Reserva;
-import gestorAplicacion.usuario.Cliente;
-import gestorAplicacion.usuario.CuentaBancaria;
-import gestorAplicacion.usuario.CuentaPuntos;
+import gestorAplicacion.master.*;
+import gestorAplicacion.usuario.*;
 
 import java.io.*;
 
 public class Escribir {
     static File fichero = new File("");
 
+    /*Este metodo sera el encargado de guardar toda la informacion de clientes/reservas
+      cines/cuentasBancarias/cuentasPuntos en los archivos.txt */
     public static void Escribir() {
 
         //Guardamos los clientes en la base de datos
         if (BaseDeDatos.getClientes().size() != 0) {
             try {
-                FileOutputStream fs = new FileOutputStream(fichero.getAbsolutePath() + "/src/baseDatos/temp/usuarios.txt");//Creamos el archivo
-                ObjectOutputStream os = new ObjectOutputStream(fs);//Esta clase tiene el método writeObject() que necesitamos
+                //Creamos el archivo
+                FileOutputStream fs = new FileOutputStream(fichero.getAbsolutePath() + "/src/baseDatos/temp/usuarios.txt");
+                //Esta clase tiene el método writeObject() que necesitamos
+                ObjectOutputStream os = new ObjectOutputStream(fs);
                 for (Cliente i : BaseDeDatos.getClientes()) {
                     os.writeObject(i);
                 }
-                os.close();//Hay que cerrar siempre el archivo
+                //Hay que cerrar siempre el archivo
+                os.close();
                 fs.close();
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
@@ -34,12 +35,12 @@ public class Escribir {
         //Guardamos las cuentas bancarias en la base de datos
         if (BaseDeDatos.getCuentasBancarias().size() != 0) {
             try {
-                FileOutputStream fs = new FileOutputStream(fichero.getAbsolutePath() + "/src/baseDatos/temp/cuentasBancarias.txt");//Creamos el archivo
-                ObjectOutputStream os = new ObjectOutputStream(fs);//Esta clase tiene el método writeObject() que necesitamos
+                FileOutputStream fs = new FileOutputStream(fichero.getAbsolutePath() + "/src/baseDatos/temp/cuentasBancarias.txt");
+                ObjectOutputStream os = new ObjectOutputStream(fs);
                 for (CuentaBancaria i : BaseDeDatos.getCuentasBancarias()) {
                     os.writeObject(i);
                 }
-                os.close();//Hay que cerrar siempre el archivo
+                os.close();
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             } catch (IOException e) {
@@ -47,15 +48,15 @@ public class Escribir {
             }
         }
 
-        //Guardamos las cuentas bancarias en la base de datos
+        //Guardamos los cines en la base de datos
         if (BaseDeDatos.getCines().size() != 0) {
             try {
-                FileOutputStream fs = new FileOutputStream(fichero.getAbsolutePath() + "/src/baseDatos/temp/cines.txt");//Creamos el archivo
-                ObjectOutputStream os = new ObjectOutputStream(fs);//Esta clase tiene el método writeObject() que necesitamos
+                FileOutputStream fs = new FileOutputStream(fichero.getAbsolutePath() + "/src/baseDatos/temp/cines.txt");
+                ObjectOutputStream os = new ObjectOutputStream(fs);
                 for (Cine i : BaseDeDatos.getCines()) {
                     os.writeObject(i);
                 }
-                os.close();//Hay que cerrar siempre el archivo
+                os.close();
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             } catch (IOException e) {
@@ -66,12 +67,12 @@ public class Escribir {
         //Guardamos las funciones en la base de datos
         if (BaseDeDatos.getFunciones().size() != 0) {
             try {
-                FileOutputStream fs = new FileOutputStream(fichero.getAbsolutePath() + "/src/baseDatos/temp/funciones.txt");//Creamos el archivo
-                ObjectOutputStream os = new ObjectOutputStream(fs);//Esta clase tiene el método writeObject() que necesitamos
+                FileOutputStream fs = new FileOutputStream(fichero.getAbsolutePath() + "/src/baseDatos/temp/funciones.txt");
+                ObjectOutputStream os = new ObjectOutputStream(fs);
                 for (Funcion i : BaseDeDatos.getFunciones()) {
                     os.writeObject(i);
                 }
-                os.close();//Hay que cerrar siempre el archivo
+                os.close();
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             } catch (IOException e) {
@@ -82,12 +83,12 @@ public class Escribir {
         //Guardamos las reservas en la base de datos
         if (BaseDeDatos.getReservas().size() != 0) {
             try {
-                FileOutputStream fs = new FileOutputStream(fichero.getAbsolutePath() + "/src/baseDatos/temp/reservas.txt");//Creamos el archivo
-                ObjectOutputStream os = new ObjectOutputStream(fs);//Esta clase tiene el método writeObject() que necesitamos
+                FileOutputStream fs = new FileOutputStream(fichero.getAbsolutePath() + "/src/baseDatos/temp/reservas.txt");
+                ObjectOutputStream os = new ObjectOutputStream(fs);
                 for (Reserva i : BaseDeDatos.getReservas()) {
                     os.writeObject(i);
                 }
-                os.close();//Hay que cerrar siempre el archivo
+                os.close();
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             } catch (IOException e) {
@@ -95,22 +96,21 @@ public class Escribir {
             }
         }
 
-        //Guardamos las cuenta puentos en la base de datos
+        //Guardamos las cuenta puntos en la base de datos
         if (BaseDeDatos.getCuentasPuntos().size() != 0) {
             try {
-                FileOutputStream fs = new FileOutputStream(fichero.getAbsolutePath() + "/src/baseDatos/temp/cuentasPuntos.txt");//Creamos el archivo
-                ObjectOutputStream os = new ObjectOutputStream(fs);//Esta clase tiene el método writeObject() que necesitamos
+                FileOutputStream fs = new FileOutputStream(fichero.getAbsolutePath() + "/src/baseDatos/temp/cuentasPuntos.txt");
+                ObjectOutputStream os = new ObjectOutputStream(fs);
                 for (CuentaPuntos i : BaseDeDatos.getCuentasPuntos()) {
                     os.writeObject(i);
                 }
-                os.close();//Hay que cerrar siempre el archivo
+                os.close();
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-
     }
 }
 
