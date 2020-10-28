@@ -90,6 +90,7 @@ public class Cliente extends Persona {
         }
         int saldoActual = this.getCuentaBancaria().getSaldo();
         this.getCuentaBancaria().setSaldo(saldoActual - (funcion.getPrecio() * puestos.size()));
+        agregarPuntos((funcion.getPrecio()* puestos.size()));
         crearReserva(this, funcion, puestos);
     }
 
@@ -133,5 +134,9 @@ public class Cliente extends Persona {
             }
         }
         return s.toString();
+    }
+    public void agregarPuntos(int i){
+        int b = (i/100)*10;
+        this.cuentaPuntos.setPuntos(this.cuentaPuntos.getPuntos() + b);
     }
 }
