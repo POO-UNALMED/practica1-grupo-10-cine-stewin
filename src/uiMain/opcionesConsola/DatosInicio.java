@@ -11,6 +11,7 @@ public class DatosInicio implements OpcionConsola{
         opcion = dato.nextInt();
         switch(opcion){
             case 1:
+                /*Permite al usuario que se encuentra registrado el acceso*/
                 usuarioRegistrado.ejecutar();
                 break;
             case 2:

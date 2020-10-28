@@ -1,32 +1,34 @@
 package uiMain.opcionesConsola;
 
-import gestorAplicacion.master.Empleado;
 import gestorAplicacion.usuario.Cliente;
 import uiMain.Inicio;
 
+/*Clase encargada de mostrar la pantalla para que el usuario pueda acceder*/
 public class UsuarioRegistrado implements OpcionConsola{
     int opcion;
-    Empleado empleado = new Empleado();
-    Cliente cliente = new Cliente();
     StringBuilder mensaje = new StringBuilder();
     int identificacion;
-    {
-        mensaje.append(separador+ "\n")
-                .append("Por favor ingrese su identificacion: ");
-    }
+
     @Override
     public void ejecutar() {
-        System.out.print(mensaje.toString());
+        System.out.println(separador);
+        System.out.println("Por favor ingrese su identificacion: ");
         identificacion = dato.nextInt();
         dato.nextLine();
         System.out.println(separador);
+        /*Comprobamos que el numero de identificacion se encuentre en la base de datos
+          si es el caso iremos a la pantalla que me muestra todas las opciones que
+          puede tener un cliente*/
         if(empleado.comprobarRegistro(identificacion)){
             System.out.println("          Ingreso satisfactorio");
             System.out.println("                Bienvenido");
             System.out.println(separador);
+            /*Entramos a la pantalla que me mostrara las opciones disponibles para un usuario*/
             ingresoUsuario.ejecutar();
+        /*Este else se ejecuta en caso que el usuario no se encuentre en la base de datos,
+          lo cual muestra una pantalla para que el usuario ingrese de nuevo*/
         }else{
-            System.out.println("Usuario no identificado en la base de datos");
+            System.out.println("   Usuario no identificado en la base de datos");
             System.out.println(separador);
             System.out.println(mensajeVolver);
             opcion = dato.nextInt();
