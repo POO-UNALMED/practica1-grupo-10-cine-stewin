@@ -1,24 +1,23 @@
 package baseDatos;
 
-import gestorAplicacion.master.Cine;
-import gestorAplicacion.master.Funcion;
-import gestorAplicacion.master.Reserva;
-import gestorAplicacion.usuario.Cliente;
-import gestorAplicacion.usuario.CuentaBancaria;
-import gestorAplicacion.usuario.CuentaPuntos;
+import gestorAplicacion.master.*;
+import gestorAplicacion.usuario.*;
 
 import java.io.*;
 
 public class Leer {
-    static File arhivo = new File("");
+
+    /*Este metodo sera el encargado de pasar toda la informacion de los archivos .txt a los respectivos
+      vectores de la clase BaseDeDatos*/
+    static File archivo = new File("");
 
     public static void Leer() {
 
         //Leemos los clientes de la base de datos
         try {
-            File usuarios = new File(arhivo.getAbsolutePath() + "/src/baseDatos/temp/usuarios.txt");
+            File usuarios = new File(archivo.getAbsolutePath() + "/src/baseDatos/temp/usuarios.txt");
             if (usuarios.length() != 0) {
-                FileInputStream datosUsuarios = new FileInputStream(arhivo.getAbsolutePath() + "/src/baseDatos/temp/usuarios.txt");
+                FileInputStream datosUsuarios = new FileInputStream(archivo.getAbsolutePath() + "/src/baseDatos/temp/usuarios.txt");
                 ObjectInputStream objetosUsuarios = new ObjectInputStream(datosUsuarios);
 
                 Object aux = objetosUsuarios.readObject();
@@ -44,9 +43,9 @@ public class Leer {
 
         //Leemos las cuentas bancarias de la base de datos
         try {
-            File cuentasBancarias = new File(arhivo.getAbsolutePath() + "/src/baseDatos/temp/cuentasBancarias.txt");
+            File cuentasBancarias = new File(archivo.getAbsolutePath() + "/src/baseDatos/temp/cuentasBancarias.txt");
             if (cuentasBancarias.length() != 0) {
-                FileInputStream datosCB = new FileInputStream(arhivo.getAbsolutePath() + "/src/baseDatos/temp/cuentasBancarias.txt");
+                FileInputStream datosCB = new FileInputStream(archivo.getAbsolutePath() + "/src/baseDatos/temp/cuentasBancarias.txt");
                 ObjectInputStream objetosCB = new ObjectInputStream(datosCB);
 
                 Object aux1 = objetosCB.readObject();
@@ -72,22 +71,22 @@ public class Leer {
 
         //Leemos los cines de la base de datos
         try {
-            File cuentasBancarias = new File(arhivo.getAbsolutePath() + "/src/baseDatos/temp/cines.txt");
-            if (cuentasBancarias.length() != 0) {
-                FileInputStream datosCB = new FileInputStream(arhivo.getAbsolutePath() + "/src/baseDatos/temp/cines.txt");
-                ObjectInputStream objetosCB = new ObjectInputStream(datosCB);
+            File cines = new File(archivo.getAbsolutePath() + "/src/baseDatos/temp/cines.txt");
+            if (cines.length() != 0) {
+                FileInputStream datosCine = new FileInputStream(archivo.getAbsolutePath() + "/src/baseDatos/temp/cines.txt");
+                ObjectInputStream objetosCine = new ObjectInputStream(datosCine);
 
-                Object aux1 = objetosCB.readObject();
+                Object aux1 = objetosCine.readObject();
                 try {
                     while (aux1 != null) {
                         BaseDeDatos.addCine((Cine) aux1);
-                        aux1 = objetosCB.readObject();
+                        aux1 = objetosCine.readObject();
                     }
                 } catch (java.io.IOException e) {
 
                 }
-                datosCB.close();
-                objetosCB.close();
+                datosCine.close();
+                objetosCine.close();
             }
 
         } catch (FileNotFoundException e) {
@@ -100,22 +99,22 @@ public class Leer {
 
         //Leemos las funciones de la base de datos
         try {
-            File funciones = new File(arhivo.getAbsolutePath() + "/src/baseDatos/temp/funciones.txt");
+            File funciones = new File(archivo.getAbsolutePath() + "/src/baseDatos/temp/funciones.txt");
             if (funciones.length() != 0) {
-                FileInputStream datosCB = new FileInputStream(arhivo.getAbsolutePath() + "/src/baseDatos/temp/funciones.txt");
-                ObjectInputStream objetosCB = new ObjectInputStream(datosCB);
+                FileInputStream datosFunciones = new FileInputStream(archivo.getAbsolutePath() + "/src/baseDatos/temp/funciones.txt");
+                ObjectInputStream objetosFunciones = new ObjectInputStream(datosFunciones);
 
-                Object aux1 = objetosCB.readObject();
+                Object aux1 = objetosFunciones.readObject();
                 try {
                     while (aux1 != null) {
                         BaseDeDatos.addFuncion((Funcion) aux1);
-                        aux1 = objetosCB.readObject();
+                        aux1 = objetosFunciones.readObject();
                     }
                 } catch (java.io.IOException e) {
 
                 }
-                datosCB.close();
-                objetosCB.close();
+                datosFunciones.close();
+                objetosFunciones.close();
             }
 
         } catch (FileNotFoundException e) {
@@ -128,22 +127,22 @@ public class Leer {
 
         //Leemos las reservas de la base de datos
         try {
-            File reservas = new File(arhivo.getAbsolutePath() + "/src/baseDatos/temp/reservas.txt");
+            File reservas = new File(archivo.getAbsolutePath() + "/src/baseDatos/temp/reservas.txt");
             if (reservas.length() != 0) {
-                FileInputStream datosCB = new FileInputStream(arhivo.getAbsolutePath() + "/src/baseDatos/temp/reservas.txt");
-                ObjectInputStream objetosCB = new ObjectInputStream(datosCB);
+                FileInputStream datosReservas = new FileInputStream(archivo.getAbsolutePath() + "/src/baseDatos/temp/reservas.txt");
+                ObjectInputStream objetosReservas = new ObjectInputStream(datosReservas);
 
-                Object aux1 = objetosCB.readObject();
+                Object aux1 = objetosReservas.readObject();
                 try {
                     while (aux1 != null) {
                         BaseDeDatos.addReserva((Reserva) aux1);
-                        aux1 = objetosCB.readObject();
+                        aux1 = objetosReservas.readObject();
                     }
                 } catch (java.io.IOException e) {
 
                 }
-                datosCB.close();
-                objetosCB.close();
+                datosReservas.close();
+                objetosReservas.close();
             }
 
         } catch (FileNotFoundException e) {
@@ -156,22 +155,22 @@ public class Leer {
 
         //Leemos las cuentas puntos de la base de datos
         try {
-            File cuentasPuntos = new File(arhivo.getAbsolutePath() + "/src/baseDatos/temp/cuentasPuntos.txt");
+            File cuentasPuntos = new File(archivo.getAbsolutePath() + "/src/baseDatos/temp/cuentasPuntos.txt");
             if (cuentasPuntos.length() != 0) {
-                FileInputStream datosCB = new FileInputStream(arhivo.getAbsolutePath() + "/src/baseDatos/temp/cuentasPuntos.txt");
-                ObjectInputStream objetosCB = new ObjectInputStream(datosCB);
+                FileInputStream datosCP = new FileInputStream(archivo.getAbsolutePath() + "/src/baseDatos/temp/cuentasPuntos.txt");
+                ObjectInputStream objetosCP = new ObjectInputStream(datosCP);
 
-                Object aux1 = objetosCB.readObject();
+                Object aux1 = objetosCP.readObject();
                 try {
                     while (aux1 != null) {
                         BaseDeDatos.addCuentaPuntos((CuentaPuntos) aux1);
-                        aux1 = objetosCB.readObject();
+                        aux1 = objetosCP.readObject();
                     }
                 } catch (java.io.IOException e) {
 
                 }
-                datosCB.close();
-                objetosCB.close();
+                datosCP.close();
+                objetosCP.close();
             }
 
         } catch (FileNotFoundException e) {
