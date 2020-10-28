@@ -1,16 +1,16 @@
 package uiMain.opcionesConsola;
 
-import baseDatos.BaseDeDatos;
 import baseDatos.Escribir;
-import gestorAplicacion.usuario.Cliente;
 
+/*Clase que se ejecuta cuando se decide cerrar el programa*/
 public class Salir implements OpcionConsola{
-    StringBuilder mensaje = new StringBuilder();
+
     @Override
     public void ejecutar() {
-        mensaje.append(separador+ "\n").append("              Se ha finalizado sesion\n")
-                .append(separador);
-        System.out.println(mensaje.toString());
+        System.out.println(separador);
+        System.out.println("              Se ha finalizado sesion");
+        System.out.println(separador);
+        /*Es importante guardar la informacion en los archivos .txt antes de salir*/
         Escribir.Escribir();
         System.exit(1);
     }

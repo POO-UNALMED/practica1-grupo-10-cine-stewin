@@ -1,5 +1,7 @@
 package uiMain.opcionesConsola;
 
+/*Esta clase es la encargada de tomar el dato(Opcion) que el usuario elija
+  y redireccionarlo hacia la pantalla/clase correspondiente*/
 public class DatosInicio implements OpcionConsola{
     int opcion;
 
