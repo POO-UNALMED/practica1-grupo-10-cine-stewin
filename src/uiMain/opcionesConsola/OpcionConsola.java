@@ -1,5 +1,7 @@
 package uiMain.opcionesConsola;
 
+import gestorAplicacion.master.Empleado;
+
 import java.util.Scanner;
 
 /*Esta interfaz sera la encargada de definir la estructura de todas las pantallas
@@ -7,6 +9,7 @@ import java.util.Scanner;
   opcion del menu, sera una clase la cual se encarga de mostrar su propia pantalla
   para interactuar con el usuario*/
 public interface OpcionConsola {
+    Empleado empleado = new Empleado();
     Autores autores = new Autores();
     ConsultarReservas consultarReservas = new ConsultarReservas();
     DatosInicio datosInicio = new DatosInicio();

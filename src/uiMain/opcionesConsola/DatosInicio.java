@@ -14,6 +14,7 @@ public class DatosInicio implements OpcionConsola{
                 usuarioRegistrado.ejecutar();
                 break;
             case 2:
+                /*Registramos a los usuarios nuevos*/
                 usuarioNoRegistrado.ejecutar();
                 break;
             case 3:
@@ -25,6 +26,7 @@ public class DatosInicio implements OpcionConsola{
                 descripcion.ejecutar();
                 break;
             case 5:
+                /*Despliega un menu especial para el profesor*/
                 desarrollador.ejecutar();
                 break;
             case 6:

@@ -1,14 +1,11 @@
 package uiMain.opcionesConsola;
 import gestorAplicacion.master.Empleado;
-import gestorAplicacion.usuario.Cliente;
 import uiMain.Inicio;
 
+/*Esta clase es la encargada de mostrar la pantalla para registrar usuarios*/
 public class UsuarioNoRegistrado implements OpcionConsola{
     int opcion;
-    StringBuilder mensaje = new StringBuilder();
-    {
-        mensaje.append("       Usuario registrado satisfactoriamente\n");
-    }
+
     @Override
     public void ejecutar() {
         System.out.println(separador);
@@ -22,11 +19,15 @@ public class UsuarioNoRegistrado implements OpcionConsola{
         System.out.print("Por favor ingrese su direccion: ");
         String direccion = dato.nextLine();
         System.out.println(separador);
-        mensaje.append(separador);
+        if((empleado.comprobarIdentificacion(identificacion))){
+            System.out.println("               El usuario ya existe");
+            System.out.println(separador);
+            System.out.println(mensajeVolver);
+        }
         //Aca debo registrar al usuario en la base de datos
         Empleado.registarCliente(identificacion, nombre, correo, direccion);
-        System.out.println(mensaje.toString());
-        //mensaje.setLength(0); --------------- De esta forma puedo borrar lo que esta inscrito en el string
+        System.out.println("       Usuario registrado satisfactoriamente");
+        System.out.println(separador);
         System.out.println(mensajeVolver);
         opcion = dato.nextInt();
         volver(opcion);

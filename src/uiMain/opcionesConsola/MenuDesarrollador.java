@@ -1,5 +1,7 @@
 package uiMain.opcionesConsola;
 
+/*Clase encargada de ajustar/editar informacion para que el profesor pueda
+  ver como se comporta el programa con los cambios*/
 public class MenuDesarrollador implements OpcionConsola{
     StringBuilder mensaje = new StringBuilder();
     int opcion;

@@ -144,4 +144,17 @@ public class Empleado extends Persona {
         BaseDeDatos.addCine(cine);
         return "            Cine agregado correctamente";
     }
+
+    /*Metodo que se encargara de que no se registren/ingresen usuarios duplicados
+      (mismo numero de identidificacion) en la base de datos*/
+    public boolean comprobarIdentificacion(int identificacion){
+        boolean estado = false;
+        for(Cliente cliente : BaseDeDatos.getClientes()){
+            if (cliente.getIdentificacion() == identificacion) {
+                estado = true;
+                break;
+            }
+        }
+        return  estado;
+    }
 }
