@@ -2,19 +2,29 @@ package gestorAplicacion.master;
 
 import baseDatos.BaseDeDatos;
 import gestorAplicacion.usuario.*;
-
-import java.time.LocalDateTime;
 import java.util.Vector;
 
+/*La clase empleado sera la encargada de mostrarle muchos datos al usuario para que el pueda
+  interactuar con los mismos y editar/cambiar/crear la configuracion del cine(opciones)*/
 public class Empleado extends Persona {
     //Atributos de clase****
 
     //Contructores de clase****
+    public Empleado() {
 
+    }
+
+    public Empleado(String nombre) {
+        this();
+        this.setNombre(nombre);
+    }
     //Metodos GET and SET****
 
     //Metodos de clase****
-    //Metodo el cual se encarg de asignarle las respectivas funciones a cada cine que lee en la base de datos
+
+    /*Este metodo se ejecuta al inicio del programa sera el encargado de asignarle
+     a cada cine que se lea en la base de datos, sus respectivas funciones,
+     todos los datos cada generados son totalmente aleatorios*/
     public void enlazarFuncionesYCines() {
         for (Cine cine : BaseDeDatos.getCines()) {
             cine.funciones = new Vector<>();
@@ -30,8 +40,8 @@ public class Empleado extends Persona {
                 nombreFunciones.add("Pelicula 8");
                 nombreFunciones.add("Pelicula 9");
                 nombreFunciones.add("Pelicula 10");
-                Vector<Integer> numeroAleatorio = new Vector<Integer>();
-                Vector<Funcion> funcioness = new Vector<Funcion>();
+                Vector<Integer> numeroAleatorio = new Vector<>();
+                Vector<Funcion> funcioness = new Vector<>();
                 for (int j = 0; j < 5; j++) {
                     int funcion;
                     funcion = (int) Math.floor(Math.random() * nombreFunciones.size());
@@ -61,7 +71,7 @@ public class Empleado extends Persona {
         }
     }
 
-    /*Metodo que se encarga de comprar si el usuario que intenta ingresar esta registrado en la base de datos*/
+    /*Metodo que se encarga de comprarar si el usuario que intenta ingresar esta registrado en la base de datos*/
     public boolean comprobarRegistro(int identificacion) {
         boolean confirmaContrasenia = false;
         for (Cliente cliente : BaseDeDatos.getClientes()) {
@@ -73,7 +83,7 @@ public class Empleado extends Persona {
         return confirmaContrasenia;
     }
 
-    //Metodo para registrar clientes
+    /*Metodo encargado de registrar clientes*/
     public static void registarCliente(int identificacion, String nombre, String correo, String direccion) {
         Cliente usuario = new Cliente(identificacion, nombre, correo, direccion);
         CuentaBancaria cuentasBancaria = new CuentaBancaria(usuario);
@@ -106,7 +116,7 @@ public class Empleado extends Persona {
 
     /*Metodo que se encarga de mostrarle al usuario todas las salas de cine en la ciudad elegida (En un vector)*/
     public Vector<Cine> cinesPorCiudad(String ciudad) {
-        Vector<Cine> cines = new Vector<Cine>();
+        Vector<Cine> cines = new Vector<>();
         for (Cine cine : BaseDeDatos.getCines()) {
             if (cine.getCiudad().equals(ciudad)) {
                 cines.add(cine);
@@ -121,14 +131,15 @@ public class Empleado extends Persona {
         int contador = 1;
         StringBuilder s = new StringBuilder();
         for (Cine cine : ciudades) {
-            s.append(contador + ". " + cine.getNombre() + "\n");
+            s.append(contador).append(". ").append(cine.getNombre()).append("\n");
             contador += 1;
         }
         s.delete(s.length() - 1, s.length());
         return s.toString();
     }
-    public String registrarCine(String nombre,String ciudad,String direccion){
-        Cine cine = new Cine(nombre,ciudad,direccion);
+
+    public String registrarCine(String nombre, String ciudad, String direccion) {
+        Cine cine = new Cine(nombre, ciudad, direccion);
         BaseDeDatos.addCine(cine);
         return "            Cine agregado correctamente";
     }
