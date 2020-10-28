@@ -90,12 +90,12 @@ public class Cliente extends Persona {
         }
         int saldoActual = this.getCuentaBancaria().getSaldo();
         this.getCuentaBancaria().setSaldo(saldoActual - (funcion.getPrecio() * puestos.size()));
-        crearReserva(this, funcion, puestos.size());
+        crearReserva(this, funcion, puestos);
     }
 
     /*Metodo que me crea una reserva*/
-    public void crearReserva(Cliente cliente, Funcion funcion, int numeroPuestos) {
-        Reserva reserva = new Reserva(cliente, funcion, numeroPuestos);
+    public void crearReserva(Cliente cliente, Funcion funcion, Vector<Integer> puestos) {
+        Reserva reserva = new Reserva(cliente, funcion, puestos);
         agregarReserva(reserva);
         BaseDeDatos.addReserva(reserva);
     }

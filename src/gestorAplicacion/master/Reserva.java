@@ -8,6 +8,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Random;
+import java.util.Vector;
 
 public class Reserva implements Serializable {
     // Attributes.
@@ -18,20 +19,22 @@ public class Reserva implements Serializable {
     private String nombreFuncion;
     private LocalDateTime fecha;
     private int numeroAsientos;
+    private Vector<Integer> asientosElegidos = new Vector<Integer>();
 
     // Constructor.
     public Reserva() {
         this.codigo = BaseDeDatos.getReservas().size();
     }
 
-    public Reserva(Cliente cliente, Funcion funcion, int i) {
+    public Reserva(Cliente cliente, Funcion funcion, Vector<Integer> i) {
         this();
         this.codigoPersona = cliente.getID();
         this.persona = cliente.getNombre();
         this.numeroFuncion = funcion.getNumeroFuncion();
         this.nombreFuncion = funcion.getNombre();
         this.fecha = funcion.getFecha();
-        this.numeroAsientos = i;
+        this.numeroAsientos = i.size();
+        this.asientosElegidos = i;
     }
     // Getters.
 
@@ -89,9 +92,10 @@ public class Reserva implements Serializable {
 
     @Override
     /*Este toString se va a encargar de mostrar las reservas al usuario en este formato*/
+    /*Ahora estoy imprimiendo los aientos revisar esto ...........................*/
     public String toString() {
         return "Reserva # " + codigo + ", " + numeroAsientos + " asientos para la funcion: \n"
-                + "     " + nombreFuncion + " \n"
+                + "     " + nombreFuncion + " \n" + " numero de asientos " + asientosElegidos
                 + "     el " + fecha.format(DateTimeFormatter.ofPattern("d/M/yyyy H:mm"));
     }
 }
