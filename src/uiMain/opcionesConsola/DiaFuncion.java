@@ -16,9 +16,7 @@ public class DiaFuncion implements OpcionConsola{
     Empleado empleado = new Empleado();
     Cliente clienteActual = new Cliente();
     Funcion funcion = new Funcion();
-    {
 
-    }
     @Override
     public void ejecutar() {
         LocalDate fechaHoy = LocalDate.now();
@@ -35,6 +33,23 @@ public class DiaFuncion implements OpcionConsola{
         System.out.println(separador);
         System.out.print("Elija el dia que desea reservar: ");
         opcion = dato.nextInt();
+        boolean estado = false;
+        if(opcion==0){
+            for(Funcion funcion:salaActiva.getFunciones().get(0)){
+                if(funcion.isEstado()==true){
+                    estado = true;
+                }
+            }
+            if(estado==false){
+                System.out.println(separador);
+                System.out.println("No hay funciones disponibles para el dia seleccionado");
+                System.out.println(separador);
+                System.out.println(mensajeVolver);
+                int volver = dato.nextInt();
+                volver(volver);
+                System.exit(0);
+            }
+        }
         System.out.println(separador);
         System.out.println("               Funciones del dia");
         System.out.println("              ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯");
