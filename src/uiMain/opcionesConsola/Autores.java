@@ -2,6 +2,7 @@ package uiMain.opcionesConsola;
 
 import uiMain.Inicio;
 
+/*Clase encargada de mostrar una pantalla con los miembros del grupo*/
 public class Autores implements OpcionConsola{
     int opcion;
     StringBuilder mensaje = new StringBuilder();
@@ -9,8 +10,8 @@ public class Autores implements OpcionConsola{
         mensaje.append(separador + "\n")
                 .append("             Proyecto realizado por\n")
                 .append("           ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯\n")
-                .append("Molano Gamarra Kevin Andres\n") //No me se sus nombres completos, asi que terminen de completarlos
-                .append("Moreno Gómez Gelier Esteban\n")               //En orden alfabetico
+                .append("Molano Gamarra Kevin Andres\n")
+                .append("Moreno Gómez Gelier Esteban\n")
                 .append("Ospina Tobon Amilder Stewin \n")
                 .append("Sepulveda Ochoa Daniel Alejandro\n")
                 .append(separador + "\n").append(mensajeVolver);

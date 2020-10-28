@@ -17,6 +17,7 @@ public class DatosInicio implements OpcionConsola{
                 usuarioNoRegistrado.ejecutar();
                 break;
             case 3:
+                /*Mostramos los miembros del equipo*/
                 autores.ejecutar();
                 break;
             case 4:
