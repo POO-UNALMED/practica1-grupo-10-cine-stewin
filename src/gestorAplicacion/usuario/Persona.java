@@ -4,7 +4,9 @@ import baseDatos.BaseDeDatos;
 
 import java.io.Serializable;
 
-public abstract class Persona implements Serializable{
+/*Metodo abstracta el cual me define la "estructura de las clases usuario y empleado"*/
+public abstract class Persona implements Serializable {
+
     //Atributos de clase****
     private int ID;
     private int identificacion;
@@ -19,7 +21,8 @@ public abstract class Persona implements Serializable{
         this.ID = BaseDeDatos.getClientes().size();
 
     }
-    public Persona(int identificacion, String nombre, String correo,String direccion) {
+
+    public Persona(int identificacion, String nombre, String correo, String direccion) {
         this();
         this.identificacion = identificacion;
         this.nombre = nombre;
@@ -31,9 +34,11 @@ public abstract class Persona implements Serializable{
     public int getID() {
         return ID;
     }
+
     public int getIdentificacion() {
         return identificacion;
     }
+
     public void setIdentificacion(int identificacion) {
         this.identificacion = identificacion;
     }
@@ -41,6 +46,7 @@ public abstract class Persona implements Serializable{
     public CuentaBancaria getCuentaBancaria() {
         return cuentaBancaria;
     }
+
     public void setCuentaBancaria(CuentaBancaria cuentaBancaria) {
         this.cuentaBancaria = cuentaBancaria;
     }
@@ -48,6 +54,7 @@ public abstract class Persona implements Serializable{
     public String getNombre() {
         return nombre;
     }
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -55,6 +62,7 @@ public abstract class Persona implements Serializable{
     public String getCorreo() {
         return correo;
     }
+
     public void setCorreo(String correo) {
         this.correo = correo;
     }
@@ -62,6 +70,7 @@ public abstract class Persona implements Serializable{
     public String getHistorial() {
         return historial;
     }
+
     public void setHistorial(String historial) {
         this.historial = historial;
     }
@@ -69,6 +78,7 @@ public abstract class Persona implements Serializable{
     public String getDireccion() {
         return direccion;
     }
+
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
@@ -80,6 +90,6 @@ public abstract class Persona implements Serializable{
     ID correctamente(Se puede/debera editar mas adelante)*/
     @Override
     public String toString() {
-        return "-Soy la persona " + nombre ;
+        return "-Soy la persona " + nombre;
     }
 }
