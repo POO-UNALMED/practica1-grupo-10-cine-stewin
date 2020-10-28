@@ -1,12 +1,9 @@
 package uiMain.opcionesConsola;
 
-import baseDatos.BaseDeDatos;
 import gestorAplicacion.master.Cine;
-import gestorAplicacion.master.Empleado;
-import gestorAplicacion.master.Funcion;
 
-import java.util.Vector;
-
+/*Esta clase es la encargada de mostrar el menu con las diferentes
+  opciones disponibles para el usuario*/
 public class IngresoUsuario implements OpcionConsola{
     Cine cine = new Cine();
     int opcion;
