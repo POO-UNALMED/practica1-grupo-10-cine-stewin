@@ -7,6 +7,7 @@ import java.util.Vector;
 /*La clase empleado sera la encargada de mostrarle muchos datos al usuario para que el pueda
   interactuar con los mismos y editar/cambiar/crear la configuracion del cine(opciones)*/
 public class Empleado extends Persona {
+
     //Atributos de clase****
 
     //Contructores de clase****

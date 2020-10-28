@@ -1,16 +1,17 @@
 package gestorAplicacion.master;
 
-import baseDatos.BaseDeDatos;
-
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.Vector;
 
+/*Un cine esta compuento por diferentes funciones, esta clase nos servira
+  para poder interactuar con las mismas, y tener un dinamismo en el programa,
+  si no fuera el caso cada cine solo pudiera presentar una funcion(pelicula)
+  algo que se aleja de la realidad*/
 public class Funcion implements Serializable {
-    //Atributos de clase
+    //Atributos de clase****
     private String nombre;
     private int puestosVacios = 20;
     private int numeroFuncion;
@@ -20,7 +21,6 @@ public class Funcion implements Serializable {
     private int puestos[] = new int[20];
     static int numeroFuncionn = 0;
     private int precio = 20000;
-    //private int capacidad;
 
     //Constructores de clase****
     public Funcion() {
@@ -118,11 +118,13 @@ public class Funcion implements Serializable {
     }
 
     //Metodos de clase****
+
     /*Metodo que se encarga de sumar una cantidad de dias recibidos por parametro a la funcion*/
     public void sumarFecha(int dia) {
         this.fecha = this.fecha.plusDays(dia);
     }
 
+    /*Metodo que se encargar de definir como se imprimen las funciones por consola*/
     @Override
     public String toString() {
         return "Funcion: " + this.nombre + ", a las " + this.fecha.format(DateTimeFormatter.ofPattern("H:mm, ")) + "valor de: " + this.precio;
@@ -133,7 +135,7 @@ public class Funcion implements Serializable {
         for (int i = 0; i < 20; i++) {
             puestos[i] = i;
         }
-        Vector<Integer> puestosLlenos = new Vector<Integer>();
+        Vector<Integer> puestosLlenos = new Vector<>();
         int puestosALlenar;
         puestosALlenar = (int) Math.floor(Math.random() * 30);
         for (int i = 0; i < puestosALlenar; i++) {
@@ -145,10 +147,10 @@ public class Funcion implements Serializable {
         for (Integer i : puestosLlenos) {
             puestos[i] = 0;
         }
-        puestosVacios = puestosVacios-puestosLlenos.size();
+        puestosVacios = puestosVacios - puestosLlenos.size();
     }
 
-    /*Metodo que se encarga de mostrar los puestos disponibles al usuario*/
+    /*Metodo el cual se encarga de mostrarle al usuario todos los puntos que estan disponibles*/
     public String mostrarPuestos() {
         StringBuilder s = new StringBuilder();
         for (int w = 0; w < 10; w++) {
