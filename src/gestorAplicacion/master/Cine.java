@@ -1,18 +1,18 @@
 package gestorAplicacion.master;
 
-import baseDatos.BaseDeDatos;
-
 import java.io.Serializable;
 import java.util.Vector;
 
+/*Esta clase es el cine, en donde se llevaran a cabo todas las acciones*/
 public class Cine implements Serializable {
+
     //Atributos de clase****
     private String nombre;
-    private static Vector<String> ciudades = new Vector<String>();
+    private static Vector<String> ciudades = new Vector<>();
     private String ciudad;
     private String direccion;
-    private int cantidasSalas = 4;
-    public transient Vector<Vector<Funcion>> funciones = new Vector<Vector<Funcion>>();
+    private int cantidadSalas = 4;
+    public transient Vector<Vector<Funcion>> funciones = new Vector<>();
 
     //Constructores de clase****
     public Cine() {
@@ -38,8 +38,8 @@ public class Cine implements Serializable {
         return direccion;
     }
 
-    public int getCantidasSalas() {
-        return cantidasSalas;
+    public int getCantidadSalas() {
+        return cantidadSalas;
     }
 
     public Vector<Vector<Funcion>> getFunciones() {
@@ -62,12 +62,15 @@ public class Cine implements Serializable {
         this.direccion = direccion;
     }
 
-    public void setCantidasSalas(int cantidadSalas) {
-        this.cantidasSalas = cantidadSalas;
+    public void setCantidadSalas(int cantidadSalas) {
+        this.cantidadSalas = cantidadSalas;
     }
 
     //Metodos de clase****
-    //Metodo que agrega funciones
+
+    /*Metodo que agrega un vector de funciones, notar que el vector de vectores funciones
+      tiene 7 posiciciones, cada una de las cuales representa las funciones correspondientes
+      a su dia de la semana*/
     public void addFunciones(Vector<Funcion> funciones) {
         this.funciones.add(funciones);
     }
@@ -79,7 +82,7 @@ public class Cine implements Serializable {
                 "nombre='" + nombre + '\'' +
                 ", ciudad='" + ciudad + '\'' +
                 ", direccion='" + direccion + '\'' +
-                ", cantidasSalas=" + cantidasSalas +
+                ", cantidadSalas=" + cantidadSalas +
                 '}';
     }
 }
