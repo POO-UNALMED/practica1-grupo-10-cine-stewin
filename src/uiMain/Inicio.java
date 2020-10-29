@@ -20,6 +20,7 @@ public class Inicio {
     }
     public static void main(String[] args) {
         BaseDeDatos.relacionar();
+        //System.out.println(BaseDeDatos.getClientes().get(0).getCartera().get(0).getFuncion().mostrarPuestos()); //prueva
         /*
         System.out.println("Clientes en la base de datos "+BaseDeDatos.getClientes().size());
         System.out.println("Cuentas bancarias en la base de datos "+BaseDeDatos.getCuentasBancarias().size());

@@ -2,6 +2,8 @@ package gestorAplicacion.master;
 
 import baseDatos.BaseDeDatos;
 import gestorAplicacion.usuario.*;
+
+import java.time.LocalDateTime;
 import java.util.Vector;
 
 /*La clase empleado sera la encargada de mostrarle muchos datos al usuario para que el pueda
@@ -147,14 +149,42 @@ public class Empleado extends Persona {
 
     /*Metodo que se encargara de que no se registren/ingresen usuarios duplicados
       (mismo numero de identidificacion) en la base de datos*/
-    public boolean comprobarIdentificacion(int identificacion){
+    public boolean comprobarIdentificacion(int identificacion) {
         boolean estado = false;
-        for(Cliente cliente : BaseDeDatos.getClientes()){
+        for (Cliente cliente : BaseDeDatos.getClientes()) {
             if (cliente.getIdentificacion() == identificacion) {
                 estado = true;
                 break;
             }
         }
-        return  estado;
+        return estado;
     }
+
+
+    // desde aca es codigo para el cabio de asientos//////////////////////////////////////////
+
+
+    //comprueba si el numero dado corresponde a una funcion en reserva
+    public boolean probarFuncion(int numero, Cliente cliente){
+        if (numero>cliente.cartera.size()){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    //retorna la cantidad de asintos con los que cunta reservados para la funcion a cambiar
+    public int numeroDeAsientos(Cliente cliente, int numero){
+        return cliente.cartera.get(numero).getNumeroAsientos();
+    }
+    //confirma si el numero de asintos a cambiar con el numero de asientos en propiedad
+    public boolean confirmar(Cliente cliente, int numero){
+        if (numero>cliente.cartera.size()){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
 }
