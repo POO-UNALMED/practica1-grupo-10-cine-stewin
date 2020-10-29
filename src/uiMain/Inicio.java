@@ -20,6 +20,7 @@ public class Inicio {
         empleado.definirSemanaFunciones();
     }
     public static void main(String[] args) {
+        //Arreglando
         BaseDeDatos.relacionar();
         /*Que pro soy, arregle este error y descubri algo interesante :v*/
         //Esta linea de aca es bastante interesante, me puede simular el comportamiento de funciones, pero debo arreglar algo respecto a alas fechas
