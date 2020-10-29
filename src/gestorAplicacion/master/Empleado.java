@@ -190,7 +190,7 @@ public class Empleado extends Persona {
     //descuenta  dinero o puntos del usuario por compras etc.
     public String transaccionDinero(Cliente cliente, int cantidad){
         if(cliente.getCuentaBancaria().getSaldo() >= cantidad){
-            cliente.getCuentaBancaria().setSaldo(getCuentaBancaria().getSaldo() - cantidad);
+            cliente.getCuentaBancaria().setSaldo(cliente.getCuentaBancaria().getSaldo() - cantidad);
             return("¡Transaccion exitosa!");
         }
         else{

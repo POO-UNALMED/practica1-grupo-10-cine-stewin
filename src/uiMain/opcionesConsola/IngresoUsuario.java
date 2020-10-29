@@ -29,6 +29,7 @@ public class IngresoUsuario implements OpcionConsola{
                 consultarReservas.ejecutar();
                 break;
             case 3:
+                System.out.println(separador);
                 puntos.ejecutar();
                 break;
             case 4:
