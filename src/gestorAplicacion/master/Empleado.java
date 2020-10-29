@@ -9,7 +9,7 @@ import java.util.Vector;
 public class Empleado extends Persona {
 
     //Atributos de clase****
-
+    int numeroCasa = 0;
     //Contructores de clase****
     public Empleado() {
 

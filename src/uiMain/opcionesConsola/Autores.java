@@ -4,6 +4,7 @@ import uiMain.Inicio;
 
 /*Clase encargada de mostrar una pantalla con los miembros del grupo*/
 public class Autores implements OpcionConsola{
+    //Que esta pasandaaaaaaa
     int opcion;
     StringBuilder mensaje = new StringBuilder();
     {
