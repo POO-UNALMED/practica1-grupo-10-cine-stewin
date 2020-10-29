@@ -130,11 +130,14 @@ public class Cliente extends Persona {
         if (cartera.size() == 0) {
             s.append("El usuario no tiene reservas activas");
         } else {
+            /*Ahora si me guarda correctamente en los vectores a su fecha correspondiente :,v*/
             for (Reserva reserva : cartera) {
-                if (reserva.getFecha().compareTo(hoy) == -1) {
-                    vencidad.add(reserva);
-                } else {
+                if (reserva.getFecha().compareTo(hoy) > 0) {
                     activas.add(reserva);
+                } else {
+                    System.out.println("?????");
+                    System.out.println(reserva.getFecha().compareTo(hoy));
+                    vencidad.add(reserva);
                 }
             }
             for (Reserva reserva : activas) {

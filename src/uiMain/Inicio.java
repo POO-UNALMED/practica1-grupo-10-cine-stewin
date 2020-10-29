@@ -21,12 +21,17 @@ public class Inicio {
     }
     public static void main(String[] args) {
         BaseDeDatos.relacionar();
+        /*Que pro soy, arregle este error y descubri algo interesante :v*/
         //Esta linea de aca es bastante interesante, me puede simular el comportamiento de funciones, pero debo arreglar algo respecto a alas fechas
         /*
         Vector<Integer> prueba = new Vector<>();
         prueba.add(1);
-        BaseDeDatos.getClientes().get(0).agregarReserva( new Reserva(BaseDeDatos.getClientes().get(0), new Funcion("La quemona 4",1,15,20),prueba));
+            //BaseDeDatos.getClientes().get(0).agregarReserva( new Reserva(BaseDeDatos.getClientes().get(0), new Funcion("La quemona 4",1,15,20),prueba));
+            //BaseDeDatos.getClientes().get(0).agregarReserva( new Reserva(BaseDeDatos.getClientes().get(0), new Funcion("La quemona 4",1,15),prueba));
+        BaseDeDatos.getClientes().get(0).crearReserva(BaseDeDatos.getClientes().get(0),new Funcion("La quemona 4",1,15,30),prueba);
+        BaseDeDatos.getClientes().get(0).crearReserva(BaseDeDatos.getClientes().get(0),new Funcion("La quemona 4",1,15,20),prueba);
         */
+
         //System.out.println(BaseDeDatos.getClientes().get(0).getCartera().get(0).getFuncion().mostrarPuestos()); //prueva
         /*
         System.out.println("Clientes en la base de datos "+BaseDeDatos.getClientes().size());

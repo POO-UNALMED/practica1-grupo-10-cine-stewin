@@ -18,7 +18,7 @@ public class IngresoUsuario implements OpcionConsola{
     }
     @Override
     public void ejecutar() {
-        System.out.println(mensaje.toString());
+        System.out.println(mensaje);
         System.out.print("Ingrese la opcion deseada: ");
         opcion = dato.nextInt();
         switch(opcion){
