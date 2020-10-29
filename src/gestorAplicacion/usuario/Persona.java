@@ -94,13 +94,7 @@ public abstract class Persona implements Serializable {
         return "-Soy la persona " + nombre;
     }
 
-    public void retirar(int pago){
-        if(cuentaBancaria.getSaldo() >= pago){
-            cuentaBancaria.setSaldo(getCuentaBancaria().getSaldo() - pago);
-            System.out.println("¡Transaccion exitosa!");
-        }
-        else{
-            System.out.println("Saldo insuficiente");
-        }
-    }
+    public void retirar(int pago){}
+
+
 }

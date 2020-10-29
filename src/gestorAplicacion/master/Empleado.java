@@ -187,4 +187,23 @@ public class Empleado extends Persona {
         }
     }
 
+    //descuenta  dinero o puntos del usuario por compras etc.
+    public String transaccionDinero(Cliente cliente, int cantidad){
+        if(cliente.getCuentaBancaria().getSaldo() >= cantidad){
+            cliente.getCuentaBancaria().setSaldo(getCuentaBancaria().getSaldo() - cantidad);
+            return("¡Transaccion exitosa!");
+        }
+        else{
+            return("Saldo insuficiente");
+        }
+    }
+    public String transaccionPuntos(Cliente cliente, int cantidad){
+        if(cliente.getCuentaPuntos().getPuntos() >= cantidad){
+            cliente.getCuentaPuntos().setPuntos(cliente.getCuentaPuntos().getPuntos() - cantidad);
+            return("¡Transaccion exitosa!");
+        }
+        else{
+            return("Saldo insuficiente");
+        }
+    }
 }

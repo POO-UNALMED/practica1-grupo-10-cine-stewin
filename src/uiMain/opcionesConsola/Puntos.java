@@ -20,12 +20,6 @@ public class Puntos implements OpcionConsola{
         System.out.println("3. Volver");
         System.out.println(separador);
         int opcion1 = dato.nextInt();
-        operaciones(opcion1);
-        //System.out.println("Aun no se que mas se puede agregar aca (Por el momento)");
-        //Aca--------------
-
-    }
-    public void operaciones(int opcion1){
         if(opcion1 == 1){
             System.out.println(separador);
             System.out.println("Opciones de comida disponibles y sus precios en [dinero($) || puntos(P)]: ");
@@ -43,43 +37,42 @@ public class Puntos implements OpcionConsola{
             System.out.println("Eliga el método de pago deseado: ");
             System.out.println(separador);
             int metodoPago = dato.nextInt();
-            System.out.println(separador);
 
             switch (opcionComida){
                 case 1:
                     if(metodoPago == 1){
-                        clienteActual.retirar(6000);
+                        empleado.transaccionDinero(clienteActual, 6000);
                         break;
                     }
                     if(metodoPago == 2){
-                        clienteActual.retirarPuntos(2000);
+                        empleado.transaccionPuntos(clienteActual, 2000);
                         break;
                     }
                 case 2:
                     if(metodoPago == 1){
-                        clienteActual.retirar(5000);
+                        empleado.transaccionDinero(clienteActual, 5000);
                         break;
                     }
                     if(metodoPago == 2){
-                        clienteActual.retirarPuntos(1700);
+                        empleado.transaccionPuntos(clienteActual, 1700);
                         break;
                     }
                 case 3:
                     if(metodoPago == 1){
-                        clienteActual.retirar(2000);
+                        empleado.transaccionDinero(clienteActual, 2000);
                         break;
                     }
                     if(metodoPago == 2){
-                        clienteActual.retirarPuntos(700);
+                        empleado.transaccionPuntos(clienteActual, 700);
                         break;
                     }
                 case 4:
                     if(metodoPago == 1){
-                        clienteActual.retirar(7000);
+                        empleado.transaccionDinero(clienteActual, 7000);
                         break;
                     }
                     if(metodoPago == 2){
-                        clienteActual.retirarPuntos(2300);
+                        empleado.transaccionPuntos(clienteActual, 2300);
                         break;
                     }
                 case 5:
@@ -88,18 +81,16 @@ public class Puntos implements OpcionConsola{
             }
             ejecutar();
         }
+        if(opcion1 == 2){
+            System.out.println(separador);
+            System.out.println("todavia falta esto xd");
+        }
         if(opcion1 == 3){
             volver(1);
         }
-        if(opcion1 == 2){
+        //System.out.println("Aun no se que mas se puede agregar aca (Por el momento)");
+        //Aca--------------
 
-        }
-    }
-    public void ejecutar2(){
-        System.out.println(separador);
-        System.out.println(mensajeVolver);
-        int opcion2 = dato.nextInt();
-        volver(opcion2);
     }
 
     @Override

@@ -36,16 +36,8 @@ public class Cliente extends Persona {
         this.cuentaPuntos = cuentaPuntos;
     }
 
-    public void retirarPuntos(int cantidad){
-        if(cuentaPuntos.getPuntos() >= cantidad){
-            cuentaPuntos.setPuntos(cuentaPuntos.getPuntos() - cantidad);
-            System.out.println("¡Transaccion exitosa!");
-        }
-        else{
-            System.out.println("Saldo insuficiente");
-        }
+    public void retirarPuntos(int cantidad){}
 
-    }
 
     public Vector<Reserva> getCartera() {
         return cartera;
