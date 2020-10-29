@@ -6,6 +6,7 @@ import baseDatos.Leer;
 import gestorAplicacion.master.Cine;
 import gestorAplicacion.master.Empleado;
 import gestorAplicacion.master.Funcion;
+import gestorAplicacion.master.Reserva;
 import gestorAplicacion.usuario.Cliente;
 import uiMain.opcionesConsola.PantallaInicio;
 
@@ -20,6 +21,12 @@ public class Inicio {
     }
     public static void main(String[] args) {
         BaseDeDatos.relacionar();
+        //Esta linea de aca es bastante interesante, me puede simular el comportamiento de funciones, pero debo arreglar algo respecto a alas fechas
+        /*
+        Vector<Integer> prueba = new Vector<>();
+        prueba.add(1);
+        BaseDeDatos.getClientes().get(0).agregarReserva( new Reserva(BaseDeDatos.getClientes().get(0), new Funcion("La quemona 4",1,15,20),prueba));
+        */
         //System.out.println(BaseDeDatos.getClientes().get(0).getCartera().get(0).getFuncion().mostrarPuestos()); //prueva
         /*
         System.out.println("Clientes en la base de datos "+BaseDeDatos.getClientes().size());

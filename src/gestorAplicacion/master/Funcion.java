@@ -43,6 +43,15 @@ public class Funcion implements Serializable {
         this.nombre = nombre;
         this.sala = sala;
     }
+    public Funcion(String nombre, int sala, int hora, int dia){
+        this.nombre = nombre;
+        this.sala = sala;
+        LocalDate hoy = LocalDate.now();
+        int diaa = hoy.getDayOfMonth();
+        int mess = hoy.getMonthValue();
+        int añoo = hoy.getYear();
+        this.fecha = LocalDateTime.of(añoo, mess, dia, hora, 0);
+    }
     //Metodos GET and SET****
 
     public int getPuestosVacios() {
