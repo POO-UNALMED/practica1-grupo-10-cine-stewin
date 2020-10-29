@@ -21,6 +21,7 @@ public class Reserva implements Serializable {
     private String nombreFuncion;
     private LocalDateTime fecha;
     private int numeroAsientos;
+    private Funcion funcion;
     private Vector<Integer> asientosElegidos = new Vector<>();
 
     // Constructor.
@@ -37,6 +38,7 @@ public class Reserva implements Serializable {
         this.fecha = funcion.getFecha();
         this.numeroAsientos = asientos.size();
         this.asientosElegidos = asientos;
+        this.funcion=funcion;
     }
 
     //Metodos GET and SET****
@@ -88,8 +90,17 @@ public class Reserva implements Serializable {
     public void setNumeroAsientos(int numeroAsientos) {
         this.numeroAsientos = numeroAsientos;
     }
+    public Vector<Integer> getAsientosElegidos(){
+        return asientosElegidos;
+    }
 
+    public Funcion getFuncion() {
+        return funcion;
+    }
 
+    public void setFuncion(Funcion funcion) {
+        this.funcion = funcion;
+    }
     //Metodos de clase****
 
 
