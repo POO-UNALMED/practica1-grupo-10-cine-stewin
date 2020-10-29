@@ -4,8 +4,6 @@ import gestorAplicacion.usuario.Cliente;
 
 public class ConsultarReservas implements OpcionConsola{
     Cliente clienteActual = new Cliente();
-    int opcion;
-
 
     @Override
     public void ejecutar() {
