@@ -84,6 +84,7 @@ public abstract class Persona implements Serializable {
     }
 
 
+
     //Metodos de clase****
 
     /*Metodo ToString que use para ver que si se estaban creando los
@@ -91,5 +92,15 @@ public abstract class Persona implements Serializable {
     @Override
     public String toString() {
         return "-Soy la persona " + nombre;
+    }
+
+    public void retirar(int pago){
+        if(cuentaBancaria.getSaldo() >= pago){
+            cuentaBancaria.setSaldo(getCuentaBancaria().getSaldo() - pago);
+            System.out.println("¡Transaccion exitosa!");
+        }
+        else{
+            System.out.println("Saldo insuficiente");
+        }
     }
 }
