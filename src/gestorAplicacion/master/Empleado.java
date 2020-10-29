@@ -12,9 +12,23 @@ public class Empleado extends Persona {
 
     //Atributos de clase****
     int numeroCasa = 0;
+    Vector<String> comidas = new Vector<>();
+    Vector<Integer> precioPuntos = new Vector<>();
+    Vector<Integer> precioDinero = new Vector<>();
     //Contructores de clase****
     public Empleado() {
-
+        comidas.add("Palomitas de Maiz");
+        comidas.add("Chocolatina");
+        comidas.add("Recarga de Gaseosa");
+        comidas.add("Perro Caliente");
+        precioPuntos.add(2000);
+        precioPuntos.add(1700);
+        precioPuntos.add(700);
+        precioPuntos.add(2300);
+        precioDinero.add(6000);
+        precioDinero.add(5000);
+        precioDinero.add(2000);
+        precioDinero.add(7000);
     }
 
     public Empleado(String nombre) {
@@ -22,6 +36,31 @@ public class Empleado extends Persona {
         this.setNombre(nombre);
     }
     //Metodos GET and SET****
+
+    public Vector<String> getComidas() {
+        return comidas;
+    }
+
+    public void setComidas(Vector<String> comidas) {
+        this.comidas = comidas;
+    }
+
+    public Vector<Integer> getPrecioPuntos() {
+        return precioPuntos;
+    }
+
+    public void setPrecioPuntos(Vector<Integer> precioPuntos) {
+        this.precioPuntos = precioPuntos;
+    }
+
+    public Vector<Integer> getPrecioDinero() {
+        return precioDinero;
+    }
+
+    public void setPrecioDinero(Vector<Integer> precioDinero) {
+        this.precioDinero = precioDinero;
+    }
+
 
     //Metodos de clase****
 
@@ -191,19 +230,60 @@ public class Empleado extends Persona {
     public String transaccionDinero(Cliente cliente, int cantidad){
         if(cliente.getCuentaBancaria().getSaldo() >= cantidad){
             cliente.getCuentaBancaria().setSaldo(cliente.getCuentaBancaria().getSaldo() - cantidad);
-            return("¡Transaccion exitosa!");
+            return("               ¡Transaccion exitosa!");
         }
         else{
-            return("Saldo insuficiente");
+            return("                ¡Saldo insuficiente!");
         }
     }
     public String transaccionPuntos(Cliente cliente, int cantidad){
         if(cliente.getCuentaPuntos().getPuntos() >= cantidad){
             cliente.getCuentaPuntos().setPuntos(cliente.getCuentaPuntos().getPuntos() - cantidad);
-            return("¡Transaccion exitosa!");
+            return("               ¡Transaccion exitosa!");
         }
         else{
-            return("Saldo insuficiente");
+            return("                Saldo insuficiente");
         }
+    }
+
+    /*Metodo para verificar si el cliente tiene el dinero suficiente*/
+    public boolean verificarDinero(Cliente cliente,int dinero){
+        boolean tieneDinero = false;
+        if(cliente.getCuentaBancaria().getSaldo()>=dinero){
+            tieneDinero = true;
+        }
+        return tieneDinero;
+    }
+
+    /*Metodo para verificar si el cliente tiene puntos suficientes*/
+    public boolean verificarPuntos(Cliente cliente,int puntos){
+        boolean tienePuntos = false;
+        if(cliente.getCuentaPuntos().getPuntos()>=puntos){
+            tienePuntos = true;
+        }
+        return tienePuntos;
+    }
+
+    public String mostrarComidad(){
+        StringBuilder s = new StringBuilder();
+        for(int i= 0; i < comidas.size(); i++){
+            s.append(i+1).append(". ").append(getComidas().get(i))
+                    .append(" || $").append(precioDinero.get(i))
+                    .append(" || ").append(precioPuntos.get(i)).append("P ||").append("\n");
+        }
+        s.append(comidas.size()+1).append(". Atrás");
+        return s.toString();
+    }
+
+    public String comprarComidas(Cliente cliente,int metodoPago, int cantidad, int opcionComida){
+        String s;
+        if(metodoPago == 1){
+            int precioActualDinero = cantidad*precioDinero.get(opcionComida-1);
+            s = transaccionDinero(cliente,precioActualDinero);
+        }else{
+            int precioActualActualPuntos = cantidad*precioPuntos.get(opcionComida-1);
+            s = transaccionPuntos(cliente,precioActualActualPuntos);
+        }
+        return s;
     }
 }
