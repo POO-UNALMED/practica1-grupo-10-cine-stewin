@@ -101,6 +101,9 @@ public class Reserva implements Serializable {
     public void setFuncion(Funcion funcion) {
         this.funcion = funcion;
     }
+    public void setAsientosElegidos(Vector<Integer> asientosElegidos) {
+        this.asientosElegidos = asientosElegidos;
+    }
     //Metodos de clase****
 
 

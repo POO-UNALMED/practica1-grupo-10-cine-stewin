@@ -201,4 +201,17 @@ public class Funcion implements Serializable {
         }
     }
 
+    // funciones para cambios de puestos
+    //vacia un puesto en el indice dado reasignandolos como libres
+    public void vaciarPuesto(int puesto){
+        puestos[puesto]=puesto;
+    }
+    //toma los puestos de la funcion y en los indices dados en el vector
+    //  los reasigna como ocupados
+    public void reasignar(Vector<Integer> vector){
+        for (Integer integer : vector) {
+            puestos[integer] = 0;
+        }
+    }
+
 }

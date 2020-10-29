@@ -2,6 +2,8 @@ package uiMain.opcionesConsola;
 
 import gestorAplicacion.usuario.Cliente;
 
+import java.util.Vector;
+
 public class ConsultarReservas implements OpcionConsola{
     Cliente clienteActual = new Cliente();
 
@@ -18,7 +20,7 @@ public class ConsultarReservas implements OpcionConsola{
         //añadiendo codigo desde aca Alejandro
         //System.out.println(mensajeVolver);
         System.out.println("         Opciones:\n" +
-                "1. Cabiar Reserva\n"+"2. Volver\n" +"3. Salir\n"+ "==================================================");
+                "1. Cabiar Reserva\n"+"2. Volver\n" +"3. Salir\n");
         //Acaaaaaaa------------------------
         System.out.println(separador);
         int opcion = dato.nextInt();
@@ -34,17 +36,27 @@ public class ConsultarReservas implements OpcionConsola{
                 ejecutar();
             }else{
                 System.out.println("usted cuenta con "+empleado.numeroDeAsientos(clienteActual,opcion1)+" asiento(s) para esta funcion.");
-                int opcion2 = dato.nextInt();
-                if(empleado.confirmar(clienteActual,opcion2)){
-                    System.out.println("numero invalido.");
-                    ejecutar();
-                }else{
-
-
+                empleado.vaciarReserva(clienteActual.cartera.get(opcion1).getFuncion(),clienteActual.cartera.get(opcion1).getAsientosElegidos());
+                System.out.println(separador);
+                System.out.println(clienteActual.cartera.get(opcion1).getFuncion().mostrarPuestos());
+                System.out.println(separador);
+                Vector<Integer> puestosNuevos = new Vector<Integer>();
+                for(int i=0; i<empleado.numeroDeAsientos(clienteActual,opcion1); i++){
+                    System.out.print("Ingrese el # de asiento: ");
+                    int numeroPuesto = dato.nextInt();
+                    puestosNuevos.add(numeroPuesto);
                 }
+                empleado.cambiarPuestos(clienteActual.cartera.get(opcion1).getFuncion(),puestosNuevos);
+                clienteActual.cartera.get(opcion1).setAsientosElegidos(puestosNuevos);
+                System.out.println(separador);
+                System.out.println(clienteActual.cartera.get(opcion1).getFuncion().mostrarPuestos());
+                System.out.println(separador);
+                System.out.println("Cambios hechos satisfactoriamente.");
+                ejecutar();
 
             }
         }
+        volver(opcion);
     }
     //hasta aca
 

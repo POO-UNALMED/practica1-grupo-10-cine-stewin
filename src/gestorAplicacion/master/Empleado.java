@@ -216,14 +216,15 @@ public class Empleado extends Persona {
     public int numeroDeAsientos(Cliente cliente, int numero){
         return cliente.cartera.get(numero).getNumeroAsientos();
     }
-    //confirma si el numero de asintos a cambiar con el numero de asientos en propiedad
-    public boolean confirmar(Cliente cliente, int numero){
-        if (numero>cliente.cartera.size()){
-            return true;
+    //vacia los puestos que se tenian reservados para poder eligir otros
+    public void vaciarReserva(Funcion funcion,Vector<Integer> vector){
+        for (Integer integer : vector) {
+            funcion.vaciarPuesto(integer);
         }
-        else{
-            return false;
-        }
+    }
+    //lena los puesos de la funcion
+    public void cambiarPuestos(Funcion funcion, Vector<Integer> vector){
+        funcion.reasignar(vector);
     }
 
     //descuenta  dinero o puntos del usuario por compras etc.
