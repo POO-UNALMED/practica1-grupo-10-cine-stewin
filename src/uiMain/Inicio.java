@@ -21,6 +21,7 @@ public class Inicio {
     }
     public static void main(String[] args) {
         BaseDeDatos.relacionar();
+        BaseDeDatos.getClientes().get(0).getCuentaBancaria().setSaldo(0);
         /*Que pro soy, arregle este error y descubri algo interesante :v*/
         //Esta linea de aca es bastante interesante, me puede simular el comportamiento de funciones, pero debo arreglar algo respecto a alas fechas
         /*

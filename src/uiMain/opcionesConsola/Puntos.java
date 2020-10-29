@@ -45,48 +45,90 @@ public class Puntos implements OpcionConsola {
             System.out.println("1. Dinero");
             System.out.println("2. Puntos");
             System.out.println(separador);
-            System.out.println("Eliga el método de pago deseado: ");
+            System.out.print("Eliga el método de pago deseado: ");
             int metodoPago = dato.nextInt();
             System.out.println(separador);
 
             switch (opcionComida) {
                 case 1:
                     if (metodoPago == 1) {
+                        if(clienteActual.getCuentaBancaria().getSaldo()<6000){
+                            System.out.println("          !!No tiene dinero suficiente¡¡");
+                            System.out.println(separador);
+                            System.exit(0);
+                        }
                         empleado.transaccionDinero(clienteActual, 6000);
                         break;
                     }
                     if (metodoPago == 2) {
+                        if(clienteActual.getCuentaPuntos().getPuntos()<2000){
+                            System.out.println("          !!No tiene dinero suficiente¡¡");
+                            System.out.println(separador);
+                            System.exit(0);
+                        }
                         empleado.transaccionPuntos(clienteActual, 2000);
                         break;
                     }
                 case 2:
                     if (metodoPago == 1) {
+                        if(clienteActual.getCuentaBancaria().getSaldo()<5000){
+                            System.out.println("          !!No tiene dinero suficiente¡¡");
+                            System.out.println(separador);
+                            System.exit(0);
+                        }
                         empleado.transaccionDinero(clienteActual, 5000);
                         break;
                     }
                     if (metodoPago == 2) {
+                        if(clienteActual.getCuentaPuntos().getPuntos()<1700){
+                            System.out.println("          !!No tiene dinero suficiente¡¡");
+                            System.out.println(separador);
+                            System.exit(0);
+                        }
                         empleado.transaccionPuntos(clienteActual, 1700);
                         break;
                     }
                 case 3:
                     if (metodoPago == 1) {
+                        if(clienteActual.getCuentaBancaria().getSaldo()<2000){
+                            System.out.println("          !!No tiene dinero suficiente¡¡");
+                            System.out.println(separador);
+                            System.exit(0);
+                        }
                         empleado.transaccionDinero(clienteActual, 2000);
                         break;
                     }
                     if (metodoPago == 2) {
+                        if(clienteActual.getCuentaPuntos().getPuntos()<700){
+                            System.out.println("          !!No tiene dinero suficiente¡¡");
+                            System.out.println(separador);
+                            System.exit(0);
+                        }
                         empleado.transaccionPuntos(clienteActual, 700);
                         break;
                     }
                 case 4:
                     if (metodoPago == 1) {
+                        if(clienteActual.getCuentaBancaria().getSaldo()<7000){
+                            System.out.println("          !!No tiene dinero suficiente¡¡");
+                            System.out.println(separador);
+                            System.exit(0);
+                        }
                         empleado.transaccionDinero(clienteActual, 7000);
                         break;
                     }
                     if (metodoPago == 2) {
+                        if(clienteActual.getCuentaPuntos().getPuntos()<2300){
+                            System.out.println("          !!No tiene dinero suficiente¡¡");
+                            System.out.println(separador);
+                            System.exit(0);
+                        }
                         empleado.transaccionPuntos(clienteActual, 2300);
                         break;
                     }
             }
+            System.out.println("       !!Compra hecha satisfacctoriamente¡¡");
+            System.out.println(separador);
             ejecutar();
         }
         if (opcion1 == 2) {
@@ -96,9 +138,6 @@ public class Puntos implements OpcionConsola {
         if (opcion1 == 3) {
             volver(1);
         }
-        //System.out.println("Aun no se que mas se puede agregar aca (Por el momento)");
-        //Aca--------------
-
     }
 
     @Override
