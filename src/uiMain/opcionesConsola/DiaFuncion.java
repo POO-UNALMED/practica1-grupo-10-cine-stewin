@@ -89,22 +89,21 @@ public class DiaFuncion implements OpcionConsola{
             }
             else {
                 if (saldoactualp >= valorreservap) {
-                    System.out.println("No cuentas con saldo disponible en tu ceunta bancaria:");
+                    System.out.println("No cuentas con saldo disponible en tu cuenta bancaria:");
                     System.out.println("¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯");
-                    System.out.println("Pero puedes:\n");
-                    System.out.println("1. Utilizar tus puntos, te alcanza!");
-                    System.out.println("2. Recargar tu cuenta bancaria, minimo: $" + minimo);
-                    System.out.println("3. Cancelar compra, y volver al menu de usuario");
+                    System.out.println("Pero puedes:");
+                    //System.out.println("1. Utilizar tus puntos, te alcanza!");
+                    System.out.println("1. Recargar tu cuenta bancaria, minimo: $" + minimo);
+                    System.out.println("2. Cancelar compra, y volver al menu de usuario");
                     System.out.println(separador);
                     System.out.print("¿Que deseas hacer? ");
                     opcionpago = dato.nextInt();
                     System.out.println(separador);
-
+                    /*
                     if (opcionpago == 1) {
                         opcionpago = 2;
-                    }
-
-                    if (opcionpago == 2) {
+                    }*/
+                    if (opcionpago == 1) {
                         System.out.print("¿Cuanto deseas recargarle? ");
                         recarga = dato.nextInt();
                         while ((recarga + saldoactual) < valorreserva) {
@@ -120,14 +119,15 @@ public class DiaFuncion implements OpcionConsola{
                         opcionpago = 1;
                     } else {
                         volver(1);
+                        salir.ejecutar();
                     }
                 }
                 if (saldoactualp <= valorreservap) {
                     System.out.println("No cuentas con saldo disponible en tu cuenta bancaria ni en puntos:");
                     System.out.println("¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯");
-                    System.out.println("Pero puedes:\n");
-                    System.out.println("1. Recargar tu cuenta bancaria, minimo: $" + minimo);
-                    System.out.println("2. Cancelar compra, y volver al menu de usuario");
+                    System.out.println("Pero puedes:");
+                    System.out.println("1.Recargar tu cuenta bancaria, minimo: $" + minimo);
+                    System.out.println("2.Cancelar compra, y volver al menu de usuario");
                     System.out.println(separador);
                     System.out.print("¿Que deseas hacer? ");
                     opcionpago = dato.nextInt();
@@ -151,6 +151,7 @@ public class DiaFuncion implements OpcionConsola{
 
                     else{
                         volver(1);
+                        salir.ejecutar();
                     }
                 }
             }
@@ -167,7 +168,7 @@ public class DiaFuncion implements OpcionConsola{
 
                     System.out.println("No cuentas con saldo disponible en tu cuenta de puntos:");
                     System.out.println("¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯");
-                    System.out.println("Pero puedes:\n");
+                    System.out.println("Pero puedes:");
                     System.out.println("1. Utilizar tu cuenta bancaria");
                     System.out.println("2. Cancelar compra, y volver al menu de usuario");
                     System.out.println(separador);
@@ -182,6 +183,7 @@ public class DiaFuncion implements OpcionConsola{
                     }
                     else {
                         volver(1);
+                        salir.ejecutar();
                     }
 
                 }
@@ -214,6 +216,7 @@ public class DiaFuncion implements OpcionConsola{
 
                     else{
                         volver(1);
+                        salir.ejecutar();
                     }
                 }
             }
@@ -259,8 +262,6 @@ public class DiaFuncion implements OpcionConsola{
     @Override
     public void volver(int opcion) {
         if(opcion == 1){
-            //Aca------------
-            System.out.println(separador);
             ingresoUsuario.ejecutar();
             System.exit(0);
         }else{

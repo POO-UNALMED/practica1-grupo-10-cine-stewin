@@ -146,7 +146,7 @@ public class Funcion implements Serializable {
     /*Metodo que se encargar de definir como se imprimen las funciones por consola*/
     @Override
     public String toString() {
-        return "Funcion: " + this.nombre + ", a las " + this.fecha.format(DateTimeFormatter.ofPattern("H:mm, ")) + "valor de: " + this.precio;
+        return "Funcion: " + this.nombre + ", a las " + this.fecha.format(DateTimeFormatter.ofPattern("H:mm, ")) + "\nvalor de: $" + this.precio+ " || "+this.getPrecioP()+"P.";
     }
 
     /*Metodo que se ejecuta cuando una funcion se crea, el cual se encarga de llenar sus puestos aleatoriamente*/
