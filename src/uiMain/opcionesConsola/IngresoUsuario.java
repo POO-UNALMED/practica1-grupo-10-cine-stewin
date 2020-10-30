@@ -10,10 +10,10 @@ public class IngresoUsuario implements OpcionConsola{
     StringBuilder mensaje = new StringBuilder();
     {
         mensaje.append("1. Comprar boletos\n")
-                .append("2. Consultar Reservas\n")
+                .append("2. Consultar reservas\n")
                 .append("3. Comprar comida\n")
-                //.append("3. Consultar saldo/puntos\n")
-                .append("4. Salir\n")
+                .append("4. Volver\n")
+                .append("5. Salir\n")
                 .append(separador);
     }
     @Override
@@ -33,6 +33,9 @@ public class IngresoUsuario implements OpcionConsola{
                 puntos.ejecutar();
                 break;
             case 4:
+                pantallaInicio.ejecutar();
+                break;
+            case 5:
                 salir.ejecutar();
         }
     }

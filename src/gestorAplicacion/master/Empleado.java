@@ -11,10 +11,9 @@ import java.util.Vector;
 public class Empleado extends Persona {
 
     //Atributos de clase****
-    int numeroCasa = 0;
-    Vector<String> comidas = new Vector<>();
-    Vector<Integer> precioPuntos = new Vector<>();
-    Vector<Integer> precioDinero = new Vector<>();
+    private Vector<String> comidas = new Vector<>();
+    private Vector<Integer> precioPuntos = new Vector<>();
+    private Vector<Integer> precioDinero = new Vector<>();
     //Contructores de clase****
     public Empleado() {
         comidas.add("Palomitas de Maiz");
@@ -301,6 +300,17 @@ public class Empleado extends Persona {
         return s;
     }
 
+    public int numeroFuncionesDisponibles(Cliente cliente){
+        LocalDateTime hoy = LocalDateTime.now();
+        int cantidadFuncionesActivas = 0;
+        for(Reserva reserva: cliente.getCartera()){
+            if(reserva.getFecha().compareTo(hoy)>0){
+                cantidadFuncionesActivas++;
+            }
+        }
+        return cantidadFuncionesActivas;
+    }
+
 
     public String recargarCuentaBancaria(Cliente clienteActual, int recarga){
         String s;
@@ -308,6 +318,14 @@ public class Empleado extends Persona {
         clienteActual.getCuentaBancaria().setSaldo(recarga);
         return s = "Recarga hecha con exito, tu nuevo saldo es: $"+ clienteActual.getCuentaBancaria().getSaldo();
 
+    }
+
+    public boolean comprobarSiHayReservas(Cliente cliente){
+        boolean tieneReservas = false;
+        if(cliente.getCartera().size()>0){
+            tieneReservas = true;
+        }
+        return tieneReservas;
     }
 
 }

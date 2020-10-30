@@ -27,10 +27,6 @@ public class DatosInicio implements OpcionConsola{
                 descripcion.ejecutar();
                 break;
             case 5:
-                /*Despliega un menu especial para el profesor*/
-                desarrollador.ejecutar();
-                break;
-            case 6:
                 /*Ejecuta el metodo de la pantalla para salir*/
                 salir.ejecutar();
                 break;

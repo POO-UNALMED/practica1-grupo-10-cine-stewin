@@ -30,9 +30,10 @@ public class Inicio {
             //BaseDeDatos.getClientes().get(0).agregarReserva( new Reserva(BaseDeDatos.getClientes().get(0), new Funcion("La quemona 4",1,15,20),prueba));
             //BaseDeDatos.getClientes().get(0).agregarReserva( new Reserva(BaseDeDatos.getClientes().get(0), new Funcion("La quemona 4",1,15),prueba));
         BaseDeDatos.getClientes().get(0).crearReserva(BaseDeDatos.getClientes().get(0),new Funcion("La quemona 1",1,15,30),prueba);
-        BaseDeDatos.getClientes().get(0).crearReserva(BaseDeDatos.getClientes().get(0),new Funcion("La quemona 2",1,15,20),prueba);
-        BaseDeDatos.getClientes().get(0).crearReserva(BaseDeDatos.getClientes().get(0),new Funcion("La quemona 3",1,15,21),prueba);
+        //BaseDeDatos.getClientes().get(0).crearReserva(BaseDeDatos.getClientes().get(0),new Funcion("La quemona 2",1,15,20),prueba);
+        //BaseDeDatos.getClientes().get(0).crearReserva(BaseDeDatos.getClientes().get(0),new Funcion("La quemona 3",1,15,21),prueba);
         BaseDeDatos.getClientes().get(0).crearReserva(BaseDeDatos.getClientes().get(0),new Funcion("La quemona 4",1,15,31),prueba);
+        BaseDeDatos.getClientes().get(0).crearReserva(BaseDeDatos.getClientes().get(0),new Funcion("La quemona 9",1,15,31),prueba);
         */
 
         //System.out.println(BaseDeDatos.getClientes().get(0).getCartera().get(0).getFuncion().mostrarPuestos()); //prueva

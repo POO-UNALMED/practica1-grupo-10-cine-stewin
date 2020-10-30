@@ -5,10 +5,10 @@ package uiMain.opcionesConsola;
 public class PantallaInicio implements OpcionConsola{
     StringBuilder mensaje = new StringBuilder();
     {
-        mensaje.append(separador+"\n").append("          Bienvenido a Cine STEWIN\n")
+        mensaje.append(separador+"\n").append("        ¡¡Bienvenido a Cine STEWIN!!\n")
                 .append(separador+ "\n").append("1. Usuario registrado\n")
                 .append("2. Usuario no registrado\n").append("3. Autores\n")
-                .append("4. Descripcion\n").append("5. Opciones de desarrollador\n").append("6. Salir\n")
+                .append("4. Descripcion\n").append("5. Salir\n")
                 .append(separador);
     }
     @Override

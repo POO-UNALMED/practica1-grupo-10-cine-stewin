@@ -13,7 +13,7 @@ public class Autores implements OpcionConsola{
                 .append("           ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯\n")
                 .append("Molano Gamarra Kevin Andres\n")
                 .append("Moreno Gómez Gelier Esteban\n")
-                .append("Ospina Tobon Amilder Stewin \n")
+                .append("Ospina Tobon Amilder Stewin\n")
                 .append("Sepulveda Ochoa Daniel Alejandro\n")
                 .append(separador + "\n").append(mensajeVolver);
     }

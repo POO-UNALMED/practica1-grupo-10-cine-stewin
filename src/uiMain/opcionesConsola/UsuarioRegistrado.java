@@ -6,7 +6,6 @@ import uiMain.Inicio;
 /*Clase encargada de mostrar la pantalla para que el usuario pueda acceder*/
 public class UsuarioRegistrado implements OpcionConsola{
     int opcion;
-    StringBuilder mensaje = new StringBuilder();
     int identificacion;
     Cliente clienteActual = new Cliente();
 
@@ -24,8 +23,9 @@ public class UsuarioRegistrado implements OpcionConsola{
             //System.out.println("          Ingreso satisfactorio");
             //System.out.println("                Bienvenido");
             clienteActual = Cliente.getClienteActual();
-            System.out.println("          Ingreso satisfactorio");
-            System.out.println("            Bienvenido " + clienteActual.getNombre());
+            System.out.println("            ¡¡Ingreso satisfactorio!!");
+            System.out.println("Bienvenido: " + clienteActual.getNombre());
+            System.out.println(separador);
             /*Entramos a la pantalla que me mostrara las opciones disponibles para un usuario*/
             ingresoUsuario.ejecutar();
         /*Este else se ejecuta en caso que el usuario no se encuentre en la base de datos,
