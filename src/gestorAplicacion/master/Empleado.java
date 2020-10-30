@@ -3,7 +3,9 @@ package gestorAplicacion.master;
 import baseDatos.BaseDeDatos;
 import gestorAplicacion.usuario.*;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Vector;
 
 /*La clase empleado sera la encargada de mostrarle muchos datos al usuario para que el pueda
@@ -331,5 +333,33 @@ public class Empleado extends Persona {
     public void cambiarNuevosAsientos(Cliente cliente, int opcion,Vector<Integer> puestosNuevos){
         cliente.cartera.get(opcion).setAsientosElegidos(puestosNuevos);
     }
+
+    public StringBuilder mostrarSemana(){
+        LocalDate fechaHoy = LocalDate.now();
+        fechaHoy.plusDays(1);
+        int contador = 0;
+        StringBuilder s = new StringBuilder();
+        for(int i = 0; i <7;i++){
+            s.append(contador+". ").append(fechaHoy.format(DateTimeFormatter.ofPattern("d/M/yyyy")) + "\n");
+            contador++;
+            fechaHoy = fechaHoy.plusDays(1);
+        }
+        s.delete(s.length()-1,s.length());
+        s.delete(0,13);
+        return s;
+    }
+
+    public StringBuilder consultarSaldo(Cliente cliente){
+        StringBuilder s = new StringBuilder();
+        s.append(cliente.getCuentaBancaria().getSaldo());
+        return s;
+    }
+
+    public StringBuilder consultarPuntos(Cliente cliente){
+        StringBuilder s = new StringBuilder();
+        s.append(cliente.getCuentaPuntos().getPuntos());
+        return s;
+    }
+
 
 }

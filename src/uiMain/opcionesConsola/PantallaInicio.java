@@ -1,5 +1,9 @@
 package uiMain.opcionesConsola;
 
+import baseDatos.BaseDeDatos;
+import gestorAplicacion.master.Cine;
+import gestorAplicacion.master.Funcion;
+
 /*Esta clase sera la encargada de mostrar la pantalla de inicio del programa
   para que el usuario pueda nevagar a la misma*/
 public class PantallaInicio implements OpcionConsola{
