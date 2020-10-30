@@ -37,12 +37,13 @@ public class DiaFuncion implements OpcionConsola{
         if(opcion==0){
             for(Funcion funcion:salaActiva.getFunciones().get(0)){
                 if(funcion.isEstado()==false){
-                    estado = false;
+                    estado = true;
                 }
             }
             if(estado){
                 System.out.println(separador);
-                System.out.println("No hay funciones disponibles para el dia seleccionado");
+                System.out.println("     No hay funciones disponibles para el dia");
+                System.out.println("                   Seleccionado");
                 System.out.println(separador);
                 System.out.println(mensajeVolver);
                 int volver = dato.nextInt();
