@@ -31,4 +31,7 @@ Integrantes:
    > [![carbon-31.png](https://i.postimg.cc/yxsVTCGx/carbon-31.png)](https://postimg.cc/9Rg5WKCH)
    > #### B. Diagrama de objetos.
    > [![carbon-31.png](https://i.postimg.cc/yxsVTCGx/carbon-31.png)](https://postimg.cc/9Rg5WKCH)
-
+   
+ ### 3. Funcionalidades.
+ Capturas sobre el menu de consola generico
+   [![a.png](https://i.postimg.cc/nhWRc4Qg/a.png)](https://postimg.cc/18pcvNBr)
