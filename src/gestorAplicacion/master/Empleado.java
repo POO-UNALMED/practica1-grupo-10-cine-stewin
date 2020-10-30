@@ -287,4 +287,17 @@ public class Empleado extends Persona {
         }
         return s;
     }
+
+    public StringBuilder funcionesDisponibles(Cliente cliente){
+        LocalDateTime hoy = LocalDateTime.now();
+        StringBuilder s = new StringBuilder();
+        for(Reserva reserva: cliente.getCartera()){
+            if(reserva.getFecha().compareTo(hoy)>0){
+                s.append(reserva).append("\n");
+                s.append("¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯\n");
+            }
+        }
+        s.delete(s.length() - 1, s.length());
+        return s;
+    }
 }

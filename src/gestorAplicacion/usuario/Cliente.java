@@ -115,11 +115,13 @@ public class Cliente extends Persona {
     tanto activas como vencidas*/
     public String consultarReservas() {
         StringBuilder s = new StringBuilder();
-        s.append("1. Reservas activas\n");
+        s.append("               1. Reservas activas\n");
         Vector<Reserva> activas = new Vector<>();
         Vector<Reserva> vencidad = new Vector<>();
         LocalDateTime hoy = LocalDateTime.now();
         if (cartera.size() == 0) {
+            s.append("El usuario no tiene reservas activas\n");
+            s.append("               2. Reservas vencidad\n");
             s.append("El usuario no tiene reservas activas");
         } else {
             /*Ahora si me guarda correctamente en los vectores a su fecha correspondiente :,v*/
@@ -127,8 +129,6 @@ public class Cliente extends Persona {
                 if (reserva.getFecha().compareTo(hoy) > 0) {
                     activas.add(reserva);
                 } else {
-                    System.out.println("?????");
-                    System.out.println(reserva.getFecha().compareTo(hoy));
                     vencidad.add(reserva);
                 }
             }
@@ -136,10 +136,11 @@ public class Cliente extends Persona {
                 s.append(reserva.toString()).append("\n");
             }
             s.append("¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯\n");
-            s.append("2. Reservas vencidas\n");
+            s.append("               2. Reservas vencidas\n");
             for (Reserva reserva : vencidad) {
                 s.append(reserva.toString()).append("\n");
             }
+            s.delete(s.length() - 1, s.length());
         }
         return s.toString();
     }
