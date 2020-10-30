@@ -1,5 +1,6 @@
 package uiMain.opcionesConsola;
 
+import gestorAplicacion.master.Funcion;
 import gestorAplicacion.usuario.Cliente;
 
 import java.util.Vector;
@@ -81,10 +82,13 @@ public class ConsultarReservas implements OpcionConsola{
                         int numeroPuesto = dato.nextInt();
                         puestosNuevos.add(numeroPuesto);
                     }
-                    /*Aca cambiamos los puestos**********/
+                    /*Llenamos los nuevos puestos en la funcion, para que la proxima vez que se llenen
+                      ya esten llenos*/
                     empleado.cambiarPuestos(clienteActual.cartera.get(opcion1).getFuncion(),puestosNuevos);
+                    /*Aca cambiamos los asientos viejos por los nuevos en los datos del cliente*/
                     /*Cambiamos los puestos que tenia por los nuevos***********/
-                    clienteActual.cartera.get(opcion1).setAsientosElegidos(puestosNuevos);
+                    //clienteActual.cartera.get(opcion1).setAsientosElegidos(puestosNuevos);///////
+                    empleado.cambiarNuevosAsientos(clienteActual,opcion1,puestosNuevos);
                     System.out.println(separador);
                     /*Mostramos la nueva pantalla con los nuevos asientos reservados*******/
                     System.out.println(clienteActual.cartera.get(opcion1).getFuncion().mostrarPuestos());

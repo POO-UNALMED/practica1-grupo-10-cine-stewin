@@ -328,4 +328,8 @@ public class Empleado extends Persona {
         return tieneReservas;
     }
 
+    public void cambiarNuevosAsientos(Cliente cliente, int opcion,Vector<Integer> puestosNuevos){
+        cliente.cartera.get(opcion).setAsientosElegidos(puestosNuevos);
+    }
+
 }
