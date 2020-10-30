@@ -300,4 +300,14 @@ public class Empleado extends Persona {
         s.delete(s.length() - 1, s.length());
         return s;
     }
+
+
+    public String recargarCuentaBancaria(Cliente clienteActual, int recarga){
+        String s;
+        recarga = recarga + clienteActual.getCuentaBancaria().getSaldo();
+        clienteActual.getCuentaBancaria().setSaldo(recarga);
+        return s = "Recarga hecha con exito, tu nuevo saldo es: $"+ clienteActual.getCuentaBancaria().getSaldo();
+
+    }
+
 }

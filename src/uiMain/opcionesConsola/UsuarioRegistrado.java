@@ -8,6 +8,7 @@ public class UsuarioRegistrado implements OpcionConsola{
     int opcion;
     StringBuilder mensaje = new StringBuilder();
     int identificacion;
+    Cliente clienteActual = new Cliente();
 
     @Override
     public void ejecutar() {
@@ -20,9 +21,11 @@ public class UsuarioRegistrado implements OpcionConsola{
           si es el caso iremos a la pantalla que me muestra todas las opciones que
           puede tener un cliente*/
         if(empleado.comprobarRegistro(identificacion)){
+            //System.out.println("          Ingreso satisfactorio");
+            //System.out.println("                Bienvenido");
+            clienteActual = Cliente.getClienteActual();
             System.out.println("          Ingreso satisfactorio");
-            System.out.println("                Bienvenido");
-            System.out.println(separador);
+            System.out.println("            Bienvenido " + clienteActual.getNombre());
             /*Entramos a la pantalla que me mostrara las opciones disponibles para un usuario*/
             ingresoUsuario.ejecutar();
         /*Este else se ejecuta en caso que el usuario no se encuentre en la base de datos,

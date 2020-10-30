@@ -21,6 +21,7 @@ public class Funcion implements Serializable {
     private int puestos[] = new int[20];
     static int numeroFuncionn = 0;
     private int precio = 20000;
+    private int preciop = 3000;
 
     //Constructores de clase****
     public Funcion() {
@@ -109,6 +110,15 @@ public class Funcion implements Serializable {
     public void setSala(int sala) {
         this.sala = sala;
     }
+
+    public int getPrecioP() {
+        return preciop;
+    }
+
+    public void setPrecioP(int precio) {
+        this.preciop = precio;
+    }
+
 
     public LocalDateTime getFecha() {
         return fecha;

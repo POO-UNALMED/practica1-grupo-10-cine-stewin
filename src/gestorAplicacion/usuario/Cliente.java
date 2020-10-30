@@ -93,9 +93,21 @@ public class Cliente extends Persona {
         for (Integer puesto : puestos) {
             funcion.getPuestos()[puesto] = 0;
         }
+        /*
         int saldoActual = this.getCuentaBancaria().getSaldo();
         this.getCuentaBancaria().setSaldo(saldoActual - (funcion.getPrecio() * puestos.size()));
+        */
         agregarPuntos((funcion.getPrecio() * puestos.size()));
+        crearReserva(this, funcion, puestos);
+    }
+
+    public void reservarPuestos(Vector<Integer> puestos, Funcion funcion, int a) {
+        for (Integer puesto : puestos) {
+            funcion.getPuestos()[puesto] = 0;
+        }
+        //int saldoActual = this.getCuentaBancaria().getSaldo();
+        //this.getCuentaBancaria().setSaldo(saldoActual - (funcion.getPrecio() * puestos.size()));
+        //agregarPuntos((funcion.getPrecio() * puestos.size()));
         crearReserva(this, funcion, puestos);
     }
 
