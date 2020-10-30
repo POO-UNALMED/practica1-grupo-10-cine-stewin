@@ -26,11 +26,11 @@ public class Reserva implements Serializable {
 
     // Constructor.
     public Reserva() {
-        this.codigo = BaseDeDatos.getReservas().size();
     }
 
     public Reserva(Cliente cliente, Funcion funcion, Vector<Integer> asientos) {
         this();
+        this.codigo = cliente.getCartera().size();
         this.codigoPersona = cliente.getID();
         this.persona = cliente.getNombre();
         this.numeroFuncion = funcion.getNumeroFuncion();
